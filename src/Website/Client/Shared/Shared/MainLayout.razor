@@ -1,0 +1,13 @@
+﻿@namespace Tonrich.Client.Shared
+@inherits LayoutComponentBase
+
+<div class="main">
+    <div class="main-content">
+        <AppErrorBoundary>
+            @Body
+        </AppErrorBoundary>
+    </div>
+    <Footer />
+</div>
+
+<MessageBox />

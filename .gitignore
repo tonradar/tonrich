@@ -26,6 +26,7 @@ x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
+build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -71,6 +72,7 @@ StyleCopReport.xml
 # Files built by Visual Studio
 *_i.c
 *_p.c
+*_i.h
 *_h.h
 *.ilk
 *.meta
@@ -132,6 +134,9 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
+# JustCode is a .NET coding add-in
+.JustCode
+
 # TeamCity is a build add-in
 _TeamCity*
 
@@ -182,9 +187,11 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# Note: Comment the next line if you want to checkin your web deploy settings,
-# but database connection strings (with potential passwords) will be unencrypted
+## TODO: Comment the next line if you want to checkin your
+## web deploy settings but do note that will include unencrypted
+## passwords
 *.pubxml
+
 *.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
@@ -231,6 +238,7 @@ _pkginfo.txt
 
 # Others
 ClientBin/
+[Ss]tyle[Cc]op.*
 ~$*
 *~
 *.dbmdl
@@ -238,6 +246,7 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+node_modules/
 orleans.codegen.cs
 
 # Including strong name files can present a security risk
@@ -291,108 +300,73 @@ node_modules/
 # Visual Studio 6 workspace options file
 *.opt
 
-# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
-*.vbw
+# LightSwitch generated files
+GeneratedArtifacts/
+_Pvt_Extensions/
+ModelManifest.xml
 
-# Visual Studio 6 auto-generated project file (contains which files were open etc.)
-*.vbp
+# VS Code
+.vscode
 
-# Visual Studio 6 workspace and project file (working project files containing files to include in project)
-*.dsw
-*.dsp
+# Rider
+.idea
 
-# Visual Studio 6 technical files
-*.ncb
-*.aps
+dotnet-tools.json
+profile.arm.json
 
-# Visual Studio LightSwitch build output
-**/*.HTMLClient/GeneratedArtifacts
-**/*.DesktopClient/GeneratedArtifacts
-**/*.DesktopClient/ModelManifest.xml
-**/*.Server/GeneratedArtifacts
-**/*.Server/ModelManifest.xml
-_Pvt_Extensions
+# Tonrich
+*.map
+*Resource.designer.cs
+/**/*.css
+custom.aprof
 
-# Paket dependency manager
-.paket/paket.exe
-paket-files/
+/Website/Server/Api/Attachments/**/*.*
 
-# FAKE - F# Make
-.fake/
+/Website/Client/Shared/wwwroot/scripts/app*.js
 
-# CodeRush personal settings
-.cr/personal
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Python Tools for Visual Studio (PTVS)
-__pycache__/
-*.pyc
+# compiled output
+/src/Plugin/dist
+/src/Plugin/tmp
+/src/Plugin/out-tsc
+# Only exists if Bazel was run
+/src/Plugin/bazel-out
 
-# Cake - Uncomment if you are using it
-# tools/**
-# !tools/packages.config
+# dependencies
+/src/Plugin/node_modules
 
-# Tabs Studio
-*.tss
+# profiling files
+chrome-profiler-events*.json
 
-# Telerik's JustMock configuration file
-*.jmconfig
+# IDEs and editors
+/src/Plugin/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# BizTalk build output
-*.btp.cs
-*.btm.cs
-*.odx.cs
-*.xsd.cs
-
-# OpenCover UI analysis results
-OpenCover/
-
-# Azure Stream Analytics local run output
-ASALocalRun/
-
-# MSBuild Binary and Structured Log
-*.binlog
-
-# NVidia Nsight GPU debugger configuration file
-*.nvuser
-
-# MFractors (Xamarin productivity tool) working folder
-.mfractor/
-
-# Local History for Visual Studio
-.localhistory/
-
-# Visual Studio History (VSHistory) files
-.vshistory/
-
-# BeatPulse healthcheck temp database
-healthchecksdb
-
-# Backup folder for Package Reference Convert tool in Visual Studio 2017
-MigrationBackup/
-
-# Ionide (cross platform F# VS Code tools) working folder
-.ionide/
-
-# Fody - auto-generated XML schema
-FodyWeavers.xsd
-
-# VS Code files for those working on multiple tools
+# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+.history/*
 
-# Local History for Visual Studio Code
-.history/
+# misc
+/src/Plugin/.angular/cache
+/src/Plugin/.sass-cache
+/src/Plugin/connect.lock
+/src/Plugin/coverage
+/src/Plugin/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/src/Plugin/typings
 
-# Windows Installer files from build outputs
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# JetBrains Rider
-*.sln.iml
+# System Files
+.DS_Store
+Thumbs.db

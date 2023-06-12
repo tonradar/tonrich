@@ -1,0 +1,10 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": ["chrome", "firefox-webext-browser", "webextension-polyfill"]
+  },
+  "files": ["client/main.ts", "client/polyfills.ts", "client/background.ts"],
+  "include": ["client/**/*.d.ts", "client/contentScripts/*.ts","client/environments/*.ts"]
+}

@@ -1,0 +1,61 @@
+﻿.container {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    gap: 3px;
+    width: fit-content;
+
+    .bar-part {
+        padding: 0px;
+
+        .bar {
+            height: 100%;
+            width: 8px;
+            background-color: green;
+        }
+    }
+
+    .info-part {
+        padding: 0px;
+
+        .title-part {
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+
+            .title {
+                font-size: 10px;
+            }
+
+            .description {
+                font-size: 10px;
+            }
+        }
+
+        .value-part {
+            .value {
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .description {
+                font-size: 10px;
+            }
+        }
+    }
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #EBEDF0;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+.title:hover .tooltiptext {
+    visibility: visible;
+}

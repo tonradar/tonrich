@@ -1,0 +1,40 @@
+{
+  "name": "Tonrich",
+  "version": "0.0.1",
+  "description": "A Handy Tool for Deep Insight into TON Wallets and NFT Auctions",
+  "manifest_version": 3,
+  "icons": {
+    "16": "assets/icons/icon.png",
+    "48": "assets/icons/icon.png",
+    "128": "assets/icons/icon.png"
+  },
+  "action": {
+    "default_title": "Tonrich",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.fragment.com/*",
+    "*://*.tonapi.io/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "index.html"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "extension_ids": []
+    }
+  ]
+}
