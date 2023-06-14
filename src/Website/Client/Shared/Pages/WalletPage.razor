@@ -4,21 +4,127 @@
 <PageTitle>Wallet</PageTitle>
 
 
-@*<section class="tonrich-container">
-    <div class="owner-info-wrapper"></div>
-    <div class="trx-info-wrapper" flex row wrap>
-        <div class="trx-group" flex row wrap>
-            <div class="trx-box"></div>
+@*todo: new*@
+<section class="tonrich-container">
+    <div class="owner-info-wrapper">
+        <div class="tonrich-logo"></div>
+        <div>
+            <div class="tonrich-title">TonRich</div>
+            <div class="wallet-info">
+                <div class="wallet-name public-font-style">koton.t.me<span class="dash">-</span></div>
+                <div class="wallet-id public-font-style">EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR</div>
+            </div>
         </div>
     </div>
-    <div class="activity-diagram-wrapper"></div>
-    <div class="nft-info-wrapper"></div>
-    <div class="about-tonrich-wrapper"></div>
+    <div class="trx-info-wrapper">
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Balance</div>
+                <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
+            </div>
+        </div>
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Deposit rate</div>
+                <div class="trx-content"><span class="trx-count test">10000.68</span> TON/ Month</div>
+            </div>
+        </div>
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Spend rate</div>
+                <div class="trx-content"><span class="trx-count test">10000.68</span> TON/ Month</div>
+            </div>
+        </div>
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Worth (Balance+ Owned NFT)</div>
+                <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
+            </div>
+        </div>
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Deposit last month</div>
+                <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
+            </div>
+        </div>
+        <div class="trx-group">
+            <div class="balanc-logo"></div>
+            <div class="balanc-content">
+                <div class="balanc-title trx-titles">Spend last month</div>
+                <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
+            </div>
+        </div>
+    </div>
+    <div class="activity-diagram-wrapper">
+        <div class="status-diagram">
+            <div class="activity-info-diagram-container">
+                <table class="activity-table">
+                    <thead>
+                        <tr>
+                            <td colspan="2"> </td>
+                            @foreach (var month in Months)
+                            {
+                                <td class="header-td" colspan="4">@month.Name</td>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+                        {
+                            <tr>
+                                @if (@ShowWeekTitle(dayOfWeek))
+                                {
+                                    <td class="header-td" rowspan="2"> @dayOfWeek.ToString().Substring(0,3) </td>
+                                }
+
+                                @for (var week = 1; week <= 26; week++)
+                                {
+                                    @if (week == 1 && dayOfWeek == DayOfWeek.Sunday)
+                                    {
+                                        <td></td>
+                                    }
+                                    var activity = GetActivity(week, dayOfWeek);
+
+                                    <td class="td hover-text" style="background-color: @GetActivityColor(activity.ActivityAmount)">
+                                        <div class="tooltip-text" id="right">@Math.Round(@activity.ActivityAmount, 2) on @activity.ActivityDate.DateTime.ToShortDateString()</div>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+        </div>
+        <div class="color-guide-table">
+            <div class="color-guide-title">Color Guide</div>
+            <div>No activity</div>
+            <div>0-10</div>
+            <div>10-100</div>
+            <div>100-1000</div>
+            <div>1000+</div>
+        </div>
+    </div>
+    <div class="nft-info-wrapper">
+        <div class="nft-info">one</div>
+        <div class="purches-info">two</div>
+    </div>
+    <div class="about-tonrich-wrapper">
+        <div><a>yunes</a></div>
+        <div><a>mohammadi</a></div>
+    </div>
 </section>
-*@
+
+
+
 @*todo: old*@
 
-<article class="page-container">
+@*<article class="page-container">
     <section class="owner-info-container">
         <div>Wallet: </div>
         @if (AccountInfo?.Name != null)
@@ -156,3 +262,4 @@
         </div>
     </section>
 </article>
+*@

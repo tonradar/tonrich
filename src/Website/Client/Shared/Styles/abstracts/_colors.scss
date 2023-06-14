@@ -1,11 +1,39 @@
-﻿//todo: set color variables
+﻿// set color variables in white mode 
+$MainBackground: #F3F2F2;
+$SecondBackground: #fff;
+$Gray1: #EBEBEB;
+$Gray2: #DBDBDB;
+$Gray3: #8D8D8D;
+$Gray4: #5A5A5A;
+$DarkGray: #313131;
+$MainBlack: #261005;
+$MainOrange: #FC4C25;
+$Orange1: #FF5C11;
+$Orange2: #FF783A;
+$Orange3: #FE9A6B;
+$Orange4: #FFD8C7;
 
-//todo: font and line-height variables
+// font and line-height variables
+$FontSize10: 10px;
+$FontSize12: 12px;
+$FontSize14: 14px;
+$FontSize16: 16px;
+$FontSize20: 20px;
+$FontSize24: 24px;
 
-//todo: border-radius variable
+// border-radius variable
+$Radius32: 32px;
+$Radius8: 8px;
+$Radius4: 4px;
 
-//todo: box-shadow variable
+// box-shadow variable
+$MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
+$SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
 
+//breakpoint variable
+$Breakpoint1: 780px;
+$Breakpoint2: 665px;
+$Breakpoint3: 600px;
 
 ///todo: old
 $PrimaryColor: #0078D4;
