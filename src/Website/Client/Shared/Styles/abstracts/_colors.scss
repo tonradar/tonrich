@@ -1,17 +1,41 @@
-﻿// set color variables in white mode 
-$MainBackground: #F3F2F2;
-$SecondBackground: #fff;
-$Gray1: #EBEBEB;
-$Gray2: #DBDBDB;
-$Gray3: #8D8D8D;
-$Gray4: #5A5A5A;
-$DarkGray: #313131;
-$MainBlack: #261005;
-$MainOrange: #FC4C25;
-$Orange1: #FF5C11;
-$Orange2: #FF783A;
-$Orange3: #FE9A6B;
-$Orange4: #FFD8C7;
+﻿// Theme
+$themes: ( 
+    light: ( 
+            MainBackground: #F3F2F2,
+            SecondBackground: #fff,
+            ThirdBackground: #FFF3ED,
+            MainPen: #261005,
+            SecondaryPen: #8D8D8D, 
+            ThirdPen: #FF5C11,
+            DiagramPen: #5A5A5A,
+            OrangePen: #FF5C11,
+            OriginalGray: #EBEBEB,
+            ScrollGray: #DBDBDB,
+            OrangeDiagram1: #FC4C25,
+            OrangeDiagram2: #FF783A,
+            OrangeDiagram3: #FE9A6B,
+            OrangeDiagram4: #FFD8C7,
+            //DarkGray: #313131,
+        ),
+    dark: (
+            MainBackground: #000,
+            SecondBackground: #fff,
+            ThirdBackground: #FFF3ED,
+            MainPen: #261005,
+            SecondaryPen: #8D8D8D, 
+            ThirdPen: #FF5C11,
+            DiagramPen: #5A5A5A,
+            OrangePen: #FF5C11,
+            OriginalGray: #EBEBEB,
+            ScrollGray: #DBDBDB,
+            OrangeDiagram1: #FC4C25,
+            OrangeDiagram2: #FF783A,
+            OrangeDiagram3: #FE9A6B,
+            OrangeDiagram4: #FFD8C7,
+            //DarkGray: #313131,
+
+        )
+    );
 
 // font and line-height variables
 $FontSize10: 10px;
