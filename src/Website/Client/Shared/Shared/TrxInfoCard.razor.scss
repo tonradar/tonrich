@@ -1,0 +1,104 @@
+﻿@import '../Styles/abstracts/_media-queries.scss';
+@import '../Styles/abstracts/_colors.scss';
+@import '../Styles/abstracts/_mixins.scss';
+@import '../Styles/abstracts/_functions.scss';
+
+.trx-card {
+    height: 56px;
+    padding: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    @include customize() {
+        background-color: getValue(SecondBackground);
+    }
+
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
+}
+
+.trx-public-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: $Radius4;
+    margin-right: 7px;
+}
+
+.balance-icon {
+    background: url("images/icons/balance.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.deposit-rate-icon {
+    background: url("images/icons/deposit-rate.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spend-rate-icon {
+    background: url("images/icons/spend-rate.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.worth-icon {
+    background: url("images/icons/worth.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.deposit-last-month-icon {
+    background: url("images/icons/deposit-last-month.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spend-last-month-icon {
+    background: url("images/icons/spend-last-month.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-content {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: $FontSize12;
+    line-height: 14px;
+
+    @include customize() {
+        color: getValue(SecondaryPen);
+    }
+}
+
+.card-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: $FontSize12;
+    line-height: 14px;
+
+    @include customize() {
+        color: getValue(SecondaryPen);
+    }
+
+    margin-bottom: 4px;
+}
+
+
+.value-container {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: $FontSize16;
+    line-height: 19px;
+
+    @include customize() {
+        color: getValue(MainPen);
+    }
+}
