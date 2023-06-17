@@ -221,6 +221,12 @@
 .color-guide-title {
     text-align: center;
     margin-bottom: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+
 }
 
 .nft-info-wrapper {
@@ -337,6 +343,53 @@
 
 
     color: #A6A6A6;
+}
+
+.guide-list {
+    list-style: none;
+    padding-left: 0;
+
+    .range-without-activity {
+        @include customize() {
+            background-color: getValue(OriginalGray);
+        }
+    }
+
+    .range-one {
+        @include customize() {
+            background-color: getValue(OrangeDiagram1);
+        }
+    }
+
+    .range-two {
+        @include customize() {
+            background-color: getValue(OrangeDiagram2);
+        }
+    }
+
+    .range-three {
+        @include customize() {
+            background-color: getValue(OrangeDiagram3);
+        }
+    }
+
+    .range-four {
+        @include customize() {
+            background-color: getValue(OrangeDiagram4);
+        }
+    }
+
+    li {
+        display: flex;
+        flex-flow: row nowrap;
+
+        div {
+            margin-right: 8px;
+            margin-bottom: 16px;
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
 .tonrich-site{
