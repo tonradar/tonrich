@@ -1,30 +1,43 @@
 ﻿@page "/wallet/{WalletId}"
+@using Tonrich.Client.Shared.Shared
 @inherits AppComponentBase
 
 <PageTitle>Wallet</PageTitle>
 
 
 @*todo: new*@
-<section class="theme-dark">
+<section class="theme-light">
     <div class="tonrich-container">
         <div class="owner-info-wrapper">
             <div class="tonrich-logo"></div>
             <div>
                 <div class="tonrich-title">TonRich</div>
                 <div class="wallet-info">
-                    <div class="wallet-name public-font-style">koton.t.me<span class="dash">-</span></div>
-                    <div class="wallet-id public-font-style">EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR</div>
+                    @if (false)
+                    {
+                        <div>
+                            @if (AccountInfo?.Name != null)
+                            {
+                                <div class="wallet-name public-font-style">koton.t.me<span class="dash">-</span></div>
+                            }
+                            <div class="wallet-id public-font-style">EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <MiniLoading Color="main-color"></MiniLoading>
+                    }
                 </div>
             </div>
         </div>
         <div class="trx-info-wrapper">
-            <div class="trx-group">
-                <div class="trx-public-logo balanc-logo"></div>
-                <div class="balanc-content">
-                    <div class="balanc-title trx-titles">Balance</div>
-                    <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
-                </div>
-            </div>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="deposit-rate" Title="Deposit rate" Value="@TransactionInfo?.DepositRate" Unit="TON/Month" Description="How much money has been transferred in to this wallet last month" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+@*
             <div class="trx-group">
                 <div class="trx-public-logo deposit-rate-logo"></div>
                 <div class="balanc-content">
@@ -36,7 +49,7 @@
                 <div class="trx-public-logo spend-rate-logo"></div>
                 <div class="balanc-content">
                     <div class="balanc-title trx-titles">Spend rate</div>
-                    <div class="trx-content"><span class="trx-count test">10000.68</span> TON/ Month</div>
+                    <div class="trx-content"><span class="trx-value">10000.68</span> TON/ Month</div>
                 </div>
             </div>
             <div class="trx-group">
@@ -59,7 +72,7 @@
                     <div class="balanc-title trx-titles">Spend last month</div>
                     <div class="trx-content"><span class="trx-count">10000.68</span> Ton</div>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="activity-diagram-wrapper">
             <div class="status-diagram">

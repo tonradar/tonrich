@@ -1,0 +1,22 @@
+﻿@import '../Styles/abstracts/_colors.scss';
+@import '../Styles/abstracts/_mixins.scss';
+@import '../Styles/abstracts/_functions.scss';
+
+.mini-loading {
+    //todo
+    
+}
+
+.loading-main-color {
+    //todo: set loading gif
+    @include customize() {
+        color: getValue(LoadingMainColor);
+    }
+}
+
+.loading-second-color {
+    @include customize() {
+        //todo: set loading gif
+        color: getValue(LoadingSecondColor);
+    }
+}

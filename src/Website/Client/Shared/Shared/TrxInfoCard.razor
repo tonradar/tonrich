@@ -1,0 +1,14 @@
+﻿<div class="trx-card">
+    <div class="trx-public-icon @IconName-icon"></div>
+    <div class="card-content">
+        <div class="card-title">Balance</div>
+        @if (IsBusy)
+        {
+            <div class="value-container"><span class="trx-value">10000.68</span> Ton</div>
+        }
+        else
+        {
+            <MiniLoading Color="main-color"></MiniLoading>
+        }
+    </div>
+</div>
