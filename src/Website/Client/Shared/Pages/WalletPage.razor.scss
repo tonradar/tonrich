@@ -86,6 +86,67 @@
     height: 228px;
 }
 
+.activity-diagram-part {
+    padding: 0 20px 16px 0;
+    border-radius: $Radius8;
+    width: 100%;
+    @include customize() {
+        background-color: getValue(SecondBackground);
+    }
+
+}
+
+.month-row-caption {
+    height: 48px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 84px 0 87px;
+}
+
+.diagram-day-result {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .day-column-caption {
+        width: 52px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .diagram-result-box {
+        width: 100%;
+        flex-grow: 2;
+        display: grid;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-columns: repeat(26, 1fr);
+        gap: 4px;
+
+        .diagram-unit {
+            width: 20px;
+            height: 20px;
+            background-color: #30AB44;
+        }
+
+    }
+}
+
+.caption-item {
+    font-style: normal;
+    font-weight: 500;
+    font-size: $FontSize14;
+    line-height: 16px;
+    @include customize() {
+        color: getValue(DiagramPen);
+    }
+}
+
 .status-diagram {
     background-color: silver;
     padding: 16px 19px 16px 16px;
