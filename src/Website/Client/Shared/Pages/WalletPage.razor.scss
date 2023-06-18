@@ -141,19 +141,7 @@
     flex-flow: row;
 }
 
-.nft-info {
-    /* height: 100%;*/
-    box-sizing: border-box;
-    width: 273px;
-    height: 98px;
 
-    @include customize() {
-        background-color: getValue(SecondBackground);
-    }
-
-    box-shadow: $MainShadowBox;
-    border-radius: $Radius8;
-}
 
 .purches-info {
     width: 100%;
@@ -235,18 +223,7 @@
     padding: 5px;
 }
 
-.about-tonrich-wrapper {
-    display: flex;
-    margin-top: 21px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: $FontSize12;
-    line-height: 14px;
 
-
-    color: #A6A6A6;
-}
 
 .guide-list {
     list-style: none;
@@ -285,6 +262,12 @@
     li {
         display: flex;
         flex-flow: row nowrap;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
 
         div {
             margin-right: 8px;
@@ -295,13 +278,130 @@
     }
 }
 
-.tonrich-site{
+.nft-info {
+    /* height: 100%;*/
+    box-sizing: border-box;
+    width: 273px;
+    min-height: 98px;
+    padding: 10px 8px 7px 8px;
+
+    @include customize() {
+        background-color: getValue(SecondBackground);
+    }
+
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
+
+    .nft-icon {
+        background: url("images/icons/nft-icon.svg");
+        width: 55px;
+        height: 20px;
+        background-repeat: no-repeat;
+        margin-bottom: 8px;
+    }
+
+    .nft-value {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        margin-bottom: 6px;
+
+        @include customize() {
+            color: getValue(SecondaryPen);
+        }
+
+        span {
+            font-size: 16px;
+            line-height: 19px;
+            margin-right: 4px;
+
+            @include customize() {
+                color: getValue(MainPen);
+            }
+        }
+    }
 
 }
+.nft-information {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 8px;
 
-.tonrich-bot{
-    margin-left:23px;
+    .nft-information-box {
+        width: 124px;
+        background-color: aquamarine;
+        padding: 1px 4px;
+        border-radius: $Radius4;
+
+        @include customize() {
+            background-color: getValue(ThirdBackground);
+        }
+    }
+
+    .nft-information-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+
+        @include customize() {
+            color: getValue(SecondaryPen);
+        }
+    }
+
+    .nft-information-value {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+
+        @include customize() {
+            color: getValue(LoadingSecondColor);
+        }
+    }
 }
+
+
+
+.about-tonrich-wrapper {
+    display: flex;
+    margin-top: 21px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: $FontSize12;
+    line-height: 14px;
+    height:16px;
+
+    @include customize() {
+        color: getValue(AboutSite);
+    }
+
+    .tonrich-site-icon {
+        background: url("images/icons/tonrich-site-icon.svg");
+        padding-left: 24px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        display: flex;
+        align-items: center;
+        margin-right: 23px;
+    }
+
+    .tonrich-telegram-icon {
+        background: url("images/icons/tonrich-telegram-icon.svg");
+        padding-left: 20px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        display: flex;
+        align-items: center;
+      
+    }
+}
+
 
 @media screen and (max-width: $Breakpoint2) {
     .wallet-info {
@@ -346,7 +446,12 @@
     .nft-info{
         width:100%;
         height:61px;
+        display:flow;
+        flex-flow: row;
+        padding:8px;
+        justify-content: space-between;
     }
+
     
 }
 

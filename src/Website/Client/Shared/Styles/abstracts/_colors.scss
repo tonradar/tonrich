@@ -18,19 +18,20 @@ $themes: (
             LoadingMainColor: #313131,
             LoadingSecondColor: #FF5C11,
             //DarkGray: #313131,
+            AboutSite:#8D8D8D,
         ),
     dark: (
             MainBackground: #323232,
             SecondBackground: #5A5A5A,
-            //SecondBackground: #C2C2C2,
-            ThirdBackground: #FFF3ED,
+           //SecondBackground: #C2C2C2,
+            ThirdBackground: #777777,
             MainPen: #FFFFFF,
             SecondaryPen: #C2C2C2, 
             ThirdPen: #FFD8C7,
             DiagramPen: #5A5A5A,
             OrangePen: #FF5C11,
             OriginalGray: #8A8A8A,
-            ScrollGray: #777777,
+           // ScrollGray: #777777,
             OrangeDiagram1: #FF5C11,
             OrangeDiagram2: #FF783A,
             OrangeDiagram3: #FE9A6B,
@@ -38,7 +39,7 @@ $themes: (
             LoadingMainColor: #FFF,
             LoadingSecondColor: #FFF,
             //DarkGray: #313131,
-
+             AboutSite:#8A8A8A,
         )
     );
 

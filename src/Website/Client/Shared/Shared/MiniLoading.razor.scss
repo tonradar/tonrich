@@ -4,7 +4,13 @@
 
 .mini-loading {
     //todo
-    
+    background: url("images/icons/loading.svg");
+    width: 20px;
+    height: 5px;
+    margin-top: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 13px 19px;
 }
 
 .loading-main-color {

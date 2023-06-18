@@ -31,12 +31,12 @@
             </div>
         </div>
         <div class="trx-info-wrapper">
-            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="true"></TrxInfoCard>
             <TrxInfoCard IconName="deposit-rate" Title="Deposit rate" Value="@TransactionInfo?.DepositRate" Unit="TON/Month" Description="How much money has been transferred in to this wallet last month" IsBusy="false"></TrxInfoCard>
-            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
-            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
-            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
-            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON" Description="The balance of wallet" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="spend-rate" Title="Spend rate" Value="@TransactionInfo?.SpentRate" Unit="TON/Month" Description="How much money is being transferred out from the wallet monthly (during last 6 months)" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="worth" Title="Worth (Balance+ Owned NFT)" Value="@Worth" Unit="TON" Description="Total amount of balance and owned NFTs (at their buying price)" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="deposit-last-month" Title="Deposit last month" Value="@TransactionInfo?.DepositLastMonth" Unit="TON" Description="How much money has been transferred in to this wallet last month" IsBusy="false"></TrxInfoCard>
+            <TrxInfoCard IconName="spend-last-month" Title="Spend last month" Value="@TransactionInfo?.SpentLastMonth" Unit="TON" Description="How much money has been transferred out from this wallet last month" IsBusy="false"></TrxInfoCard>
 @*
             <div class="trx-group">
                 <div class="trx-public-logo deposit-rate-logo"></div>
@@ -118,22 +118,52 @@
                 <div class="color-guide-table">
                     <div class="color-guide-title">Color Guide</div>
                     <ul class="guide-list">
-                        <li><div class="range-without-activity"></div> No activity</li>
+                        <li><div class="range-without-activity"></div>No activity</li>
                         <li><div class="range-one"></div>0-10</li>
                         <li><div class="range-two"></div>10-100</li>
                         <li><div class="range-three"></div>100-1000</li>
                         <li><div class="range-four"></div>1000+</li>
                     </ul>
-                
                 </div>
             </div>
             <div class="nft-info-wrapper">
-                <div class="nft-info">one</div>
+
+
+
+
+                <div class="nft-info">
+                    <div>
+                    <div class="nft-icon"></div>
+                    <div class="nft-value">
+                        <span>1000</span>TON
+                    </div>
+                    </div
+
+                    <div class="nft-information" >
+                        <div class="nft-information-box">
+                            <div class="nft-information-title">Number</div>
+                            <span class="nft-information-value">13</span>
+                        </div>
+                        <div class="nft-information-box">
+                            <div class="nft-information-title">Username</div>
+                            <span class="nft-information-value">3</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
                 <div class="purches-info">two</div>
+
+
+
+
             </div>
             <div class="about-tonrich-wrapper">
-                <div><a>yunes</a></div>
-                <div><a>mohammadi</a></div>
+                <div class="tonrich-site-icon"><a>Tonrich.com</a></div>
+                <div class="tonrich-telegram-icon"><a>t.me/Tonrichbot</a></div>
             </div>
         </div>
 

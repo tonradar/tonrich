@@ -1,10 +1,10 @@
 ﻿<div class="trx-card">
     <div class="trx-public-icon @IconName-icon"></div>
     <div class="card-content">
-        <div class="card-title">Balance</div>
+        <div class="card-title">@Title<div class="notic-icon"></div></div>
         @if (IsBusy)
         {
-            <div class="value-container"><span class="trx-value">10000.68</span> Ton</div>
+            <div class="value-container"><span class="trx-value">@Value</span> Ton</div>
         }
         else
         {
