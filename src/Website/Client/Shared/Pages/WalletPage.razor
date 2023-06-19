@@ -126,18 +126,20 @@
 
             </div>
             <div class="nft-list-container">
-                
-                @* @if (NFTs is not null)
+
+                @if (NFTs is not null)
                 {
-                    <ul>
-                    @foreach (var nft in NFTs)
-                    {
-                        <li class="nft-box">@nft.Name</li>
-                    }
-                </ul>
-                } else {
+                    <ul class="nft-list-content">
+                        @foreach (var nft in NFTs)
+                        {
+                            <li class="nft-box">@nft.Name</li>
+                        }
+                    </ul>
+                }
+                else
+                {
                     <div class="empty-mode">list is empty</div>
-                } *@
+                }
             </div>
         </div>
         <div class="about-tonrich-wrapper">

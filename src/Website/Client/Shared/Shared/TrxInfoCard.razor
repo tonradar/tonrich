@@ -1,7 +1,12 @@
 ﻿<div class="trx-card">
     <div class="trx-public-icon @IconName-icon"></div>
     <div class="card-content">
-        <div class="card-title">@Title<div class="notic-icon"></div></div>
+        <div class="card-title" @onclick="ToggleTrxInfo">@Title
+            <div class="notic-icon"></div>
+            @if(IsTooltipOpen) {
+                <div class="tooltip-box"></div>
+            }
+        </div>
         @if (IsBusy)
         {
             <div class="value-container"><span class="trx-value">@Value</span> Ton</div>

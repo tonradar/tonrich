@@ -14,5 +14,11 @@ namespace Tonrich.Client.Shared.Shared
         [Parameter] public string? Unit { get; set; }
         [Parameter] public string? Description { get; set; }
         [Parameter] public bool IsBusy { get; set; } = true;
+
+        public bool IsTooltipOpen = false;
+
+        public void ToggleTrxInfo() {
+            IsTooltipOpen = !IsTooltipOpen;
+        }
     }
 }

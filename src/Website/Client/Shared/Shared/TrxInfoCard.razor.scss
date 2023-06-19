@@ -83,6 +83,7 @@
     line-height: 14px;
     margin-bottom: 4px;
     display: flex;
+    position: relative;
     @include customize() {
         color: getValue(SecondaryPen);
     }
@@ -96,6 +97,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 12px;
+}
+
+.tooltip-box {
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .value-container {
