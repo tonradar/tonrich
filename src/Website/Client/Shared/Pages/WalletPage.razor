@@ -12,16 +12,17 @@
             <div class="tonrich-logo"></div>
             <div>
                 <div class="tonrich-title">TonRich</div>
-                <div class="wallet-info">
-                    @if (isAccountBoxBusy)
+                <div>
+                    @if (true)
                     {
-                        <div>
+                        <div class="wallet-info">
+                            <div class="wallet-name public-font-style">koton.t.me<span class="dash">-</span></div>
+                             <div class="wallet-id public-font-style">EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR</div>
+                        </div>
+                                
                             @if (AccountInfo?.Name != null)
                             {
-                                <div class="wallet-name public-font-style">koton.t.me<span class="dash">-</span></div>
                             }
-                            <div class="wallet-id public-font-style">EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR</div>
-                        </div>
                     }
                     else
                     {
@@ -35,20 +36,20 @@
                 Description="The balance of wallet" IsBusy="true"></TrxInfoCard>
             <TrxInfoCard IconName="deposit-rate" Title="Deposit rate" Value="@TransactionInfo?.DepositRate"
                 Unit="TON/Month" Description="How much money has been transferred in to this wallet last month"
-                IsBusy="false"></TrxInfoCard>
+                IsBusy="true"></TrxInfoCard>
             <TrxInfoCard IconName="spend-rate" Title="Spend rate" Value="@TransactionInfo?.SpentRate" Unit="TON/Month"
                 Description="How much money is being transferred out from the wallet monthly (during last 6 months)"
-                IsBusy="false"></TrxInfoCard>
+                         IsBusy="true"></TrxInfoCard>
             <TrxInfoCard IconName="worth" Title="Worth (Balance+ Owned NFT)" Value="@Worth" Unit="TON"
-                Description="Total amount of balance and owned NFTs (at their buying price)" IsBusy="false">
+                         Description="Total amount of balance and owned NFTs (at their buying price)" IsBusy="true">
             </TrxInfoCard>
             <TrxInfoCard IconName="deposit-last-month" Title="Deposit last month"
                 Value="@TransactionInfo?.DepositLastMonth" Unit="TON"
-                Description="How much money has been transferred in to this wallet last month" IsBusy="false">
+                         Description="How much money has been transferred in to this wallet last month" IsBusy="true">
             </TrxInfoCard>
             <TrxInfoCard IconName="spend-last-month" Title="Spend last month" Value="@TransactionInfo?.SpentLastMonth"
                 Unit="TON" Description="How much money has been transferred out from this wallet last month"
-                IsBusy="false"></TrxInfoCard>
+                         IsBusy="true"></TrxInfoCard>
         </div>
         <div class="activity-diagram-wrapper">
             <div class="activity-diagram-part">

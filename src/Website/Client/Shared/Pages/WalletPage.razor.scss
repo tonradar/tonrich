@@ -23,7 +23,9 @@
 
 .wallet-info {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
     margin-bottom: 16px;
 }
 

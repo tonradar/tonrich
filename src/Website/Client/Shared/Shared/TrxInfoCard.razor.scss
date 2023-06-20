@@ -12,6 +12,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
 
     @include customize() {
         background-color: getValue(SecondBackground);
@@ -100,12 +101,54 @@
 }
 
 .tooltip-box {
-    width: 200px;
+    width: 250px;
     height: 100px;
-    background-color: green;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: -150px;
+    top: 17px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 0px 8px 8px 8px;
+    box-shadow: $MainShadowBox; // please check this 
+
+    @include customize() {
+        background-color: getValue(TooltipBackground);
+    }
+
+
+    .tooltip-box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row nowrap;
+        color: #FC4C25;
+
+        .tooltip-header-title {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: $FontSize14;
+            line-height: 24px;
+        }
+
+        .tooltip-box-close {
+            background: url("images/icons/close-tooltip.svg");
+            background-position: center;
+            background-size: 8px;
+            background-repeat: no-repeat;
+            width: 15px;
+            height: 20px;
+        }
+    }
+
+    .tooltip-box-content {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #313131; /* this color not change and in the dark and light mode is fixed*/
+    }
 }
 
 .value-container {
@@ -114,6 +157,9 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
     @include customize() {
         color: getValue(SecondaryPen);
@@ -125,6 +171,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
+        margin-right:4px;
         /* identical to box height */
         @include customize() {
             color: getValue(MainPen);
