@@ -131,7 +131,6 @@
         .diagram-unit {
             width: 20px;
             height: 20px;
-            background-color: #30AB44;
         }
 
     }
@@ -207,36 +206,6 @@
     list-style: none;
     padding-left: 0;
 
-    .range-without-activity {
-        @include customize() {
-            background-color: getValue(OriginalGray);
-        }
-    }
-
-    .range-one {
-        @include customize() {
-            background-color: getValue(OrangeDiagram1);
-        }
-    }
-
-    .range-two {
-        @include customize() {
-            background-color: getValue(OrangeDiagram2);
-        }
-    }
-
-    .range-three {
-        @include customize() {
-            background-color: getValue(OrangeDiagram3);
-        }
-    }
-
-    .range-four {
-        @include customize() {
-            background-color: getValue(OrangeDiagram4);
-        }
-    }
-
     li {
         display: flex;
         flex-flow: row nowrap;
@@ -253,6 +222,36 @@
             width: 20px;
             height: 20px;
         }
+    }
+}
+
+.range-zero {
+    @include customize() {
+        background-color: getValue(OriginalGray);
+    }
+}
+
+.range-one {
+    @include customize() {
+        background-color: getValue(OrangeDiagram1);
+    }
+}
+
+.range-two {
+    @include customize() {
+        background-color: getValue(OrangeDiagram2);
+    }
+}
+
+.range-three {
+    @include customize() {
+        background-color: getValue(OrangeDiagram3);
+    }
+}
+
+.range-four {
+    @include customize() {
+        background-color: getValue(OrangeDiagram4);
     }
 }
 

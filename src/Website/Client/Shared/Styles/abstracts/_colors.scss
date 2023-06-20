@@ -65,26 +65,26 @@ $Breakpoint1: 780px;
 $Breakpoint2: 665px;
 $Breakpoint3: 600px;
 
-::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-  }
+// ::-webkit-scrollbar {
+//     height: 5px;
+//     width: 5px;
+//   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #DBDBDB;
-  }
+//   /* Track */
+//   ::-webkit-scrollbar-track {
+//     background: #DBDBDB;
+//   }
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #FF5C11;
-    border-radius: 20px;
-  }
+//   /* Handle */
+//   ::-webkit-scrollbar-thumb {
+//     background: #FF5C11;
+//     border-radius: 20px;
+//   }
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #FF5C11;
-  }
+//   /* Handle on hover */
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: #FF5C11;
+//   }
 
 ///todo: old
 $PrimaryColor: #0078D4;

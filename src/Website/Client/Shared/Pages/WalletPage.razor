@@ -13,7 +13,7 @@
             <div>
                 <div class="tonrich-title">TonRich</div>
                 <div class="wallet-info">
-                    @if (false)
+                    @if (isAccountBoxBusy)
                     {
                         <div>
                             @if (AccountInfo?.Name != null)
@@ -73,7 +73,8 @@
                         {
                             @for (var week = 1; week <= 26; week++)
                             {
-                                <div class="diagram-unit"></div>
+                                var activity = GetActivity(week, dayOfWeek);
+                                <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))"></div>
                             }
                         }
 
@@ -86,7 +87,7 @@
                 <div class="color-guide-title">Color Guide</div>
                 <ul class="guide-list">
                     <li>
-                        <div class="range-without-activity"></div>No activity
+                        <div class="range-zero"></div>No activity
                     </li>
                     <li>
                         <div class="range-one"></div>0-10

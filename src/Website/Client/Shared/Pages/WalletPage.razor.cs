@@ -17,13 +17,15 @@ public partial class WalletPage
     public int NumbersCount { get; set; }
     public decimal Worth { get; set; }
     public decimal NFTPrice { get; set; }
-    private bool isLoading = true;
+    //private bool isLoading = true;
+    private bool isPageBusy = true;
+    private bool isAccountBoxBusy = true;
 
     protected override async Task OnInitAsync()
     {
-        isLoading = true;
+        isAccountBoxBusy = true;
         AccountInfo = await TonService.GetAccountInfoAsync(WalletId);
-        isLoading = false;
+        isAccountBoxBusy = false;
 
         if (AccountInfo?.Address is null)
             return;
@@ -73,25 +75,12 @@ public partial class WalletPage
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (AccountInfo?.Address is null && isLoading == false)
+        if (AccountInfo?.Address is null && isAccountBoxBusy == false)
         {
             NavigationManager.NavigateTo("/WalletNotFound", true);
         }
 
         await base.OnAfterRenderAsync(firstRender);
-    }
-
-    public static string GetActivityColor(decimal? activityAmount)
-    {
-        return activityAmount switch
-        {
-            decimal value when value == 0 => $"#EBEDF0",
-            decimal value when value > 0 && value <= 10 => $"#9BE9A8",
-            decimal value when value > 10 && value <= 100 => $"#40C463",
-            decimal value when value > 100 && value <= 1000 => $"#30AB44",
-            decimal value when value > 1000 => $"#216E39",
-            _ => $"#EBEDF0",
-        };
     }
 
     public WalletActivityDto GetActivity(int week, DayOfWeek dayOfWeek)
@@ -101,6 +90,18 @@ public partial class WalletPage
 
         activity ??= new WalletActivityDto() { ActivityDate = dateFromWeekOfYearAndDayOfWeek, ActivityAmount = 0 };
         return activity;
+    }
+    public static string GetActivityColor(decimal? activityAmount)
+    {
+        return activityAmount switch
+        {
+            decimal value when value == 0 => "zero",
+            decimal value when value > 0 && value <= 10 => "one",
+            decimal value when value > 10 && value <= 100 => "two",
+            decimal value when value > 100 && value <= 1000 => "three",
+            decimal value when value > 1000 => "four",
+            _ => "zero",
+        };
     }
 
     private void FillMonths()
@@ -144,8 +145,6 @@ public partial class WalletPage
 
         return result.AddDays((int)dayOfWeek - (int)result.DayOfWeek);
     }
-
-
 
     private string GetNftBarInfoTitle()
     {
