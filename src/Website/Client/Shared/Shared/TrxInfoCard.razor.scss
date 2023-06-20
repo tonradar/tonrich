@@ -84,7 +84,6 @@
     line-height: 14px;
     margin-bottom: 4px;
     display: flex;
-    position: relative;
     @include customize() {
         color: getValue(SecondaryPen);
     }
@@ -98,18 +97,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 12px;
+    position: relative;
 }
 
 .tooltip-box {
     width: 250px;
     height: 100px;
     position: absolute;
-    right: -150px;
-    top: 17px;
+    right: -249px;
+    top: 12px;
     z-index: 2;
     padding: 12px;
     border-radius: 0px 8px 8px 8px;
-    box-shadow: $MainShadowBox; // please check this 
+    box-shadow: $MainShadowBox; // todo: please check this 
 
     @include customize() {
         background-color: getValue(TooltipBackground);

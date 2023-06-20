@@ -10,7 +10,6 @@
     max-width: 914px;
     min-width: 426px;
     min-height: 689px;
-    margin: 73px auto;
     border-radius: $Radius32;
     padding: 32px 32px 15px 32px;
     box-sizing: border-box;
@@ -24,8 +23,8 @@
 .wallet-info {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     margin-bottom: 16px;
 }
 
@@ -85,7 +84,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 228px;
 }
 
 .activity-diagram-part {
@@ -129,10 +127,11 @@
         grid-template-rows: repeat(7, 1fr);
         grid-template-columns: repeat(26, 1fr);
         gap: 4px;
+        min-height: 158px;
 
         .diagram-unit {
-            width: 20px;
-            height: 20px;
+            width: 100%;
+            height: 100%;
         }
 
     }
@@ -358,6 +357,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    max-width: 472px; //todo:... not good way
 }
 
 .nft-list-content {
@@ -370,6 +370,8 @@
     margin: 0px;
     align-items: center;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
 
 
     .nft-box {
@@ -394,10 +396,6 @@
 .empty-mode {
 
 }
-
-
-
-
 
 .about-tonrich-wrapper {
     display: flex;
@@ -435,18 +433,15 @@
 }
 
 
-@media screen and (max-width: $Breakpoint2) {
+@media screen and (max-width: $Breakpoint) {
     .wallet-info {
         margin-bottom: 11px;
-        display: flex;
-        flex-flow: column;
     }
 
     .dash {
         display: none;
     }
-}
-@media screen and (max-width: $Breakpoint3) {
+
     .public-font-style{
         font-size: $FontSize10;
     }
@@ -455,7 +450,7 @@
     }
 }
 
-@media screen and (max-width: $Breakpoint1) {
+@media screen and (max-width: $Breakpoint) {
     .trx-info-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -469,16 +464,14 @@
     }
     .activity-diagram-wrapper{
         margin-top: 12px;
-        height:126px;
     }
-    .nft-info-wrapper{
+    .nft-info-wrapper {
         flex-flow:column;
         margin-top:12px;
     }
-    .nft-info{
+    .nft-info {
         width:100%;
-        height:61px;
-        display:flow;
+        display: flex;
         flex-flow: row;
         padding:8px;
         justify-content: space-between;
