@@ -6,7 +6,7 @@
 
 
 @*todo: new*@
-<section class="theme-light">
+<section class="main-wrapper theme-light">
     <div class="tonrich-container">
         <div class="owner-info-wrapper">
             <div class="tonrich-logo"></div>
@@ -17,9 +17,9 @@
                     {
                         <div class="wallet-info">
 
-                            @if (true)
+                            @if (AccountInfo?.Name != null)
                             {
-                                <div class="wallet-name public-font-style">asdfasd<span class="dash">-</span></div>
+                                <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
                             }
                             <div class="wallet-id public-font-style">@WalletId</div>
                         </div>

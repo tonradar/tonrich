@@ -3,6 +3,14 @@
 @import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
 
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .tonrich-container {
     @include customize() {
         background-color: getValue(MainBackground);
@@ -82,7 +90,7 @@
 .activity-diagram-wrapper {
     margin-top: 28px;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 }
 
@@ -127,11 +135,11 @@
         grid-template-rows: repeat(7, 1fr);
         grid-template-columns: repeat(26, 1fr);
         gap: 4px;
-        min-height: 158px;
 
         .diagram-unit {
             width: 100%;
-            height: 100%;
+            max-height: 100%;
+            aspect-ratio: 1/1;
         }
 
     }
@@ -206,6 +214,7 @@
 .guide-list {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 
     li {
         display: flex;
@@ -224,7 +233,14 @@
             height: 20px;
         }
     }
+
+    li:last-child {
+        div {
+            margin-bottom: 0;
+        }
+    }
 }
+
 
 .range-zero {
     @include customize() {
