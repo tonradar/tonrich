@@ -4,7 +4,13 @@
         <div class="card-title" @onclick="ToggleTrxInfo">@Title
             <div class="notic-icon"></div>
             @if(IsTooltipOpen) {
-                <div class="tooltip-box"></div>
+                <div class="tooltip-box">
+                    <div class="tooltip-box-header">
+                        <div class="tooltip-header-title">@Title</div>
+                        <div class="tooltip-box-close"></div>
+                    </div>
+                    <div class="tooltip-box-content">Toncoin (TON) is the native token of the TON network. TON is an acronym for "The Open Network"</div>
+                </div>
             }
         </div>
         @if (IsBusy)
