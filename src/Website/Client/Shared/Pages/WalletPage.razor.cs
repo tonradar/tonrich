@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Tonrich.Shared.Util;
+﻿using Tonrich.Shared.Util;
 
 namespace Tonrich.Client.Shared.Pages;
 
@@ -18,7 +17,14 @@ public partial class WalletPage
     public decimal Worth { get; set; }
     public decimal NFTPrice { get; set; }
     private bool isLoading = true;
+    public List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
 
+    protected override void OnInitialized()
+    {
+        FillMonths();
+        ActivityChartDates = GenerateActivityChartDates();
+        base.OnInitialized();
+    }
     protected override async Task OnInitAsync()
     {
         isLoading = true;
@@ -27,9 +33,6 @@ public partial class WalletPage
 
         if (AccountInfo?.Address is null)
             return;
-
-        FillMonths();
-
 
         _ = Task.Run(async () =>
         {
@@ -81,7 +84,7 @@ public partial class WalletPage
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    public static string GetActivityColor(decimal? activityAmount)
+    private static string GetActivityColor(decimal? activityAmount)
     {
         return activityAmount switch
         {
@@ -93,24 +96,30 @@ public partial class WalletPage
             _ => $"#EBEDF0",
         };
     }
-
-    public WalletActivityDto GetActivity(int week, DayOfWeek dayOfWeek)
+    private WalletActivityDto GetActivity(DateTimeOffset dateTimeOffset)
     {
-        var dateFromWeekOfYearAndDayOfWeek = GetDateFromWeekOfYearAndDayOfWeek(week, dayOfWeek);
-        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateFromWeekOfYearAndDayOfWeek.Date);
+        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateTimeOffset.Date);
 
-        activity ??= new WalletActivityDto() { ActivityDate = dateFromWeekOfYearAndDayOfWeek, ActivityAmount = 0 };
+        activity ??= new WalletActivityDto() { ActivityDate = dateTimeOffset, ActivityAmount = 0 };
         return activity;
     }
 
-    private void FillMonths()
+    private static List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTime)>> GenerateActivityChartDates()
     {
-        var lastSixMonths = Enumerable.Range(0, 6)
-            .Select(i => DateTimeOffset.Now.AddMonths(-i))
-            .OrderBy(m => m)
-            .Select(m => new { m.Month, MonthName = m.ToString("MMM") }).ToList();
+        var now = DateTimeOffset.Now;
+        int daysUntilFriday = ((int)DayOfWeek.Friday - (int)now.DayOfWeek + 7) % 7;
+        var maxDate = now.AddDays(daysUntilFriday);
+        var minDate = maxDate.AddDays(-AppSetting.TransactionsTimePeriodPerDays + 1);
 
-        lastSixMonths.ForEach(m => Months.Add((m.Month, m.MonthName)));
+        var dates = new List<(int WeekInMonth, DateTimeOffset DateTime)>();
+
+        for (var date = minDate; date <= maxDate; date = date.AddDays(1))
+        {
+            var weekInMonth = (date.Day - 1) / 7 + 1;
+            dates.Add((weekInMonth, date));
+        }
+
+        return dates.GroupBy(w => w.DateTime.DayOfWeek).ToList();
     }
 
     private static bool ShowWeekTitle(DayOfWeek dayOfWeek)
@@ -124,28 +133,15 @@ public partial class WalletPage
         };
     }
 
-    static DateTimeOffset GetDateFromWeekOfYearAndDayOfWeek(int weekOfYear, DayOfWeek dayOfWeek)
+    private void FillMonths()
     {
-        DateTimeOffset jan1 = new(DateTimeOffset.Now.Year, 1, 1, 0, 0, 0, TimeSpan.Zero);
-        int daysOffset = (int)dayOfWeek - (int)jan1.DayOfWeek;
-        DateTimeOffset firstThursday = jan1.AddDays(daysOffset);
+        var lastSixMonths = Enumerable.Range(0, 6)
+            .Select(i => DateTimeOffset.Now.AddMonths(-i))
+            .OrderBy(m => m)
+            .Select(m => new { m.Month, MonthName = m.ToString("MMM") }).ToList();
 
-        Calendar calendar = CultureInfo.CurrentCulture.Calendar;
-        int firstWeek = calendar.GetWeekOfYear(firstThursday.DateTime,
-            CalendarWeekRule.FirstFullWeek,
-            DayOfWeek.Sunday);
-
-        if (firstWeek <= 1)
-        {
-            weekOfYear -= 1;
-        }
-
-        DateTimeOffset result = firstThursday.AddDays(weekOfYear * 7);
-
-        return result.AddDays((int)dayOfWeek - (int)result.DayOfWeek);
+        lastSixMonths.ForEach(m => Months.Add((m.Month, m.MonthName)));
     }
-
-
 
     private string GetNftBarInfoTitle()
     {

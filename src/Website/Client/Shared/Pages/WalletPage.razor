@@ -1,11 +1,12 @@
 ﻿@page "/wallet/{WalletId}"
+@using Tonrich.Shared.Util;
 @inherits AppComponentBase
 
 <PageTitle>Wallet</PageTitle>
 
 
 @*todo: new*@
-<section class="tonrich-container">
+@*<section class="tonrich-container">
     <div class="owner-info-wrapper">
         <div class="tonrich-logo"></div>
         <div>
@@ -118,13 +119,13 @@
         <div><a>yunes</a></div>
         <div><a>mohammadi</a></div>
     </div>
-</section>
+</section>*@
 
 
 
 @*todo: old*@
 
-@*<article class="page-container">
+<article class="page-container">
     <section class="owner-info-container">
         <div>Wallet: </div>
         @if (AccountInfo?.Name != null)
@@ -139,13 +140,13 @@
                            TitleDescription=""
                            Value=@AccountInfo?.Balance
                            ValueDescription="TON"
-                           BarColor=@GetActivityColor(AccountInfo?.Balance) 
+                           BarColor=@GetActivityColor(AccountInfo?.Balance)
                            TooltipText="The balance of wallet" />
             <BarInfoMetric Title="Worth"
                            TitleDescription="(Balance + Owned NFT)"
                            Value=@Worth
                            ValueDescription="TON"
-                           BarColor=@GetActivityColor(Worth) 
+                           BarColor=@GetActivityColor(Worth)
                            TooltipText="Total amount of balance and owned NFTs (at their buying price)" />
         </section>
         <section class="trx-deposit-part">
@@ -153,7 +154,7 @@
                            TitleDescription=""
                            Value=@TransactionInfo?.DepositRate
                            ValueDescription="TON/Month​"
-                           BarColor=@GetActivityColor(@TransactionInfo?.DepositRate) 
+                           BarColor=@GetActivityColor(@TransactionInfo?.DepositRate)
                            TooltipText="How much money is being transferred into the wallet monthly (during last 6 months)" />
             <BarInfoMetric Title="Deposit last month​​"
                            TitleDescription=""
@@ -167,7 +168,7 @@
                            TitleDescription=""
                            Value=@TransactionInfo?.SpentRate
                            ValueDescription="TON/Month​"
-                           BarColor=@GetActivityColor(@TransactionInfo?.SpentRate) 
+                           BarColor=@GetActivityColor(@TransactionInfo?.SpentRate)
                            TooltipText="How much money is being transferred out from the wallet monthly (during last 6 months)" />
             <BarInfoMetric Title="Spend last month​​​"
                            TitleDescription=""
@@ -178,6 +179,16 @@
         </section>
     </section>
     <div class="activity-info-diagram-container">
+        <table>
+            <tbody>
+                <tr><td class="header-td"></td></tr>
+                <tr><td class="header-td">Mon</td></tr>
+                <tr><td class="header-td"></td></tr>
+                <tr><td class="header-td">Wed</td></tr>
+                <tr><td class="header-td"></td></tr>
+                <tr><td class="header-td">Fri</td></tr>
+            </tbody>
+        </table>
         <table class="activity-table">
             <thead>
                 <tr>
@@ -188,26 +199,17 @@
                     }
                 </tr>
             </thead>
-            <tbody>
 
-                @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+            <tbody>
+                @foreach (var row in ActivityChartDates)
                 {
                     <tr>
-                        @if (@ShowWeekTitle(dayOfWeek))
+                        @foreach (var columnInARow in row)
                         {
-                            <td class="header-td" rowspan="2"> @dayOfWeek.ToString().Substring(0,3) </td>
-                        }
-
-                        @for (var week = 1; week <= 26; week++)
-                        {
-                            @if (week == 1 && dayOfWeek == DayOfWeek.Sunday)
-                            {
-                                <td></td>
-                            }
-                            var activity = GetActivity(week, dayOfWeek);
+                            var activity = GetActivity(columnInARow.DateTimeOffset);
 
                             <td class="td hover-text" style="background-color: @GetActivityColor(activity.ActivityAmount)">
-                                <div class="tooltip-text" id="right">@Math.Round(@activity.ActivityAmount, 2) on @activity.ActivityDate.DateTime.ToShortDateString()</div>
+                                <div class="tooltip-text" id="right">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>
                             </td>
                         }
                     </tr>
@@ -250,16 +252,15 @@
                        BarColor=@GetActivityColor(NFTPrice)
                        TooltipText="Total value of owned NFTs (at their buying price)" />
         <div class="nft-container ">
-        <div class="nfts">
-            @if (NFTs is not null)
-            {
-                @foreach (var nft in NFTs)
+            <div class="nfts">
+                @if (NFTs is not null)
                 {
-                    <div class="nft">@nft.Name</div>
+                    @foreach (var nft in NFTs)
+                    {
+                        <div class="nft">@nft.Name</div>
+                    }
                 }
-            }
-        </div>
+            </div>
         </div>
     </section>
 </article>
-*@

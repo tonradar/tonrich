@@ -31,10 +31,10 @@ public partial class TonService : ITonService
     public async Task<TransactionInfoDto?> GetTransactionsAsync(string raw, CancellationToken cancellationToken = default)
     {
         var dtNow = DateTimeOffset.Now;
-        var from = DateTimeOffset.Now.AddMonths(-AppSetting.TransactionsTimePeriodPerMonth);
+        var from = dtNow.AddDays(-AppSetting.TransactionsTimePeriodPerDays);
         var pageCount = 100;
 
-        var lastMonth = DateTimeOffset.Now.AddMonths(-1);
+        var lastMonth = dtNow.AddMonths(-1);
 
         List<Transaction> transactions = new();
 
@@ -86,7 +86,7 @@ public partial class TonService : ITonService
             .Select(c => new WalletActivityDto
             {
                 ActivityDate = c.Key,
-                ActivityAmount = c.Sum(c => c.Price(raw)) / AppSetting.TONDenominator
+                ActivityAmount = c.Sum(c => Math.Abs(c.Price(raw))) / AppSetting.TONDenominator
             });
 
         result.Activities.AddRange(activities);
