@@ -21,13 +21,28 @@ public partial class WalletPage
     private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
     private string? ToolTipCallerOrderName { get; set; }
+    private string theme { get; set; } = "light";
     private bool IsOpendToolTip1 { get; set; }
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
     {
+        var query = new Uri(NavigationManager.Uri).Query;
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            var parameters = query.Replace("?", "").Split('&');
+           foreach ( var param in parameters)
+            {
+                if (param.StartsWith("theme"))
+                {
+                    theme = param.Split('=')[1];
+                }
+            }
+        }
+
         FillMonths();
         ActivityChartDates = GenerateActivityChartDates();
         base.OnInitialized();
+
     }
 
     protected override async Task OnInitAsync()
