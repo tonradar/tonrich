@@ -18,8 +18,7 @@ public partial class WalletPage
     public int NumbersCount { get; set; }
     public decimal? Worth { get; set; }
     public decimal NFTPrice { get; set; }
-    //private bool isLoading = true;
-    private bool isPageBusy = true;
+    private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
     private string? ToolTipCallerOrderName { get; set; }
     private bool IsOpendToolTip1 { get; set; }
