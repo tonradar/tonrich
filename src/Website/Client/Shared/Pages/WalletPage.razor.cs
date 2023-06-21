@@ -6,7 +6,6 @@ namespace Tonrich.Client.Shared.Pages;
 public partial class WalletPage
 {
     [Parameter] public required string WalletId { get; set; }
-
     [AutoInject] public ITonService TonService { get; set; } = default!;
 
     public List<(int Number, string Name)> Months = new();
