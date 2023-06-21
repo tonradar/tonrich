@@ -500,17 +500,17 @@
 
 /*old css code*/
 
-$color-gray1: #EBEDF0;
+/*$color-gray1: #EBEDF0;
 $color-gray2: #e6e1e1;
 $color-green1: #9BE9A8;
 $color-green2: #40C463;
 $color-green3: #30AB44;
-$color-green4: #216E39;
+$color-green4: #216E39;*/
 
 /*new css code*/
 
 
-.tonrich-container {
+/*.tonrich-container {
     background-color: $MainBackground;
     max-width: 914px;
     min-width: 426px;
@@ -558,11 +558,11 @@ $color-green4: #216E39;
     font-weight: 400;
     font-size: $FontSize16;
     line-height: 21px;
-}
+}*/
 
 /*part two*/
 
-.trx-info-wrapper {
+/*.trx-info-wrapper {
     display: grid;
     gap: 15px;
     margin-top: 28px;
@@ -620,13 +620,13 @@ $color-green4: #216E39;
     font-size: $FontSize16;
     line-height: 19px;
     color: $MainBlack;
-}
+}*/
 
 
 
 /* diagram*/
 
-.activity-diagram-wrapper {
+/*.activity-diagram-wrapper {
     margin-top: 28px;
     display: flex;
     align-items: center;
@@ -663,18 +663,18 @@ $color-green4: #216E39;
     margin-bottom: 16px;
 }
 
-.nft-info-wrapper {
+.nft-info-wrapper {*/
   /*  height: 98px;*/
-    margin-top: 28px;
+    /*margin-top: 28px;
     display: flex;
     gap: 15px;
     width: 100%;
     flex-flow: row;
 }
 
-.nft-info {
+.nft-info {*/
    /* height: 100%;*/
-    box-sizing: border-box;
+    /*box-sizing: border-box;
     width: 273px;
     height:98px;
     background-color:$SecondBackground;
@@ -687,10 +687,10 @@ $color-green4: #216E39;
     height:98px;
     background: silver;
     border-radius: $Radius8;
-}
+}*/
 
 /* table*/
-.activity-info-diagram-container {
+/*.activity-info-diagram-container {
     border: red 1px solid;
     border-radius: 2px;
     padding: 2px;
@@ -817,21 +817,21 @@ $color-green4: #216E39;
         height:61px;
     }
     
-}
+}*/
 
 
 
 /*old css code*/
 
-.page-container {
+/*.page-container {
     display: flex;
     flex-direction: column;
     border: gray 1px solid;
     padding: 5px;
     width: 455px;
     overflow-x: hidden;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;
+    -ms-overflow-style: none;*/ /* IE and Edge */
+    /*scrollbar-width: none;
 }
 .page-container::-webkit-scrollbar {
     display: none;
@@ -1017,4 +1017,4 @@ $color-green4: #216E39;
     position: relative;
     padding: 2px;
     text-align: center;
-}
+}*/
