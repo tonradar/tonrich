@@ -14,6 +14,7 @@ namespace Tonrich.Client.Shared.Shared
         [Parameter] public string? Unit { get; set; }
         [Parameter] public string? Description { get; set; }
         [Parameter] public bool IsBusy { get; set; } = true;
+        [Parameter] public string? OrderName { get; set; } //test yunes 
         [Parameter] public EventCallback<bool> ToggleTooltipClicked { get; set; }
 
         private bool IsTooltipOpen = true;
