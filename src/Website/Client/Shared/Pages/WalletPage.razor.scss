@@ -3,6 +3,15 @@
 @import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
 
+.diagram-unit-tool-tip {
+    display:none;
+}
+
+.diagram-unit:hover {
+    .diagram-unit-tool-tip {
+        display: block;
+    }
+}
 .main-wrapper {
     width: 100%;
     display: flex;

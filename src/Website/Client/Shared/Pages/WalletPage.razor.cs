@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
+using Tonrich.Client.Shared.Shared;
 using Tonrich.Shared.Util;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Tonrich.Client.Shared.Pages;
 
@@ -14,11 +16,12 @@ public partial class WalletPage
     public List<NFTDto>? NFTs { get; set; }
     public int UserNamesCount { get; set; }
     public int NumbersCount { get; set; }
-    public decimal Worth { get; set; }
+    public decimal? Worth { get; set; }
     public decimal NFTPrice { get; set; }
-    //private bool isLoading = true;
-    private bool isPageBusy = true;
+    private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
+    private string? ToolTipCallerOrderName { get; set; }
+    private bool IsOpendToolTip1 { get; set; }
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
     {
@@ -84,6 +87,16 @@ public partial class WalletPage
         }
 
         await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private void HandleToggleTooltipClicked(string toolTipCallerOrderName)
+    {
+        ToolTipCallerOrderName = toolTipCallerOrderName;
+    }
+
+    private async Task CopyAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("window.App.copy", AccountInfo?.Address);
     }
 
     private static string GetActivityColor(decimal? activityAmount)
