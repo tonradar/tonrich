@@ -17,19 +17,25 @@ public partial class WalletPage
     public int NumbersCount { get; set; }
     public decimal Worth { get; set; }
     public decimal NFTPrice { get; set; }
-    private bool isLoading = true;
+    //private bool isLoading = true;
+    private bool isPageBusy = true;
+    private bool isAccountBoxBusy = true;
+    private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
+    protected override void OnInitialized()
+    {
+        FillMonths();
+        ActivityChartDates = GenerateActivityChartDates();
+        base.OnInitialized();
+    }
 
     protected override async Task OnInitAsync()
     {
-        isLoading = true;
+        isAccountBoxBusy = true;
         AccountInfo = await TonService.GetAccountInfoAsync(WalletId);
-        isLoading = false;
+        isAccountBoxBusy = false;
 
         if (AccountInfo?.Address is null)
             return;
-
-        FillMonths();
-
 
         _ = Task.Run(async () =>
         {
@@ -73,7 +79,7 @@ public partial class WalletPage
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (AccountInfo?.Address is null && isLoading == false)
+        if (AccountInfo?.Address is null && isAccountBoxBusy == false)
         {
             NavigationManager.NavigateTo("/WalletNotFound", true);
         }
@@ -81,28 +87,44 @@ public partial class WalletPage
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    public static string GetActivityColor(decimal? activityAmount)
+    private static string GetActivityColor(decimal? activityAmount)
     {
         return activityAmount switch
         {
-            decimal value when value == 0 => $"#EBEDF0",
-            decimal value when value > 0 && value <= 10 => $"#9BE9A8",
-            decimal value when value > 10 && value <= 100 => $"#40C463",
-            decimal value when value > 100 && value <= 1000 => $"#30AB44",
-            decimal value when value > 1000 => $"#216E39",
-            _ => $"#EBEDF0",
+            decimal value when value == 0 => "zero",
+            decimal value when value > 0 && value <= 10 => "one",
+            decimal value when value > 10 && value <= 100 => "two",
+            decimal value when value > 100 && value <= 1000 => "three",
+            decimal value when value > 1000 => "four",
+            _ => "zero",
         };
     }
 
-    public WalletActivityDto GetActivity(int week, DayOfWeek dayOfWeek)
+    private WalletActivityDto GetActivity(DateTimeOffset dateTimeOffset)
     {
-        var dateFromWeekOfYearAndDayOfWeek = GetDateFromWeekOfYearAndDayOfWeek(week, dayOfWeek);
-        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateFromWeekOfYearAndDayOfWeek.Date);
+        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateTimeOffset.Date);
 
-        activity ??= new WalletActivityDto() { ActivityDate = dateFromWeekOfYearAndDayOfWeek, ActivityAmount = 0 };
+        activity ??= new WalletActivityDto() { ActivityDate = dateTimeOffset, ActivityAmount = 0 };
         return activity;
     }
 
+    private static List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTime)>> GenerateActivityChartDates()
+    {
+        var now = DateTimeOffset.Now;
+        int daysUntilFriday = ((int)DayOfWeek.Friday - (int)now.DayOfWeek + 7) % 7;
+        var maxDate = now.AddDays(daysUntilFriday);
+        var minDate = maxDate.AddDays(-AppSetting.TransactionsTimePeriodPerDays + 1);
+
+        var dates = new List<(int WeekInMonth, DateTimeOffset DateTime)>();
+
+        for (var date = minDate; date <= maxDate; date = date.AddDays(1))
+        {
+            var weekInMonth = (date.Day - 1) / 7 + 1;
+            dates.Add((weekInMonth, date));
+        }
+
+        return dates.GroupBy(w => w.DateTime.DayOfWeek).ToList();
+    }
     private void FillMonths()
     {
         var lastSixMonths = Enumerable.Range(0, 6)
@@ -144,8 +166,6 @@ public partial class WalletPage
 
         return result.AddDays((int)dayOfWeek - (int)result.DayOfWeek);
     }
-
-
 
     private string GetNftBarInfoTitle()
     {

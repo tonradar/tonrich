@@ -1,0 +1,28 @@
+﻿@import '../Styles/abstracts/_colors.scss';
+@import '../Styles/abstracts/_mixins.scss';
+@import '../Styles/abstracts/_functions.scss';
+
+.mini-loading {
+    //todo
+    background: url("images/icons/loading.svg");
+    width: 20px;
+    height: 5px;
+    margin-top: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 13px 19px;
+}
+
+.loading-main-color {
+    //todo: set loading gif
+    @include customize() {
+        color: getValue(LoadingMainColor);
+    }
+}
+
+.loading-second-color {
+    @include customize() {
+        //todo: set loading gif
+        color: getValue(LoadingSecondColor);
+    }
+}

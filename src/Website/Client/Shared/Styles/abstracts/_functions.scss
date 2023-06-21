@@ -1,4 +1,6 @@
-﻿$html-font-size: 16px;
+﻿@import './_mixins.scss';
+
+$html-font-size: 16px;
 
 /// stripUnit(10px) -> 10
 /// stripUnit(2em) -> 2
@@ -18,4 +20,8 @@
 /// Convert px to em.
 @function em($size, $base-font-size: 16px) {
     @return stripUnit($size) / stripUnit($base-font-size) * 1em;
+}
+
+@function getValue($key) {
+    @return map-get($array-map, $key);
 }

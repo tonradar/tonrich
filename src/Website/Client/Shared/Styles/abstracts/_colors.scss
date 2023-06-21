@@ -1,17 +1,49 @@
-﻿// set color variables in white mode 
-$MainBackground: #F3F2F2;
-$SecondBackground: #fff;
-$Gray1: #EBEBEB;
-$Gray2: #DBDBDB;
-$Gray3: #8D8D8D;
-$Gray4: #5A5A5A;
-$DarkGray: #313131;
-$MainBlack: #261005;
-$MainOrange: #FC4C25;
-$Orange1: #FF5C11;
-$Orange2: #FF783A;
-$Orange3: #FE9A6B;
-$Orange4: #FFD8C7;
+// Theme
+$themes: ( 
+    light: ( 
+            MainBackground: #F3F2F2,
+            SecondBackground: #fff,
+            ThirdBackground: #FFF3ED,
+            MainPen: #313131,
+            SecondaryPen: #8D8D8D, 
+            ThirdPen: #FF5C11,
+            DiagramPen: #5A5A5A,
+            OrangePen: #FF5C11,
+            OriginalGray: #EBEBEB,
+            ScrollGray: #DBDBDB,
+            OrangeDiagram1: #FC4C25,
+            OrangeDiagram2: #FF783A,
+            OrangeDiagram3: #FE9A6B,
+            OrangeDiagram4: #FFD8C7,
+            LoadingMainColor: #313131,
+            LoadingSecondColor: #FF5C11,
+            //DarkGray: #313131,
+            AboutSite:#8D8D8D,
+            TooltipBackground: #EBEBEB,
+        ),
+    dark: (
+            MainBackground: #323232,
+            SecondBackground: #5A5A5A,
+           //SecondBackground: #C2C2C2,
+            ThirdBackground: #777777,
+            MainPen: #FFFFFF,
+            SecondaryPen: #C2C2C2, 
+            ThirdPen: #FFD8C7,
+            DiagramPen: #fff,
+            OrangePen: #FF5C11,
+            OriginalGray: #8A8A8A,
+           // ScrollGray: #777777,
+            OrangeDiagram1: #FF5C11,
+            OrangeDiagram2: #FF783A,
+            OrangeDiagram3: #FE9A6B,
+            OrangeDiagram4: #FFD8C7,
+            LoadingMainColor: #FFF,
+            LoadingSecondColor: #FFF,
+            //DarkGray: #313131,
+             AboutSite:#8A8A8A,
+            TooltipBackground: #C2C2C2,
+        )
+    );
 
 // font and line-height variables
 $FontSize10: 10px;
@@ -31,9 +63,31 @@ $MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
 $SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
 
 //breakpoint variable
+$Breakpoint: 610px;
 $Breakpoint1: 780px;
 $Breakpoint2: 665px;
 $Breakpoint3: 600px;
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #DBDBDB;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FF5C11;
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF5C11;
+  }
 
 ///todo: old
 $PrimaryColor: #0078D4;

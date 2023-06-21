@@ -42,5 +42,13 @@
   {
     "outputFile": "Pages/WalletPage.razor.css",
     "inputFile": "Pages/WalletPage.razor.scss"
+  },
+  {
+    "outputFile": "Shared/MiniLoading.razor.css",
+    "inputFile": "Shared/MiniLoading.razor.scss"
+  },
+  {
+    "outputFile": "Shared/TrxInfoCard.razor.css",
+    "inputFile": "Shared/TrxInfoCard.razor.scss"
   }
 ]
