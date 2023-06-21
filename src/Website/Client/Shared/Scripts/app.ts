@@ -17,4 +17,13 @@
     public static goBack(): void {
         window.history.back();
     }
+
+    public static copy(text: string): void {
+        navigator.clipboard.writeText(text).then(function () {
+            console.log(text, " copied to clipboard!");
+        })
+            .catch(function (error) {
+                console.error(error);
+            });
+    }
 }

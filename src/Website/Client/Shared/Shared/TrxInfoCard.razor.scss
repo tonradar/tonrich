@@ -79,6 +79,7 @@
 }*/
 
 .card-title {
+    cursor:pointer;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -103,6 +104,7 @@
 }
 
 .tooltip-box {
+    cursor:default;
     width: 250px;
     height: 100px;
     position: absolute;
@@ -133,6 +135,7 @@
         }
 
         .tooltip-box-close {
+            cursor: pointer;
             background: url("images/icons/close-tooltip.svg");
             background-position: center;
             background-size: 8px;
@@ -180,29 +183,30 @@
     }
 }
 
+
 @media screen and (max-width: $Breakpoint) {
 
-        .order-zero {
-            order:0;
-        }
+    .order-zero {
+        order: 0;
+    }
 
-        .order-one {
-            order: 1;
-        }
+    .order-one {
+        order: 1;
+    }
 
-        .order-two {
-            order: 2;
-        }
+    .order-two {
+        order: 2;
+    }
 
-        .order-three {
-            order: 3;
-        }
+    .order-three {
+        order: 3;
+    }
 
-        .order-four {
-            order: 4;
-        }
+    .order-four {
+        order: 4;
+    }
 
-        .order-five {
-            order: 5;
-        }
+    .order-five {
+        order: 5;
+    }
 }
