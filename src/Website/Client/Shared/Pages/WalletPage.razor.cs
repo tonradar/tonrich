@@ -20,6 +20,13 @@ public partial class WalletPage
     //private bool isLoading = true;
     private bool isPageBusy = true;
     private bool isAccountBoxBusy = true;
+    private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
+    protected override void OnInitialized()
+    {
+        FillMonths();
+        ActivityChartDates = GenerateActivityChartDates();
+        base.OnInitialized();
+    }
 
     protected override async Task OnInitAsync()
     {
@@ -29,9 +36,6 @@ public partial class WalletPage
 
         if (AccountInfo?.Address is null)
             return;
-
-        FillMonths();
-
 
         _ = Task.Run(async () =>
         {
@@ -83,15 +87,7 @@ public partial class WalletPage
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    public WalletActivityDto GetActivity(int week, DayOfWeek dayOfWeek)
-    {
-        var dateFromWeekOfYearAndDayOfWeek = GetDateFromWeekOfYearAndDayOfWeek(week, dayOfWeek);
-        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateFromWeekOfYearAndDayOfWeek.Date);
-
-        activity ??= new WalletActivityDto() { ActivityDate = dateFromWeekOfYearAndDayOfWeek, ActivityAmount = 0 };
-        return activity;
-    }
-    public static string GetActivityColor(decimal? activityAmount)
+    private static string GetActivityColor(decimal? activityAmount)
     {
         return activityAmount switch
         {
@@ -104,6 +100,31 @@ public partial class WalletPage
         };
     }
 
+    private WalletActivityDto GetActivity(DateTimeOffset dateTimeOffset)
+    {
+        var activity = TransactionInfo?.Activities.FirstOrDefault(d => d.ActivityDate.Date == dateTimeOffset.Date);
+
+        activity ??= new WalletActivityDto() { ActivityDate = dateTimeOffset, ActivityAmount = 0 };
+        return activity;
+    }
+
+    private static List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTime)>> GenerateActivityChartDates()
+    {
+        var now = DateTimeOffset.Now;
+        int daysUntilFriday = ((int)DayOfWeek.Friday - (int)now.DayOfWeek + 7) % 7;
+        var maxDate = now.AddDays(daysUntilFriday);
+        var minDate = maxDate.AddDays(-AppSetting.TransactionsTimePeriodPerDays + 1);
+
+        var dates = new List<(int WeekInMonth, DateTimeOffset DateTime)>();
+
+        for (var date = minDate; date <= maxDate; date = date.AddDays(1))
+        {
+            var weekInMonth = (date.Day - 1) / 7 + 1;
+            dates.Add((weekInMonth, date));
+        }
+
+        return dates.GroupBy(w => w.DateTime.DayOfWeek).ToList();
+    }
     private void FillMonths()
     {
         var lastSixMonths = Enumerable.Range(0, 6)

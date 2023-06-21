@@ -16,7 +16,7 @@ namespace Tonrich.Client.Shared.Shared
         [Parameter] public bool IsBusy { get; set; } = true;
         [Parameter] public EventCallback<bool> ToggleTooltipClicked { get; set; }
 
-        private bool IsTooltipOpen = false;
+        private bool IsTooltipOpen = true;
 
         protected void ToggleTrxInfo() {
             IsTooltipOpen = !IsTooltipOpen;

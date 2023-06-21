@@ -1,5 +1,6 @@
 ﻿@page "/wallet/{WalletId}"
 @using Tonrich.Client.Shared.Shared
+@using Tonrich.Shared.Util;
 @inherits AppComponentBase
 
 <PageTitle>Wallet</PageTitle>
@@ -70,15 +71,15 @@
                         }
                     </div>
                     <div class="diagram-result-box">
-                        @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+                        @foreach (var row in ActivityChartDates)
                         {
-                            @for (var week = 1; week <= 26; week++)
+                            @foreach (var columnInARow in row)
                             {
-                                var activity = GetActivity(week, dayOfWeek);
+                                var activity = GetActivity(columnInARow.DateTimeOffset);
                                 <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))"></div>
+                                <div class="tooltip-text" id="right">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>
                             }
                         }
-
                     </div>
                 </div>
             </div>
