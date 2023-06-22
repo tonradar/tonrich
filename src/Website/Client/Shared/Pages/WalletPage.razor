@@ -6,8 +6,6 @@
 <PageTitle>Wallet</PageTitle>
 
 
-@*todo: new*@
-
 <section class="main-wrapper theme-@theme">
     @if (isPageBusy)
     {
@@ -92,7 +90,9 @@
                                 {
                                     <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
                                 }
-                                <div class="wallet-id public-font-style">@WalletId</div>
+                                <div class="wallet-id public-font-style">
+                                    <span title="Copy">@WalletId</span>
+                                </div>
                             </div>
                         }
                     </div>
@@ -153,7 +153,7 @@
                                 {
                                     var activity = GetActivity(columnInARow.DateTimeOffset);
                                     <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))">
-                                        @*<div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>*@
+                                        <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on<br/> @activity.ActivityDate.DateTime.ToShortDateString()</div>
                                     </div>
                                 }
                             }
@@ -229,19 +229,6 @@
         </div>
     }
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
