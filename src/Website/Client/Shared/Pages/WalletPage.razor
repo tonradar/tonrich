@@ -296,7 +296,8 @@
                             @foreach (var columnInARow in row)
                             {
                                 var activity = GetActivity(columnInARow.DateTimeOffset);
-                                <div class="diagram-unit range-zero"></div>
+                                <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))"></div>
+                               @* <div class="tooltip-text" id="right">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>*@
                             }
                         }
                     </div>
