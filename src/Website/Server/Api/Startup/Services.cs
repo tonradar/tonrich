@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using System.Net.Mail;
+using System.Net.Http.Headers;
 #if BlazorWebAssembly
 using Tonrich.Client.Web.Services.Implementations;
 using Tonrich.Client.Shared.Services.Implementations;
@@ -100,6 +101,12 @@ public static class Services
         services.AddSwaggerGen();
 
         services.AddJwt(configuration);
+
+        services.AddHttpClient("TonApi", c =>
+        {
+            c.BaseAddress = new Uri("https://tonapi.io/v1/");
+            c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiQWZzaGluX0FsaXphZGVoIl0sImV4cCI6MTgzNTQ0ODk2NiwiaXNzIjoiQHRvbmFwaV9ib3QiLCJqdGkiOiJIMktNTDM1Qk9CUkdPVDZFNVZVV0FJNlgiLCJzY29wZSI6ImNsaWVudCIsInN1YiI6InRvbmFwaSJ9.wiUKHyB61XQjyJrPdIclSsAhBIz5U42PHMHpb8OlJjqAUBThB-czcqmevciNcY7cZWx8xmAyfYsexdEiihSACQ");
+        });
 
         services.AddHealthChecks(env, configuration);
 
