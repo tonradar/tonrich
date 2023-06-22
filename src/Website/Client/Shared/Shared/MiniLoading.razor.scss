@@ -13,6 +13,14 @@
     background-size: 13px 19px;
 }
 
+/*.loading {
+    width: 20px;
+    height:5px;
+    background-color: palegreen;
+}
+*/
+
+
 .loading-main-color {
     //todo: set loading gif
     @include customize() {
