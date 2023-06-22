@@ -3,6 +3,15 @@
 @import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
 
+.diagram-unit-tool-tip {
+    display:none;
+}
+
+.diagram-unit:hover {
+    .diagram-unit-tool-tip {
+        display: block;
+    }
+}
 .main-wrapper {
     width: 100%;
     display: flex;
@@ -17,6 +26,7 @@
     }
     max-width: 914px;
     min-width: 426px;
+    width: 100%;
     min-height: 689px;
     border-radius: $Radius32;
     padding: 32px 32px 15px 32px;
@@ -26,38 +36,40 @@
 .owner-info-wrapper {
     display: flex;
     border-bottom: 1.5px solid #E7E7E7;
-}
+    padding-bottom: 16px;
 
-.wallet-info {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 16px;
-}
+    .wallet-info {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
 
-.tonrich-logo {
-    background-color: orange;
-    min-width: 82px;
-    height: 52px;
-    margin-right: 20px;
-    border-radius: $Radius8;
-}
-
-.tonrich-title {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 500;
-    font-size: $FontSize24;
-    line-height: 28px;
-
-    @include customize() {
-        color: getValue(MainPen);
+        .wallet-name {
+            margin-right: 5px;
+        }
     }
-}
 
-.wallet-name {
-    margin-right: 5px;
+    .tonrich-logo {
+        background: url("images/icons/tonrich-logo.svg");
+        width: 52px;
+        height: 52px;
+        margin-right: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:52px;
+    }
+
+    .tonrich-title {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: $FontSize24;
+        line-height: 28px;
+
+        @include customize() {
+            color: getValue(MainPen);
+        }
+    }
 }
 
 .public-font-style {
@@ -72,8 +84,6 @@
     }
 }
 
-/*part two*/
-
 .trx-info-wrapper {
     display: grid;
     gap: 15px;
@@ -82,10 +92,12 @@
     grid-template-rows: 1fr 1fr;
 }
 
-
-
-
-/* diagram*/
+.trx-card-loading-mode {
+    height: 56px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
+    border-radius: 8px;
+}
 
 .activity-diagram-wrapper {
     margin-top: 28px;
@@ -101,7 +113,6 @@
     @include customize() {
         background-color: getValue(SecondBackground);
     }
-
 }
 
 .month-row-caption {
@@ -141,7 +152,6 @@
             max-height: 100%;
             aspect-ratio: 1/1;
         }
-
     }
 }
 
@@ -156,19 +166,17 @@
 }
 
 .status-diagram {
-    background-color: silver;
-    padding: 16px 19px 16px 16px;
+    width: 100%;
+    min-width: 386px;
     height: 100%;
+    padding: 16px 19px 16px 16px;
+    background-color: silver;
     box-sizing: border-box;
-
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
     @include customize() {
         background-color: getValue(SecondBackground);
     }
-
-    box-shadow: $MainShadowBox;
-    border-radius: $Radius8;
-    min-width: 386px;
-    width: 100%;
 }
 
 .color-guide-table {
@@ -176,30 +184,29 @@
     height: 100%;
     padding: 16px 12px;
     box-sizing: border-box;
-
+    margin-left: 16px;
+    min-width: 130px;
+    min-height: 228px;
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
     @include customize() {
         background-color: getValue(SecondBackground);
     }
-
     @include customize() {
         color: getValue(MainPen);
     }
 
-    box-shadow: $MainShadowBox;
-    border-radius: $Radius8;
-    margin-left: 16px;
+    .color-guide-title {
+        text-align: center;
+        margin-bottom: 16px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+    }
 }
 
-.color-guide-title {
-    text-align: center;
-    margin-bottom: 16px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-
-}
 
 .color-guid {
     font-size: 9px;
@@ -210,7 +217,6 @@
     gap: 10px;
 }
 
-
 .guide-list {
     list-style: none;
     padding-left: 0;
@@ -218,29 +224,26 @@
 
     li {
         display: flex;
+        justify-content: flex-start;
+        align-items: center;
         flex-flow: row nowrap;
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
-
+        margin-bottom: 16px;
 
         div {
             margin-right: 8px;
-            margin-bottom: 16px;
             width: 20px;
             height: 20px;
         }
     }
-
-    li:last-child {
-        div {
-            margin-bottom: 0;
-        }
-    }
 }
-
+.guide-list li:last-child{
+    margin-bottom:0;
+}
 
 .range-zero {
     @include customize() {
@@ -285,20 +288,39 @@
 .nft-info {
     box-sizing: border-box;
     padding: 10px 8px 7px 8px;
+    min-width: 273px;
+    min-height: 98px;
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
-    box-shadow: $MainShadowBox;
-    border-radius: $Radius8;
 
     .nft-icon {
         background: url("images/icons/nft-icon.svg");
         background-repeat: no-repeat;
-        background-size: 55px 20px;
-        background-position: center;
+        background-size: 20px 55px;
+        background-position: left;
         width: 55px;
         height: 20px;
         margin-bottom: 8px;
+        padding-left: 24px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+
+        @include customize() {
+            color: getValue(SecondaryPen);
+        }
+    }
+
+    .nft-info-header {
+        margin-bottom: 6px;
     }
 
     .nft-value {
@@ -307,7 +329,7 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
-        margin-bottom: 6px;
+
 
         @include customize() {
             color: getValue(SecondaryPen);
@@ -323,7 +345,6 @@
             }
         }
     }
-
 }
 
 .nft-information {
@@ -332,11 +353,9 @@
     gap: 8px;
 
     .nft-information-box {
-        width: 124px;
-        background-color: aquamarine;
+        min-width: 124px;
         padding: 1px 4px;
         border-radius: $Radius4;
-
         @include customize() {
             background-color: getValue(ThirdBackground);
         }
@@ -348,7 +367,6 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
-
         @include customize() {
             color: getValue(SecondaryPen);
         }
@@ -360,7 +378,6 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-
         @include customize() {
             color: getValue(LoadingSecondColor);
         }
@@ -373,7 +390,17 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    max-width: 472px; //todo:... not good way
+    width:100%;
+    /*max-width: 472px;*/                                     //todo:... not good way
+}
+.nft-list-container-loading-mode {
+    height: 98px;
+    width: 100%;
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
+    @include customize() {
+        background-color: getValue(SecondBackground);
+    }
 }
 
 .nft-list-content {
@@ -387,11 +414,14 @@
     align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 10px;
-
+    padding-bottom: 12px;
 
     .nft-box {
-        font-size: 10px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
         width: 133px;
         height: 35px;
         display: flex;
@@ -399,19 +429,40 @@
         align-items: center;
         justify-content: center;
         padding: 0 8px;
-        border: red 1px solid;
-        border-radius: 2px;
+        border-radius: $Radius8;
+
         @include customize() {
             background-color: getValue(SecondBackground);
         }
-    
-        border-radius: $Radius8;
+
+        @include customize() {
+            color: getValue(MainPen);
+        }
     }
 }
 
 .empty-mode {
+    width: 100%;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    border-radius:$Radius8;
 
-}
+    @include customize() {
+        background-color: getValue(SecondBackground);
+    }
+
+    @include customize() {
+        color: getValue(MainPen);
+    }
+}                                           // to do : complete this 
 
 .about-tonrich-wrapper {
     display: flex;
@@ -422,7 +473,6 @@
     font-size: $FontSize12;
     line-height: 14px;
     height:16px;
-
     @include customize() {
         color: getValue(AboutSite);
     }
@@ -444,10 +494,8 @@
         background-size: 16px;
         display: flex;
         align-items: center;
-      
     }
 }
-
 
 @media screen and (max-width: $Breakpoint) {
     .wallet-info {
@@ -471,13 +519,18 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+        margin-top: 12px;
+
+        .order-zero {
+            background-color: red !important;
+            order: 0;
+        }
     }
+
     .color-guide-table{
         display: none;
     }
-    .trx-info-wrapper {
-        margin-top: 12px;
-    }
+
     .activity-diagram-wrapper{
         margin-top: 12px;
     }
@@ -493,7 +546,7 @@
         justify-content: space-between;
     }
 
-    
+   
 }
 
 

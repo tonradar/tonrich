@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    overflow: hidden;
+    max-width: 273px;
 
     @include customize() {
         background-color: getValue(SecondBackground);
@@ -66,6 +66,7 @@
     background-repeat: no-repeat;
 }
 
+
 /*.card-content {
     font-family: 'Roboto';
     font-style: normal;
@@ -78,6 +79,7 @@
 }*/
 
 .card-title {
+    cursor:pointer;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -102,16 +104,16 @@
 }
 
 .tooltip-box {
+    cursor:default;
     width: 250px;
     height: 100px;
     position: absolute;
     right: -249px;
     top: 12px;
     z-index: 2;
-    padding: 12px;
+    padding: 8px 10px;
     border-radius: 0px 8px 8px 8px;
-    box-shadow: $MainShadowBox; // todo: please check this 
-
+    box-shadow: 0px 7px 22px 5px rgba(65, 64, 64, 0.7); // todo: please check this
     @include customize() {
         background-color: getValue(TooltipBackground);
     }
@@ -133,6 +135,7 @@
         }
 
         .tooltip-box-close {
+            cursor: pointer;
             background: url("images/icons/close-tooltip.svg");
             background-position: center;
             background-size: 8px;
@@ -177,5 +180,33 @@
         @include customize() {
             color: getValue(MainPen);
         }
+    }
+}
+
+
+@media screen and (max-width: $Breakpoint) {
+
+    .order-zero {
+        order: 0;
+    }
+
+    .order-one {
+        order: 1;
+    }
+
+    .order-two {
+        order: 2;
+    }
+
+    .order-three {
+        order: 3;
+    }
+
+    .order-four {
+        order: 4;
+    }
+
+    .order-five {
+        order: 5;
     }
 }

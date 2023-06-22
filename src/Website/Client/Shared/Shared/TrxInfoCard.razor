@@ -1,17 +1,17 @@
-﻿<div class="trx-card">
+﻿<div class="trx-card order-@OrderName">
     <div class="trx-public-icon @IconName-icon"></div>
     <div class="card-content">
-        <div class="card-title" @onclick="ToggleTrxInfo">@Title
+        <div class="card-title" @onclick=ToggleTrxInfo>
+            @Title
             <div class="notic-icon">
                 @if (IsTooltipOpen)
                 {
-                    <div class="tooltip-box">
+                    <div class="tooltip-box" @onclick:stopPropagation="true" @onclick:preventDefault="true">
                         <div class="tooltip-box-header">
                             <div class="tooltip-header-title">@Title</div>
-                            <div class="tooltip-box-close"></div>
+                            <div class="tooltip-box-close" @onclick=CloseToolTip></div>
                         </div>
-                        <div class="tooltip-box-content">Toncoin (TON) is the native token of the TON network. TON is an
-                            acronym for "The Open Network"</div>
+                        <div class="tooltip-box-content">@Description</div>
                     </div>
                 }
             </div>
@@ -19,11 +19,11 @@
         </div>
         @if (IsBusy)
         {
-            <div class="value-container"><span class="trx-value">@Value</span> Ton</div>
+            <MiniLoading Color="main-color"></MiniLoading>
         }
         else
         {
-            <MiniLoading Color="main-color"></MiniLoading>
+            <div class="value-container"><span class="trx-value">@string.Format("{0:0.00}", Value)</span> Ton</div>
         }
     </div>
 </div>

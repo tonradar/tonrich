@@ -1,25 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Tonrich.Client.Shared.Shared;
 
-namespace Tonrich.Client.Shared.Shared
+public partial class TrxInfoCard
 {
-    public partial class TrxInfoCard
+    [Parameter] public string? IconName { get; set; }
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public decimal? Value { get; set; }
+    [Parameter] public string? Unit { get; set; }
+    [Parameter] public string? Description { get; set; }
+    [Parameter] public bool IsBusy { get; set; } = true;
+    [Parameter] public string? OrderName { get; set; }
+    [Parameter] public EventCallback<string> OnToggleTooltipClicked { get; set; }
+
+    [Parameter] public bool IsTooltipOpen { get; set; }
+
+    protected override void OnParametersSet()
     {
-        [Parameter] public string? IconName { get; set; }
-        [Parameter] public string? Title { get; set; }
-        [Parameter] public decimal? Value { get; set; }
-        [Parameter] public string? Unit { get; set; }
-        [Parameter] public string? Description { get; set; }
-        [Parameter] public bool IsBusy { get; set; } = true;
-        [Parameter] public EventCallback<bool> ToggleTooltipClicked { get; set; }
+        base.OnParametersSet();
+    }
 
-        private bool IsTooltipOpen = true;
+    protected void ToggleTrxInfo()
+    {
+        OnToggleTooltipClicked.InvokeAsync(OrderName);
+        IsTooltipOpen = !IsTooltipOpen;
+    }
 
-        protected void ToggleTrxInfo() {
-            IsTooltipOpen = !IsTooltipOpen;
-        }
+    private void CloseToolTip()
+    {
+        IsTooltipOpen = false;
+        Console.WriteLine("Test");
     }
 }
