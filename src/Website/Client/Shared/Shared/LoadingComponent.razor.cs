@@ -2,5 +2,5 @@
 
 public partial class LoadingComponent
 {
-    [Parameter] public string Color { get; set; } = "#38ad17";
+    [Parameter] public string Color { get; set; } = "#FF5C11";
 }
