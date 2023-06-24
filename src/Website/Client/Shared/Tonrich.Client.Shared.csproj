@@ -86,7 +86,6 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\images\icons\" />
-      <Folder Include="wwwroot\lottie\" />
     </ItemGroup>
 
 </Project>

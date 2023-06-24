@@ -20,6 +20,7 @@
     border-radius: $Radius32;
     padding: 32px 32px 15px 32px;
     box-sizing: border-box;
+
     @include customize() {
         background-color: getValue(MainBackground);
     }
@@ -76,6 +77,7 @@
     font-weight: 400;
     font-size: $FontSize16;
     line-height: 21px;
+
     @include customize() {
         color: getValue(MainPen);
     }
@@ -114,14 +116,23 @@
         text-align: center;
         border-radius: 6px;
         padding: 5px 0;
+        /* Position the tooltip */
         position: absolute;
         z-index: 1;
-        bottom: 150%;
+        bottom: 120%;
         left: 50%;
         margin-left: -60px;
-    }
+        box-shadow: 0px 7px 22px 3px rgba(65,64,64,0.7);
+        /*background-color: #c3bebe;*/
+        @include customize() {
+            background-color: getValue(TooltipBackground);
+        }
 
-    .diagram-unit-tool-tip::after {
+        @include customize() {
+            color: getValue(MainPen);
+        }
+    }
+    /* .diagram-unit-tool-tip::after {
         content: "";
         position: absolute;
         top: 100%;
@@ -129,8 +140,13 @@
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
+
+        border-color: @include customize() {
+            background-color: getValue(TooltipBackground);
+        },
+
+        transparent transparent transparent;
+    }*/
 
     &:hover .diagram-unit-tool-tip {
         visibility: visible;
@@ -141,6 +157,7 @@
     padding: 0 20px 16px 0;
     border-radius: $Radius8;
     width: 100%;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
@@ -191,12 +208,13 @@
     font-weight: 500;
     font-size: $FontSize14;
     line-height: 16px;
+
     @include customize() {
         color: getValue(DiagramPen);
     }
 }
 
-.status-diagram {                                      //todo : please check this mabye not use it !!
+.status-diagram { //todo : please check this mabye not use it !!
     height: 100%;
     width: 100%;
     min-width: 386px;
@@ -205,6 +223,7 @@
     box-sizing: border-box;
     box-shadow: $MainShadowBox;
     border-radius: $Radius8;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
@@ -220,9 +239,11 @@
     box-sizing: border-box;
     box-shadow: $MainShadowBox;
     border-radius: $Radius8;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
+
     @include customize() {
         color: getValue(MainPen);
     }
@@ -272,8 +293,9 @@
         }
     }
 }
-.guide-list li:last-child{
-    margin-bottom:0;
+
+.guide-list li:last-child {
+    margin-bottom: 0;
 }
 
 .range-zero {
@@ -343,7 +365,7 @@
         font-size: $FontSize12;
         line-height: 14px;
         display: flex;
-        align-items: center;              // check for add justify contetnt
+        align-items: center; // check for add justify contetnt
 
         @include customize() {
             color: getValue(SecondaryPen);
@@ -360,6 +382,7 @@
         font-weight: 400;
         font-size: $FontSize12;
         line-height: 14px;
+
         @include customize() {
             color: getValue(SecondaryPen);
         }
@@ -368,6 +391,7 @@
             font-size: 16px;
             line-height: 19px;
             margin-right: 4px;
+
             @include customize() {
                 color: getValue(MainPen);
             }
@@ -378,13 +402,14 @@
 .nft-information {
     display: flex;
     flex-flow: row nowrap;
-    justify-content:center;
+    justify-content: center;
     gap: 8px;
-                                              //dont dont dont add align item please !!!!!!!!!
+    //dont dont dont add align item please !!!!!!!!!
     .nft-information-box {
         min-width: 124px;
         padding: 1px 4px;
         border-radius: $Radius4;
+
         @include customize() {
             background-color: getValue(ThirdBackground);
         }
@@ -396,6 +421,7 @@
         font-weight: 400;
         font-size: $FontSize12;
         line-height: 14px;
+
         @include customize() {
             color: getValue(SecondaryPen);
         }
@@ -407,6 +433,7 @@
         font-weight: 500;
         font-size: $FontSize14;
         line-height: 16px;
+
         @include customize() {
             color: getValue(LoadingSecondColor);
         }
@@ -414,18 +441,20 @@
 }
 
 .nft-list-container {
-    width:100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row nowrap;
     overflow: hidden;
 }
+
 .nft-list-container-loading-mode {
     height: 98px;
     width: 100%;
     box-shadow: $MainShadowBox;
     border-radius: $Radius8;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
@@ -458,9 +487,11 @@
         flex-flow: row nowrap;
         padding: 0 8px;
         border-radius: $Radius8;
+
         @include customize() {
             background-color: getValue(SecondBackground);
         }
+
         @include customize() {
             color: getValue(MainPen);
         }
@@ -478,17 +509,19 @@
     font-weight: 500;
     font-size: $FontSize24;
     line-height: 28px;
-    border-radius:$Radius8;
+    border-radius: $Radius8;
+
     @include customize() {
         background-color: getValue(SecondBackground);
     }
+
     @include customize() {
         color: getValue(MainPen);
     }
-}                                          
+}
 
 .about-tonrich-wrapper {
-    height:16px;
+    height: 16px;
     display: flex;
     margin-top: 21px;
     font-family: 'Roboto';
@@ -496,6 +529,7 @@
     font-weight: 500;
     font-size: $FontSize12;
     line-height: 14px;
+
     @include customize() {
         color: getValue(AboutSite);
     }
@@ -507,7 +541,7 @@
         background-size: $FontSize16;
         display: flex;
         align-items: center;
-        margin-right: 23px;                             ///todo : check for add justify content after fix icon
+        margin-right: 23px; ///todo : check for add justify content after fix icon
     }
 
     .tonrich-telegram-icon {
@@ -516,7 +550,7 @@
         background-repeat: no-repeat;
         background-size: 16px;
         display: flex;
-        align-items: center;                              ///todo : check for add justify content after fix icon
+        align-items: center; ///todo : check for add justify content after fix icon
     }
 }
 
@@ -529,10 +563,11 @@
         display: none;
     }
 
-    .public-font-style{
+    .public-font-style {
         font-size: $FontSize10;
     }
-    .tonrich-title{
+
+    .tonrich-title {
         font-size: $FontSize20;
     }
 }
@@ -550,22 +585,24 @@
         }
     }
 
-    .color-guide-table{
+    .color-guide-table {
         display: none;
     }
 
-    .activity-diagram-wrapper{
+    .activity-diagram-wrapper {
         margin-top: 12px;
     }
+
     .nft-info-wrapper {
-        flex-flow:column;
-        margin-top:12px;
+        flex-flow: column;
+        margin-top: 12px;
     }
+
     .nft-info {
-        width:100%;
+        width: 100%;
         display: flex;
         flex-flow: row;
-        padding:8px;
+        padding: 8px;
         justify-content: space-between;
     }
 }
@@ -738,8 +775,8 @@ $color-green4: #216E39;*/
 }
 
 .nft-info-wrapper {*/
-  /*  height: 98px;*/
-    /*margin-top: 28px;
+/*  height: 98px;*/
+/*margin-top: 28px;
     display: flex;
     gap: 15px;
     width: 100%;
@@ -747,8 +784,8 @@ $color-green4: #216E39;*/
 }
 
 .nft-info {*/
-   /* height: 100%;*/
-    /*box-sizing: border-box;
+/* height: 100%;*/
+/*box-sizing: border-box;
     width: 273px;
     height:98px;
     background-color:$SecondBackground;
@@ -905,7 +942,7 @@ $color-green4: #216E39;*/
     width: 455px;
     overflow-x: hidden;
     -ms-overflow-style: none;*/ /* IE and Edge */
-    /*scrollbar-width: none;
+/*scrollbar-width: none;
 }
 .page-container::-webkit-scrollbar {
     display: none;

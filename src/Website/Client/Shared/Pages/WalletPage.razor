@@ -6,7 +6,7 @@
 <PageTitle>Wallet</PageTitle>
 
 
-<section class="main-wrapper theme-@theme">
+<section class="main-wrapper theme-light">
     @if (isPageBusy)
     {
         <div class="tonrich-container">
@@ -206,7 +206,7 @@
 
                 </div>
                 <div class="nft-list-container">
-
+                                                            @* check this line for loading*@
                     @if (NFTs is not null)
                     {
                         <ul class="nft-list-content">
@@ -218,7 +218,14 @@
                     }
                     else
                     {
-                        <div class="empty-mode">NFT list is empty</div>
+                        @if(NFTs is not null)
+                        {
+                            <div class="empty-mode">This wallet address has no NFT</div> 
+                        }
+                        else
+                        {
+                            <div class="empty-mode"><MiniLoading></MiniLoading></div>
+                        }
                     }
                 </div>
             </div>
