@@ -14,10 +14,10 @@ public partial class WalletPage
     public AccountInfoDto? AccountInfo { get; set; }
     public TransactionInfoDto? TransactionInfo { get; set; }
     public List<NFTDto>? NFTs { get; set; }
-    public int UserNamesCount { get; set; }
-    public int NumbersCount { get; set; }
+    public int? UserNamesCount { get; set; }
+    public int? NumbersCount { get; set; }
     public decimal? Worth { get; set; }
-    public decimal NFTPrice { get; set; }
+    public decimal? NFTPrice { get; set; }
     private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
     private string? ToolTipCallerOrderName { get; set; }
@@ -30,7 +30,7 @@ public partial class WalletPage
         if (!string.IsNullOrWhiteSpace(query))
         {
             var parameters = query.Replace("?", "").Split('&');
-           foreach ( var param in parameters)
+            foreach (var param in parameters)
             {
                 if (param.StartsWith("theme"))
                 {
@@ -64,12 +64,13 @@ public partial class WalletPage
                      }),
                      Task.Run(async () =>
                      {
-                         NFTs = new List<NFTDto>();
                          var telegramNumbers = await TonService.GetNFTsAsync(AccountInfo.Raw, AppSetting.TelegramAnonymousCollectionAddress);
                          if (telegramNumbers != null)
                          {
                              NumbersCount = telegramNumbers.Count;
+                             NFTs ??= new();
                              NFTs.AddRange(telegramNumbers);
+                             NFTPrice ??= 0;
                              NFTPrice += await TonService.GetNumbersPriceAsync(telegramNumbers.Select(c => c.Name)!);
                              await InvokeAsync(StateHasChanged);
                          }
@@ -79,7 +80,9 @@ public partial class WalletPage
                          if (telegramUserNames != null)
                          {
                              UserNamesCount = telegramUserNames.Count;
+                             NFTs ??= new();
                              NFTs.AddRange(telegramUserNames);
+                             NFTPrice ??= 0;
                              NFTPrice += await TonService.GetUserNamesPriceAsync(telegramUserNames.Select(c => c.Name)!);
                              await InvokeAsync(StateHasChanged);
                          }

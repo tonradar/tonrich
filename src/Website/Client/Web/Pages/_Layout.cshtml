@@ -41,9 +41,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The Tonrich is built with ASP.NET Core, Identity, Web API, and EF Core for the server-side, and Blazor for the client-side. It allows you to build Android, iOS, Windows, and Web applications from a single codebase." />
-    <link rel="icon" href="~/tonrich-icon.ico" type="image/x-icon" asp-append-version="@shoudAddAspAppendVersion">
+    <link rel="icon" href="~/tonrich-logo.svg" type="image/x-icon" asp-append-version="@shoudAddAspAppendVersion">
     <component type="typeof(HeadOutlet)" render-mode="@renderMode" />
-    <link rel="apple-touch-icon" sizes="512x512" href="images/icons/tonrich-icon.jpg" />
+    <link rel="apple-touch-icon" sizes="512x512" href="images/icons/tonrich-logo.svg" />
     <link href="_content/Tonrich.Client.Shared/Roboto.ttf" rel='stylesheet'>
 
     @if (isPwa)
@@ -77,7 +77,7 @@
     <div id="app-container">
         @if (isDefaultDeploymentType || isPwa)
         {
-            <component type="typeof(Tonrich.Client.Shared.LoadingComponent)" param-Color="@("#38ad17")" render-mode="@RenderMode.Static" />
+            <component type="typeof(Tonrich.Client.Shared.LoadingComponent)" param-Color="@("#FF5C11")" render-mode="@RenderMode.Static" />
         }
         @RenderBody()
     </div>
@@ -124,6 +124,7 @@
         <script src="_content/Bit.BlazorUI/scripts/bit.blazorui.min.js" asp-append-version="@shoudAddAspAppendVersion"></script>
     }
     <script src="_content/Tonrich.Client.Shared/scripts/app.js" asp-append-version="@shoudAddAspAppendVersion"></script>
+    <script src="https://unpkg.com/@@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     @if (isSsr)
     {

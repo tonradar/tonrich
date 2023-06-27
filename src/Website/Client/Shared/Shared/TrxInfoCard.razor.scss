@@ -6,21 +6,19 @@
 .trx-card {
     height: 56px;
     padding: 14px;
-    padding: 15px;
+    max-width: 273px;
+    padding: 0 8px;
     box-sizing: border-box;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    max-width: 273px;
-
+    box-shadow: $MainShadowBox;
+    border-radius: $Radius8;
     @include customize() {
         background-color: getValue(SecondBackground);
     }
-
-    box-shadow: $MainShadowBox;
-    border-radius: $Radius8;
 }
 
 .trx-public-icon {
@@ -34,68 +32,64 @@
     background: url("images/icons/balance.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size:32px;
 }
 
 .deposit-rate-icon {
     background: url("images/icons/deposit-rate.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
 .spend-rate-icon {
     background: url("images/icons/spend-rate.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
 .worth-icon {
     background: url("images/icons/worth.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
 .deposit-last-month-icon {
     background: url("images/icons/deposit-last-month.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
 .spend-last-month-icon {
     background: url("images/icons/spend-last-month.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
-
-/*.card-content {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: $FontSize12;
-    line-height: 14px;
-    @include customize() {
-        color: getValue(SecondaryPen);
-    }
-}*/
-
 .card-title {
-    cursor:pointer;
+    cursor: pointer;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: $FontSize12;
     line-height: 14px;
     margin-bottom: 4px;
+    white-space: nowrap;
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
     @include customize() {
         color: getValue(SecondaryPen);
     }
-
 }
 .notic-icon {
-    background: url("images/icons/notic-icon.svg");
     width: 12px;
     height: 12px;
+    background: url("images/icons/notic-icon.svg");
     margin-left: 4px;
     background-position: center;
     background-repeat: no-repeat;
@@ -104,9 +98,9 @@
 }
 
 .tooltip-box {
-    cursor:default;
     width: 250px;
     height: 100px;
+    cursor: default;
     position: absolute;
     right: -249px;
     top: 12px;
@@ -124,7 +118,9 @@
         justify-content: space-between;
         align-items: center;
         flex-flow: row nowrap;
-        color: #FC4C25;
+        @include customize() {
+            color: getValue(TooltipHeaderTitle);
+        }
 
         .tooltip-header-title {
             font-family: 'Inter';
@@ -135,13 +131,13 @@
         }
 
         .tooltip-box-close {
+            width: 15px;
+            height: 20px;
             cursor: pointer;
             background: url("images/icons/close-tooltip.svg");
             background-position: center;
             background-size: 8px;
             background-repeat: no-repeat;
-            width: 15px;
-            height: 20px;
         }
     }
 
@@ -151,6 +147,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
+        white-space:break-spaces;
         color: #313131; /* this color not change and in the dark and light mode is fixed*/
     }
 }
@@ -159,12 +156,11 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: $FontSize12;
     line-height: 14px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
     @include customize() {
         color: getValue(SecondaryPen);
     }
@@ -173,10 +169,9 @@
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: $FontSize16;
         line-height: 19px;
         margin-right:4px;
-        /* identical to box height */
         @include customize() {
             color: getValue(MainPen);
         }
