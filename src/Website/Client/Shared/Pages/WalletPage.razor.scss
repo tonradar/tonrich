@@ -110,19 +110,20 @@
 
     .diagram-unit-tool-tip {
         visibility: hidden;
-        width: 120px;
+        min-width: 152px;
         background-color: black;
         color: #fff;
         text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+        border-radius: 8px 8px 8px 0px;
+        padding: 4px 12px 8px 12px;
         /* Position the tooltip */
         position: absolute;
         z-index: 1;
-        bottom: 120%;
-        left: 50%;
+        bottom: 60%;
+        left: 340%;
         margin-left: -60px;
-        box-shadow: 0px 7px 22px 3px rgba(65,64,64,0.7);
+        box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
         /*background-color: #c3bebe;*/
         @include customize() {
             background-color: getValue(TooltipBackground);
@@ -607,6 +608,16 @@
     }
 }
 
+
+// this must be changed location
+
+.about-me-link {
+    text-decoration: none;
+
+    @include customize() {
+        color: getValue(AboutSite);
+    }
+}
 
 
 /*old css code*/

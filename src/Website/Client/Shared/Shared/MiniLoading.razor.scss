@@ -10,7 +10,7 @@
 }
 
 .loading-second-color {
-    @include customize() {
+    /*@include customize() {
         color: getValue(LoadingSecondColor);
-    }
+    }*/
 }

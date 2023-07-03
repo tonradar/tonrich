@@ -153,7 +153,7 @@
                                 {
                                     var activity = GetActivity(columnInARow.DateTimeOffset);
                                     <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))">
-                                        <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on<br /> @activity.ActivityDate.DateTime.ToShortDateString()</div>
+                                        <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>
                                     </div>
                                 }
                             }
@@ -256,8 +256,8 @@
                 </div>
             </div>
             <div class="about-tonrich-wrapper">
-                <div class="tonrich-site-icon"><a href="https://tonrich.app" target="_blank">Tonrich.com</a></div>
-                <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" target="_blank">t.me/Tonrichbot</a></div>
+                <div class="tonrich-site-icon"><a href="https://tonrich.app" class="about-me-link" target="_blank">Tonrich.com</a></div>
+                <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" class="about-me-link" target="_blank">t.me/Tonrichbot</a></div>
             </div>
         </div>
     }
