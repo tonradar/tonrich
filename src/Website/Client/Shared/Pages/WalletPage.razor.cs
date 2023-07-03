@@ -20,6 +20,9 @@ public partial class WalletPage
     public decimal? NFTPrice { get; set; }
     private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
+    private bool isDiagramBusy = true;
+    private int xIndex = 0;
+    private int yIndex = 0;
     private string? ToolTipCallerOrderName { get; set; }
     private string theme { get; set; } = "light";
     private bool IsOpendToolTip1 { get; set; }
@@ -56,6 +59,7 @@ public partial class WalletPage
 
         _ = Task.Run(async () =>
         {
+            isAccountBoxBusy = true;
             await Task.WhenAll(
                      Task.Run(async () =>
                      {
@@ -88,6 +92,7 @@ public partial class WalletPage
                          }
                      })
                  );
+            isDiagramBusy = false;
 
             Worth = NFTPrice + AccountInfo?.Balance ?? 0;
 
