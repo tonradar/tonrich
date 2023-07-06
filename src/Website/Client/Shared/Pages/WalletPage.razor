@@ -147,7 +147,7 @@
                             }
                         </div>
                         <div class="diagram-result-box">
-
+                            
                             @for (int yIndex = 0; yIndex < ActivityChartDates.Count; yIndex++)
                             {
                                 var row = ActivityChartDates[yIndex].ToList();
@@ -155,7 +155,7 @@
                                 {
                                     @if(isDiagramBusy) 
                                     {
-                                        @if(yIndex == 3 && (xIndex == 11 || xIndex == 12 || xIndex == 13 || xIndex == 14))
+                                        @if (yIndex == 3 && loadingUints.Contains(xIndex))
                                         {
                                             <div class="diagram-unit loading-unit-@(xIndex.ToString())"></div>
                                         }else

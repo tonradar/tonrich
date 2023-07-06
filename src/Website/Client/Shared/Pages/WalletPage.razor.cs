@@ -8,6 +8,7 @@ namespace Tonrich.Client.Shared.Pages;
 public partial class WalletPage
 {
     [Parameter] public required string WalletId { get; set; }
+    [Parameter] private string theme { get; set; } = "light";
     [AutoInject] public ITonService TonService { get; set; } = default!;
 
     public List<(int Number, string Name)> Months = new();
@@ -20,11 +21,9 @@ public partial class WalletPage
     public decimal? NFTPrice { get; set; }
     private bool isPageBusy = false;
     private bool isAccountBoxBusy = true;
+    int[] loadingUints = { 11, 12, 13, 14 };
     private bool isDiagramBusy = true;
-    private int xIndex = 0;
-    private int yIndex = 0;
     private string? ToolTipCallerOrderName { get; set; }
-    private string theme { get; set; } = "light";
     private bool IsOpendToolTip1 { get; set; }
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
