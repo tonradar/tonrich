@@ -34,7 +34,7 @@ public partial class ExceptionHandler : IExceptionHandler
         string exceptionMessage = (exception as KnownException)?.Message ?? exception.ToString();
         _ = MessageBox.Show(exceptionMessage, _localizer[nameof(AppStrings.Error)]);
         Console.WriteLine(exceptionMessage);
-        Debugger.Break();
+       Debugger.Break();
 #else
         if (exception is KnownException knownException)
         {

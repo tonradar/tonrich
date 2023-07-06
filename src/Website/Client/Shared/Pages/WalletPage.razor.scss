@@ -55,7 +55,7 @@
     }
 
     .tonrich-title {
-        font-family: 'Ubuntu';
+        font-family: 'Roboto';
         font-style: normal;
         font-weight: 500;
         font-size: $FontSize24;
@@ -72,7 +72,7 @@
 }
 
 .public-font-style {
-    font-family: 'IBM Plex Mono';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: $FontSize16;
@@ -110,19 +110,20 @@
 
     .diagram-unit-tool-tip {
         visibility: hidden;
-        width: 120px;
+        min-width: 152px;
         background-color: black;
         color: #fff;
         text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+        border-radius: 8px 8px 8px 0px;
+        padding: 4px 12px 8px 12px;
         /* Position the tooltip */
         position: absolute;
         z-index: 1;
-        bottom: 120%;
-        left: 50%;
+        bottom: 60%;
+        left: 340%;
         margin-left: -60px;
-        box-shadow: 0px 7px 22px 3px rgba(65,64,64,0.7);
+        box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
         /*background-color: #c3bebe;*/
         @include customize() {
             background-color: getValue(TooltipBackground);
@@ -227,6 +228,62 @@
     @include customize() {
         background-color: getValue(SecondBackground);
     }
+}
+
+.loading-unit-11{
+    background-color: #FF5C11;
+    animation-name: animation-unit-one;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation-unit-one {
+    0%   {background-color: #FF5C11;}
+    25%  {background-color: #FE9A6B;}
+    50%  {background-color: #FE9A6B;}
+    100% {background-color: #FFD8C7;}
+}
+
+.loading-unit-12{
+    background-color: #FFD8C7;
+    animation-name: animation-unit-two;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation-unit-two {
+    0%   {background-color: #FFD8C7;}
+    25%  {background-color: #FF5C11;}
+    50%  {background-color: #FE9A6B;}
+    100% {background-color: #FFD8C7;}
+}
+
+.loading-unit-13{
+    background-color: #FFD8C7;
+    animation-name: animation-unit-three;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation-unit-three {
+    0%   {background-color: #FFD8C7;}
+    25%  {background-color: #FFD8C7;}
+    50%  {background-color: #FF5C11;}
+    100% {background-color: #FE9A6B;}
+}
+
+.loading-unit-14{
+    background-color: #FFD8C7;
+    animation-name: animation-unit-four;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation-unit-four {
+    0%   {background-color: #FFD8C7;}
+    25%  {background-color: #FFD8C7;}
+    50%  {background-color: #FFD8C7;}
+    100% {background-color: #FF5C11;}
 }
 
 .color-guide-table {
@@ -607,6 +664,16 @@
     }
 }
 
+
+// this must be changed location
+
+.about-me-link {
+    text-decoration: none;
+
+    @include customize() {
+        color: getValue(AboutSite);
+    }
+}
 
 
 /*old css code*/

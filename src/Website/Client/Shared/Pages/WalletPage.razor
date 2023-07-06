@@ -147,14 +147,28 @@
                             }
                         </div>
                         <div class="diagram-result-box">
-                            @foreach (var row in ActivityChartDates)
+                            
+                            @for (int yIndex = 0; yIndex < ActivityChartDates.Count; yIndex++)
                             {
-                                @foreach (var columnInARow in row)
+                                var row = ActivityChartDates[yIndex].ToList();
+                                @for (int xIndex = 0; xIndex < row.Count; xIndex++)
                                 {
-                                    var activity = GetActivity(columnInARow.DateTimeOffset);
-                                    <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))">
-                                        <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on<br /> @activity.ActivityDate.DateTime.ToShortDateString()</div>
-                                    </div>
+                                    @if(isDiagramBusy) 
+                                    {
+                                        @if (yIndex == 3 && loadingUints.Contains(xIndex))
+                                        {
+                                            <div class="diagram-unit loading-unit-@(xIndex.ToString())"></div>
+                                        }else
+                                        {
+                                            <div class="diagram-unit range-zero"></div>
+                                        }
+                                    }else 
+                                    {
+                                        var activity = GetActivity(row[xIndex].DateTimeOffset);
+                                        <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))">
+                                            <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>
+                                        </div>
+                                    }
                                 }
                             }
                         </div>
@@ -256,8 +270,8 @@
                 </div>
             </div>
             <div class="about-tonrich-wrapper">
-                <div class="tonrich-site-icon"><a href="https://tonrich.app" target="_blank">Tonrich.com</a></div>
-                <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" target="_blank">t.me/Tonrichbot</a></div>
+                <div class="tonrich-site-icon"><a href="https://tonrich.app" class="about-me-link" target="_blank">Tonrich.com</a></div>
+                <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" class="about-me-link" target="_blank">t.me/Tonrichbot</a></div>
             </div>
         </div>
     }
