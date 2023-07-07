@@ -33,13 +33,28 @@ addEventListener('mouseover', async (e) => {
       currentWalletId = null;
     }
   }
-
-
 });
+
+
 
 
 function getWalletId(htmlElement: HTMLElement): string | null {
 
+
+  if(window.location.host.indexOf("fragment.com") !== -1){
+    return getWalletIdFromFragment(htmlElement);
+  }
+  else if(window.location.host.indexOf("tonviewer.com") !== -1){
+    return getWalletIdFromTonviewer(htmlElement);
+  }else if(window.location.host.indexOf("tonscan.org") !== -1){
+    return getWalletIdFromTonscan(htmlElement);
+  }
+
+
+  return null;
+}
+
+function getWalletIdFromFragment(htmlElement: HTMLElement): string | null {
   if (htmlElement) {
     if (htmlElement.classList.contains("table-cell")) {
       var firstElement = htmlElement.firstElementChild;
@@ -53,6 +68,38 @@ function getWalletId(htmlElement: HTMLElement): string | null {
     }
   }
 
+  return null;
+}
+
+
+function getWalletIdFromTonviewer(htmlElement: HTMLElement): string | null {
+  if (htmlElement) {
+  var walletElement =  htmlElement.querySelector(":scope > span>div>div.address-wrapper-container>span")
+    if (walletElement) {
+    
+      console.log(walletElement.innerHTML.toString());
+      
+      return walletElement.innerHTML?.toString() ?? null;
+    }
+  }
+
+  return null;
+}
+
+
+function getWalletIdFromTonscan(htmlElement: HTMLElement): string | null {
+  if (htmlElement) {
+    if (htmlElement.classList.contains("table-cell")) {
+      var firstElement = htmlElement.firstElementChild;
+      if (firstElement?.classList.contains("tm-wallet")) {
+        let stringUrl = firstElement.getAttribute('href');
+        if (stringUrl) {
+          let lastIndexOf = stringUrl.lastIndexOf('/');
+          return stringUrl.substring(lastIndexOf + 1);
+        }
+      }
+    }
+  }
 
   return null;
 }

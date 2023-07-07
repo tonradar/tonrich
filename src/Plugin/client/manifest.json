@@ -23,7 +23,9 @@
   ],
   "host_permissions": [
     "*://*.fragment.com/*",
-    "*://*.tonapi.io/*"
+    "*://*.tonapi.io/*",
+    "*://*.tonviewer.com/*",
+    "*://*.tonscan.org/*"
   ],
   "web_accessible_resources": [
     {
