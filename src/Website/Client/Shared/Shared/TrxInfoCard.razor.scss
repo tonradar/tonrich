@@ -107,7 +107,7 @@
     z-index: 2;
     padding: 8px 10px;
     border-radius: 0px 8px 8px 8px;
-    box-shadow: 0px 7px 22px 5px rgba(65, 64, 64, 0.7); // todo: please check this
+    box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.3);
     @include customize() {
         background-color: getValue(TooltipBackground);
     }
@@ -118,6 +118,7 @@
         justify-content: space-between;
         align-items: center;
         flex-flow: row nowrap;
+
         @include customize() {
             color: getValue(TooltipHeaderTitle);
         }
@@ -147,7 +148,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
-        white-space:break-spaces;
+        white-space: break-spaces;
         color: #313131; /* this color not change and in the dark and light mode is fixed*/
     }
 }
