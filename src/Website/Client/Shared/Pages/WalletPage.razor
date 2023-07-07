@@ -86,12 +86,12 @@
                         }
                         else
                         {
-                            <div class="wallet-info" @onclick=CopyAsync>
+                            <div class="wallet-info" @onmousemove="MouseMove" @onclick=CopyAsync>
                                 @if (AccountInfo?.Name != null)
                                 {
                                     <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
                                 }
-                                <div class="wallet-id public-font-style" @onmousemove="MouseMove">
+                                <div class="wallet-id public-font-style">
                                     @WalletId
                                     <div style="@copyTooltipPosition" class="copy-tooltip-box">Copy</div>
                                 </div>
