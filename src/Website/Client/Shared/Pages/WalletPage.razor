@@ -1,4 +1,5 @@
 @page "/wallet/{WalletId}"
+@inject IJSRuntime JS
 @using Tonrich.Client.Shared.Shared
 @using Tonrich.Shared.Util;
 @inherits AppComponentBase
@@ -90,8 +91,9 @@
                                 {
                                     <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
                                 }
-                                <div class="wallet-id public-font-style">
-                                    <span title="Copy">@WalletId</span>
+                                <div class="wallet-id public-font-style" @onmousemove="MouseMove">
+                                    @WalletId
+                                    <div style="@copyTooltipPosition" class="copy-tooltip-box">Copy</div>
                                 </div>
                             </div>
                         }

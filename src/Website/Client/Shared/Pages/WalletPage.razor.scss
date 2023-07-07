@@ -71,6 +71,31 @@
     cursor: pointer;
 }
 
+.copy-tooltip-box{
+    display: none;
+}
+
+.wallet-id:hover {
+
+    .copy-tooltip-box {
+        display: block;
+        position: absolute;
+        font-size: $FontSize14;
+        border-radius: 4px;
+        height: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0 4px;
+        @include customize() {
+            color: getValue(CopyTooltipPen);
+            background-color: getValue(CopyTooltipBackground);
+        }
+    }
+}
+
+
 .public-font-style {
     font-family: 'Roboto';
     font-style: normal;
