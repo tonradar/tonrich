@@ -69,6 +69,7 @@
 
 .wallet-id {
     cursor: pointer;
+    background-color: #FFF3ED
 }
 
 .copy-tooltip-box{
@@ -464,6 +465,9 @@
         font-weight: 400;
         font-size: $FontSize12;
         line-height: 14px;
+        display:flex;
+        align-items: center;
+        justify-content:flex-start;
 
         @include customize() {
             color: getValue(SecondaryPen);
