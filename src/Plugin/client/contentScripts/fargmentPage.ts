@@ -4,6 +4,7 @@ import cssExports from "./fragmentPage.scss";
 var walletId: string | null = '';
 
 let transactions = document.querySelectorAll('.tm-wallet');
+//todo: add tonrich badge
 for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).style.boxShadow = "0 0 10px rgba(255,255,255,.5)";
   (transactions[i] as HTMLElement).style.padding = "2px";
@@ -11,7 +12,7 @@ for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).classList.add(cssExports["blink"]);
 }
 
-addEventListener('mouseover', async (e) => {
+addEventListener('onclick', async (e) => {
   var element = (e as any).fromElement as HTMLElement;
 
   var currentWalletId = getWalletId(element);
@@ -20,8 +21,7 @@ addEventListener('mouseover', async (e) => {
     walletId = currentWalletId;
     console.log(currentWalletId);
     showSite(`${environment.tonrichAddress}/${walletId}`, element);
-  }
-  else {
+  } else {
     if (element.classList.contains("tm-wallet") || element.parentElement?.classList.contains("tm-wallet")) {
       return;
     }
