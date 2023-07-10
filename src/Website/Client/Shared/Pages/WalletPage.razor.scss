@@ -422,7 +422,7 @@
 }
 
 .nft-info {
-    min-height: 98px;
+    min-height: 61px;
     min-width: 273px;
     box-sizing: border-box;
     padding: 10px 8px 7px 8px;
@@ -690,6 +690,10 @@
         flex-flow: row;
         padding: 8px;
         justify-content: space-between;
+    }
+
+    .tonrich-container{
+        padding: 24px 20px;
     }
 }
 

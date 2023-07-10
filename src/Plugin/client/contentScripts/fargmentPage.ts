@@ -12,7 +12,7 @@ for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).classList.add(cssExports["blink"]);
 }
 
-addEventListener('onclick', async (e) => {
+addEventListener('mouseover', async (e) => {
   var element = (e as any).fromElement as HTMLElement;
 
   var currentWalletId = getWalletId(element);
