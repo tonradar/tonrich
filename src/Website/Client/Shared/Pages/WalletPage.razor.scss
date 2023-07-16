@@ -664,6 +664,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         margin-top: 12px;
+        gap: 8px 12px;
 
         .order-zero {
             background-color: red !important;
@@ -682,6 +683,7 @@
     .nft-info-wrapper {
         flex-flow: column;
         margin-top: 12px;
+        gap: 8px;
     }
 
     .nft-info {
@@ -694,6 +696,15 @@
 
     .tonrich-container{
         padding: 24px 20px;
+    }
+    .owner-info-wrapper{
+        padding-bottom : 12px;
+    }
+    .activity-diagram-part {
+        padding-bottom: 8px;
+    }
+    .about-tonrich-wrapper{
+        margin-top: 17px;
     }
 }
 
