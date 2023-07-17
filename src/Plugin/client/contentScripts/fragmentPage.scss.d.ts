@@ -3,6 +3,7 @@
 interface CssExports {
   'blink': string;
   'blinker': string;
+  'newElm': string;
   'tonrich-page': string;
   'tonrich-page-Display': string;
   'tonrich-page-Display-visible': string;
