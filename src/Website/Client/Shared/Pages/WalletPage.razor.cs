@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Microsoft.AspNetCore.Components.Web;
+using System.Globalization;
 using Tonrich.Client.Shared.Shared;
 using Tonrich.Shared.Util;
 using static System.Net.Mime.MediaTypeNames;
@@ -25,6 +26,7 @@ public partial class WalletPage
     private bool isDiagramBusy = true;
     private string? ToolTipCallerOrderName { get; set; }
     private bool IsOpendToolTip1 { get; set; }
+    public string copyTooltipPosition = "";
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
     {
@@ -111,6 +113,10 @@ public partial class WalletPage
         await base.OnAfterRenderAsync(firstRender);
     }
 
+    private void MouseMove(MouseEventArgs e)
+    {
+        copyTooltipPosition = $"top: {e.ClientY + 15}px; left: {e.ClientX + 15}px;";
+    } 
     private void HandleToggleTooltipClicked(string toolTipCallerOrderName)
     {
         ToolTipCallerOrderName = toolTipCallerOrderName;

@@ -1,4 +1,5 @@
 @page "/wallet/{WalletId}"
+@inject IJSRuntime JS
 @using Tonrich.Client.Shared.Shared
 @using Tonrich.Shared.Util;
 @inherits AppComponentBase
@@ -85,13 +86,14 @@
                         }
                         else
                         {
-                            <div class="wallet-info" @onclick=CopyAsync>
+                            <div class="wallet-info" @onmousemove="MouseMove" @onclick=CopyAsync>
                                 @if (AccountInfo?.Name != null)
                                 {
                                     <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
                                 }
                                 <div class="wallet-id public-font-style">
-                                    <span title="Copy">@WalletId</span>
+                                    @WalletId
+                                    <div style="@copyTooltipPosition" class="copy-tooltip-box">Copy</div>
                                 </div>
                             </div>
                         }
