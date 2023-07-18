@@ -8,6 +8,7 @@ namespace Tonrich.Client.Shared.Shared
 {
     public partial class MiniLoading
     {
-        [Parameter] public string Color { get; set; } = "main-color";
+        //[Parameter] public string? Color { get; set; } = "main-color";
+        [Parameter] public string? ColorName { get; set; }
     }
 }

@@ -15,7 +15,6 @@ for (let i = 0; i < transactions.length; i++) {
   TonrichIcon.classList.add(cssExports["newElm"]);
   TonrichIcon.addEventListener("mouseover", async (e) => {
     let element = transactions[i] as HTMLElement;
-    debugger;
     var currentWalletId = getWalletId(element);
     if (!currentWalletId || currentWalletId === walletId)
       return;
@@ -28,12 +27,12 @@ for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).style.display = "flex";
   (transactions[i] as HTMLElement).style.alignItems = "center";
   (transactions[i] as HTMLElement).style.justifyContent = "center";
+  (transactions[i] as HTMLElement).style.position = "realtive";
 }
 
 
 
 function getWalletId(htmlElement: HTMLElement): string | null {
-  debugger;
   let stringUrl = htmlElement.getAttribute('href');
   if (stringUrl) {
     let lastIndexOf = stringUrl.lastIndexOf('/');
