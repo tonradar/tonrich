@@ -10,5 +10,10 @@ You haven’t even left the fragment.com, it just appears while you are still on
  - **Spend Rate:** How much money is being spent from this wallet monthly.
  - **Spend in last month:** How much money is being spent from this wallet within the last month?
  - **Daily Turnover Diagram:** A GitHub activity diagram-like overview of this wallet’s activity. How much activity had this wallet on each day during the last 6 months.
-All you need to do is to install the TonRich plugin on your Chrome or Edge, then you will have such an insight into wallets on all these websites: fragment.com, getgems.io, ton.diamonds, tonapi.io and tonscan.org. 
+All you need to do is to install the TonRich plugin on your Chrome or Edge, then you will have such an insight into wallets on all these websites: fragment.com, getgems.io, ton.diamonds, tonapi.io, and tonscan.org. 
 TonRich, a user-friendly **browser plugin** works seamlessly with sites mentioned above, whenever you hover over a wallet address on these sites, Tonrich will show users a comprehensive overview of the wallet's activity, balance, transactions, and more. They can also use the **Tonrich Telegram bot** easily to get this information too, just by sending the wallet address to the bot.
+
+# Figma Designs
+You can find the latest UI/UX designs [here in Figma](https://www.figma.com/file/IIdmrBMNhhhs1TSTEWsD9F/Melkradar%2Fdexign?type=design&node-id=1360-15514&mode=design)
+
+![image](https://github.com/tonradar/tonrich/assets/5070766/49a2d284-9bf5-4de6-b181-62664109d46c)
