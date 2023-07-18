@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using System.Globalization;
+using System.Text.Json;
 using Tonrich.Client.Shared.Shared;
 using Tonrich.Shared.Util;
 using static System.Net.Mime.MediaTypeNames;
@@ -49,74 +50,71 @@ public partial class WalletPage
 
     }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterFirstRenderAsync()
     {
-        isAccountBoxBusy = true;
+        await base.OnAfterFirstRenderAsync();
+
         AccountInfo = await TonService.GetAccountInfoAsync(WalletId);
-        isAccountBoxBusy = false;
 
         if (AccountInfo?.Address is null)
-            return;
-
-        _ = Task.Run(async () =>
-        {
-            isAccountBoxBusy = true;
-            await Task.WhenAll(
-                     Task.Run(async () =>
-                     {
-                         TransactionInfo = await TonService.GetTransactionsAsync(AccountInfo.Raw);
-                         await InvokeAsync(StateHasChanged);
-                     }),
-                     Task.Run(async () =>
-                     {
-                         var telegramNumbers = await TonService.GetNFTsAsync(AccountInfo.Raw, AppSetting.TelegramAnonymousCollectionAddress);
-                         if (telegramNumbers != null)
-                         {
-                             NumbersCount = telegramNumbers.Count;
-                             NFTs ??= new();
-                             NFTs.AddRange(telegramNumbers);
-                             NFTPrice ??= 0;
-                             NFTPrice += await TonService.GetNumbersPriceAsync(telegramNumbers.Select(c => c.Name)!);
-                             await InvokeAsync(StateHasChanged);
-                         }
-
-                         var telegramUserNames = await TonService.GetNFTsAsync(AccountInfo.Raw, AppSetting.TelegramUserNameCollectionAddress);
-
-                         if (telegramUserNames != null)
-                         {
-                             UserNamesCount = telegramUserNames.Count;
-                             NFTs ??= new();
-                             NFTs.AddRange(telegramUserNames);
-                             NFTPrice ??= 0;
-                             NFTPrice += await TonService.GetUserNamesPriceAsync(telegramUserNames.Select(c => c.Name)!);
-                             await InvokeAsync(StateHasChanged);
-                         }
-                     })
-                 );
-            isDiagramBusy = false;
-
-            Worth = NFTPrice + AccountInfo?.Balance ?? 0;
-
-            await InvokeAsync(StateHasChanged);
-        });
-
-        await base.OnInitAsync();
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (AccountInfo?.Address is null && isAccountBoxBusy == false)
         {
             NavigationManager.NavigateTo("/WalletNotFound", true);
+            return;
         }
 
-        await base.OnAfterRenderAsync(firstRender);
+        await Task.WhenAll(
+                 Task.Run(async () =>
+                 {
+                     TransactionInfo = await TonService.GetTransactionsAsync(AccountInfo.Raw);
+                     await InvokeAsync(StateHasChanged);
+                 }),
+                 Task.Run(async () =>
+                 {
+                     var telegramNumbers = await TonService.GetNFTsAsync(AccountInfo.Raw, AppSetting.TelegramAnonymousCollectionAddress);
+                     if (telegramNumbers != null)
+                     {
+                         NumbersCount = telegramNumbers.Count;
+                         NFTs ??= new();
+                         NFTs.AddRange(telegramNumbers);
+                         NFTPrice ??= 0;
+                         var response = await HttpClient.PostAsJsonAsync<IEnumerable<string>>("NFT/GetNumbersPrice", telegramNumbers.Select(c => c.Name)!);
+                         if (response != null)
+                         {
+                             var content = await response.Content.ReadAsStreamAsync();
+                             NFTPrice += await JsonSerializer.DeserializeAsync<decimal>(content);
+                         }
+                         await InvokeAsync(StateHasChanged);
+                     }
+
+                     var telegramUserNames = await TonService.GetNFTsAsync(AccountInfo.Raw, AppSetting.TelegramUserNameCollectionAddress);
+
+                     if (telegramUserNames != null)
+                     {
+                         UserNamesCount = telegramUserNames.Count;
+                         NFTs ??= new();
+                         NFTs.AddRange(telegramUserNames);
+                         NFTPrice ??= 0;
+                         var response = await HttpClient.PostAsJsonAsync<IEnumerable<string>>("NFT/GetUserNamesPrice", telegramUserNames.Select(c => c.Name)!);
+                         if (response != null)
+                         {
+                             var content = await response.Content.ReadAsStreamAsync();
+                             NFTPrice += await JsonSerializer.DeserializeAsync<decimal>(content);
+                         }
+                         await InvokeAsync(StateHasChanged);
+                     }
+                 })
+             );
+        isDiagramBusy = false;
+
+        Worth = NFTPrice + AccountInfo?.Balance ?? 0;
+        isAccountBoxBusy = false;
+        await InvokeAsync(StateHasChanged);
     }
 
     private void MouseMove(MouseEventArgs e)
     {
         copyTooltipPosition = $"top: {e.ClientY + 15}px; left: {e.ClientX + 15}px;";
-    } 
+    }
     private void HandleToggleTooltipClicked(string toolTipCallerOrderName)
     {
         ToolTipCallerOrderName = toolTipCallerOrderName;
