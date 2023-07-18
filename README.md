@@ -33,6 +33,6 @@ The bot will answer you by sending an image like this:
 ![image](https://github.com/tonradar/tonrich/assets/5070766/a489b725-42c0-4c17-9c04-9cbc2f3cf79c)
 
 # Figma Designs
-You can find the latest UI/UX designs [here in Figma](https://www.figma.com/file/IIdmrBMNhhhs1TSTEWsD9F/Melkradar%2Fdexign?type=design&node-id=1360-15514&mode=design)
+You can find the latest UI/UX designs here: [Figma](https://www.figma.com/file/IIdmrBMNhhhs1TSTEWsD9F/Melkradar%2Fdexign?type=design&node-id=1360-15514&mode=design)
 
 ![image](https://github.com/tonradar/tonrich/assets/5070766/49a2d284-9bf5-4de6-b181-62664109d46c)
