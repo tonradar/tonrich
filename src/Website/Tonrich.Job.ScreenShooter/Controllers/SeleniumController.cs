@@ -47,7 +47,7 @@ namespace Tonrich.Job.ScreenShooter.Controllers
             {
                 var driverId = Guid.NewGuid();
                 var chromeOptions = new ChromeOptions();
-                //chromeOptions.AddArgument("--headless");
+                chromeOptions.AddArgument("--headless");
                 chromeOptions.AddArgument("--disable-gpu");
                 chromeOptions.AddArgument("--disable-extensions");
                 chromeOptions.AddArgument("--no-sandbox");
