@@ -30,8 +30,6 @@ for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).style.position = "realtive";
 }
 
-
-
 function getWalletId(htmlElement: HTMLElement): string | null {
   let stringUrl = htmlElement.getAttribute('href');
   if (stringUrl) {
