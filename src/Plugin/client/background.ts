@@ -27,7 +27,8 @@ const findCookie = (cookies: chrome.cookies.Cookie[], cookieName: string): chrom
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   if (!tab.url) return;
 
-  if (tab.url.includes('fragment.com') && tab.status === 'complete')
+  if (tab.status === 'complete' && (tab.url.includes('fragment.com') || tab.url.includes('tonscan.org') ||  tab.url.includes('tonviewer.com')))
+
     await executeOnTab({ tabId, allFrames: true }, ['fargmentPage.js']);
 });
 
