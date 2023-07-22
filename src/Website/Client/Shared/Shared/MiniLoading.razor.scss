@@ -2,15 +2,8 @@
 @import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
 
-.loading-main-color {
-    //todo: set loading gif
-    @include customize() {
-        color: getValue(LoadingMainColor);
-    }
-}
 
 .loading-second-color {
-    /*@include customize() {
-        color: getValue(LoadingSecondColor);
-    }*/
+    scale: 4;
+    margin-left: 5px;
 }
