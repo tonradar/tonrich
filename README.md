@@ -1,5 +1,5 @@
-# TonrRich
-Tonrich is focused on providing detailed information and insights into any TON wallet. 
+# TonRich
+TonRich is focused on providing detailed information and insights into any TON wallet. 
 Imagine you see a wallet public key within an auction, and you have no idea of how strong or weak is that wallet. 
 Then you hover on the wallet address, and you see this popup appearing on that wallet instantly:
 
