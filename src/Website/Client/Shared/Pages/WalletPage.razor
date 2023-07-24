@@ -7,7 +7,7 @@
 <PageTitle>Wallet</PageTitle>
 
 
-<section id="main" class="main-wrapper theme-light @(isAccountBoxBusy?"loading":"loaded")">
+<section id="main" class="main-wrapper theme-@theme @(isAccountBoxBusy?"loading":"loaded")">
     @if (isPageBusy)
     {
         <div class="tonrich-container">

@@ -42,29 +42,41 @@ namespace Tonrich.Job.ScreenShooter.Controllers
 
             var MaxSeleniumInstance = _configuration.GetValue<int>("MaxSeleniumInstance");
             WebDrivers = new List<(Guid Id, WebDriver webDriver)>();
-            var browserDriverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             for (int i = 0; i < MaxSeleniumInstance; i++)
             {
                 var driverId = Guid.NewGuid();
-                var chromeOptions = new ChromeOptions();
-                //chromeOptions.AddArgument("--headless");
-                chromeOptions.AddArgument("--disable-gpu");
-                chromeOptions.AddArgument("--disable-extensions");
-                chromeOptions.AddArgument("--no-sandbox");
-                chromeOptions.AddArgument("--disable-dev-shm-usage");
-                var driver = new ChromeDriver(browserDriverPath, chromeOptions);
-                driver.Manage().Window.Size = new Size(426, 680);
-
-                await _seleniumService.LoadTonrichWebsiteAsync(driver, "EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR");
-                WebDrivers.Add((driverId, driver));
+                await InitalDriver(driverId);
             }
 
             return WebDrivers.Select(c => c.Id).ToList();
         }
 
-        [HttpGet]
-        public async Task<MemoryStream> TakeScreenShootAsync(Guid driverId, string walletId)
+        private async Task InitalDriver(Guid driverId)
         {
+            //var browserDriverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
+            chromeOptions.AddArgument("--disable-gpu");
+            chromeOptions.AddArgument("--disable-extensions");
+            chromeOptions.AddArgument("--no-sandbox");
+            chromeOptions.AddArgument("--disable-dev-shm-usage");
+            var driver = new ChromeDriver("C://", chromeOptions);
+            driver.Manage().Window.Size = new Size(426, 680);
+
+            await _seleniumService.LoadTonrichWebsiteAsync(driver, "EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR");
+            WebDrivers?.Add((driverId, driver));
+        }
+
+        [HttpGet]
+        public async Task<MemoryStream?> TakeScreenShootAsync(Guid driverId, string walletId)
+        {
+            if (WebDrivers is null || !WebDrivers.Any(c => c.Id == driverId))
+            {
+                WebDrivers ??= new();
+                await InitalDriver(driverId);
+            }
+
             var driver = WebDrivers.Where(c => c.Id == driverId).First().webDriver;
             return await _seleniumService.LoadTonrichWebsiteAsync(driver, walletId);
         }
