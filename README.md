@@ -27,7 +27,7 @@ Once you install [TonRich Browser Plugin](https://chrome.google.com/webstore/det
 Tonrich will show users a comprehensive overview of the wallet's activity, balance, transactions, and more.
 
 ### TonRich Telegram Bot
-You can also use the **Tonrich Telegram bot** [@tonrich_bot](https://t.me/tonrich_bot) easily to get this information too, just by sending the wallet address to the bot. 
+You can also use the **Tonrich Telegram bot** [@TonRichBot](https://t.me/tonrichbot) easily to get this information too, just by sending the wallet address to the bot. 
 The bot will answer you by sending an image like this:
 
 ![image](https://github.com/tonradar/tonrich/assets/5070766/a489b725-42c0-4c17-9c04-9cbc2f3cf79c)
