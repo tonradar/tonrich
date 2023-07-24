@@ -36,3 +36,6 @@ The bot will answer you by sending an image like this:
 You can find the latest UI/UX designs here: [Figma](https://www.figma.com/file/IIdmrBMNhhhs1TSTEWsD9F/Melkradar%2Fdexign?type=design&node-id=1360-15514&mode=design)
 
 ![image](https://github.com/tonradar/tonrich/assets/5070766/49a2d284-9bf5-4de6-b181-62664109d46c)
+
+# About Us
+ We are a bunch of developers with lots of enthusiasm for TON. Ton contact us, just drop me a line on Telegram: [@mehran](https://t.me/mehran).
