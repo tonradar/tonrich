@@ -6,9 +6,16 @@ namespace Tonrich.Job.ScreenShooter.Service.Implementation;
 
 public class SeleniumService : ISeleniumService
 {
+    private readonly IConfiguration configuration;
+
+    public SeleniumService(IConfiguration configuration)
+    {
+        this.configuration = configuration;
+    }
     public async Task<MemoryStream> LoadTonrichWebsiteAsync(WebDriver driver, string walletId)
     {
-        driver.Navigate().GoToUrl($"https://dev.tonrich.app/wallet/{walletId}");
+        var address = configuration.GetValue<string>("TonrichAddress");
+        driver.Navigate().GoToUrl(new Uri(new Uri(address), walletId));
 
         await Task.Delay(TimeSpan.FromSeconds(1));
         while (true)
@@ -17,7 +24,7 @@ public class SeleniumService : ISeleniumService
             {
                 driver.FindElement(By.CssSelector("[class*='loading']"));
             }
-            catch (Exception ex)
+            catch
             {
                 break;
             }
