@@ -7,38 +7,42 @@ let transactions = document.querySelectorAll('.tm-wallet');
 
 let getTable = document.querySelectorAll(".tm-table-wrap");
 
-for (let i = 0; i <getTable.length ; i++) {
+for (let i = 0; i < getTable.length; i++) {
   (getTable[i] as HTMLElement).style.overflow = "unset";
 }
 
 let setPosition = document.querySelectorAll(".tm-section-bid-info");
-setPosition.forEach(task =>{
+setPosition.forEach(task => {
   (task as HTMLElement).style.overflow = "unset";
 })
-debugger;
-
 
 //todo: add tonrich badge
 for (let i = 0; i < transactions.length; i++) {
+  let transaction: HTMLElement = (transactions[i] as HTMLElement);
+
+  if (transaction.classList.contains("new-elm-added")) {
+    continue;
+  }
+
+  transaction.classList.add("new-elm-added");
   let TonrichIcon = document.createElement("img");
   TonrichIcon.src = "https://tonrich.app/images/fragmant-icon.svg";
   // TonrichIcon.src = `${environment.tonrichAddress}/images/fragmant-icon.svg`;
   TonrichIcon.classList.add(cssExports["newElm"]);
   TonrichIcon.addEventListener("mouseover", async (e) => {
-    let element = transactions[i] as HTMLElement;
-    var currentWalletId = getWalletId(element);
+    var currentWalletId = getWalletId(transaction);
     if (!currentWalletId || currentWalletId === walletId)
       return;
 
     walletId = currentWalletId;
     console.log(currentWalletId);
-    showSite(`${environment.tonrichAddress}/${walletId}`, element);
+    showSite(`${environment.tonrichAddress}/${walletId}`, transaction);
   });
-  (transactions[i] as HTMLElement).insertBefore(TonrichIcon, (transactions[i] as HTMLElement).children[0]);
-  (transactions[i] as HTMLElement).style.display = "flex";
-  (transactions[i] as HTMLElement).style.alignItems = "center";
-  (transactions[i] as HTMLElement).style.justifyContent = "center";
-  (transactions[i] as HTMLElement).style.position = "relative";
+  transaction.insertBefore(TonrichIcon, transaction.children[0]);
+  transaction.style.display = "flex";
+  transaction.style.alignItems = "center";
+  transaction.style.justifyContent = "center";
+  transaction.style.position = "relative";
 }
 
 function getWalletId(htmlElement: HTMLElement): string | null {
