@@ -40,7 +40,7 @@ public class Program
         builder.Services.AddTransient<IAuthTokenProvider, ClientSideAuthTokenProvider>();
 
         builder.Services.AddSharedServices();
-        builder.Services.AddClientSharedServices();
+        builder.Services.AddClientSharedServices(builder.Configuration);
         builder.Services.AddClientWebServices();
 
         var host = builder.Build();

@@ -34,7 +34,7 @@ public static class Services
         services.AddTransient<IAuthTokenProvider, ServerSideAuthTokenProvider>();
 
         services.AddSharedServices();
-        services.AddClientSharedServices();
+        services.AddClientSharedServices(configuration);
         services.AddClientWebServices();
     }
 }
