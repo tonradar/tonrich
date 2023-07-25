@@ -5,13 +5,24 @@ var walletId: string | null = '';
 
 let transactions = document.querySelectorAll('.tm-wallet');
 
+let getTable = document.querySelectorAll(".tm-table-wrap");
+
+for (let i = 0; i <getTable.length ; i++) {
+  (getTable[i] as HTMLElement).style.overflow = "unset";
+}
+
+let setPosition = document.querySelectorAll(".tm-section-bid-info");
+setPosition.forEach(task =>{
+  (task as HTMLElement).style.overflow = "unset";
+})
+debugger;
+
 
 //todo: add tonrich badge
 for (let i = 0; i < transactions.length; i++) {
   let TonrichIcon = document.createElement("img");
   TonrichIcon.src = "https://tonrich.app/images/fragmant-icon.svg";
   // TonrichIcon.src = `${environment.tonrichAddress}/images/fragmant-icon.svg`;
-  (transactions[i] as HTMLElement).style.paddingLeft = "12px";
   TonrichIcon.classList.add(cssExports["newElm"]);
   TonrichIcon.addEventListener("mouseover", async (e) => {
     let element = transactions[i] as HTMLElement;
@@ -27,7 +38,7 @@ for (let i = 0; i < transactions.length; i++) {
   (transactions[i] as HTMLElement).style.display = "flex";
   (transactions[i] as HTMLElement).style.alignItems = "center";
   (transactions[i] as HTMLElement).style.justifyContent = "center";
-  (transactions[i] as HTMLElement).style.position = "realtive";
+  (transactions[i] as HTMLElement).style.position = "relative";
 }
 
 
