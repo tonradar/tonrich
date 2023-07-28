@@ -24,7 +24,7 @@ public static class Services
 
 #if BlazorWebAssembly
         services.AddTransient<IAuthTokenProvider, ServerSideAuthTokenProvider>();
-        services.AddClientSharedServices();
+        services.AddClientSharedServices(configuration);
 
         // In the Pre-Rendering mode, the configured HttpClient will use the access_token provided by the cookie in the request, so the pre-rendered content would be fitting for the current user.
         services.AddHttpClient("WebAssemblyPreRenderingHttpClient")
@@ -105,7 +105,7 @@ public static class Services
         services.AddHttpClient("TonApi", c =>
         {
             c.BaseAddress = new Uri("https://tonapi.io/v1/");
-            c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiQWZzaGluX0FsaXphZGVoIl0sImV4cCI6MTgzNTQ0ODk2NiwiaXNzIjoiQHRvbmFwaV9ib3QiLCJqdGkiOiJIMktNTDM1Qk9CUkdPVDZFNVZVV0FJNlgiLCJzY29wZSI6ImNsaWVudCIsInN1YiI6InRvbmFwaSJ9.wiUKHyB61XQjyJrPdIclSsAhBIz5U42PHMHpb8OlJjqAUBThB-czcqmevciNcY7cZWx8xmAyfYsexdEiihSACQ");
+            c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", configuration.GetValue<string>("TonApiServerKey"));
         });
 
         services.AddHealthChecks(env, configuration);

@@ -4,43 +4,46 @@ import cssExports from './fragmentPage.scss';
 var walletId: string | null = '';
 
 let transactions = document.querySelectorAll('.tm-wallet');
-for (let i = 0; i < transactions.length; i++) {
-  (transactions[i] as HTMLElement).style.boxShadow = '0 0 10px rgba(255,255,255,.5)';
-  (transactions[i] as HTMLElement).style.padding = '2px';
-  (transactions[i] as HTMLElement).style.borderRadius = '5px';
-  (transactions[i] as HTMLElement).classList.add(cssExports['blink']);
+
+let getTable = document.querySelectorAll(".tm-table-wrap");
+
+for (let i = 0; i < getTable.length; i++) {
+  (getTable[i] as HTMLElement).style.overflow = "unset";
 }
 
-addEventListener('mouseover', async (e) => {
-  var element = (e as any).fromElement as HTMLElement;
-  var currentWalletId = getWalletId(element);
-  
-  if (currentWalletId && currentWalletId != walletId) {
-    walletId = currentWalletId;
-    showSite(`${environment.tonrichAddress}/${walletId}`, element);
-  } else {
-    if (window.location.host.indexOf('fragment.com') !== -1) {
-      if (
-        element?.classList?.contains('tm-wallet') ||
-        element?.parentElement?.classList?.contains('tm-wallet')
-      ) {
-        return;
-      }
-    } else if (window.location.host.indexOf('tonviewer.com') !== -1) {
-      if (Object.values(element).length == 0) {
-        return;
-      }
-    } else if (window.location.host.indexOf('tonscan.org') !== -1) {
-    }
+let setPosition = document.querySelectorAll(".tm-section-bid-info");
+setPosition.forEach(task => {
+  (task as HTMLElement).style.overflow = "unset";
+})
 
-    var iframe = document.getElementById('tonapi-iframe');
-    if (iframe) {
-      iframe.remove();
-      walletId = null;
-      currentWalletId = null;
-    }
+//todo: add tonrich badge
+for (let i = 0; i < transactions.length; i++) {
+  let transaction: HTMLElement = (transactions[i] as HTMLElement);
+
+  if (transaction.classList.contains("new-elm-added")) {
+    continue;
   }
-});
+
+  transaction.classList.add("new-elm-added");
+  let TonrichIcon = document.createElement("img");
+  TonrichIcon.src = "https://tonrich.app/images/fragmant-icon.svg";
+  // TonrichIcon.src = `${environment.tonrichAddress}/images/fragmant-icon.svg`;
+  TonrichIcon.classList.add(cssExports["newElm"]);
+  TonrichIcon.addEventListener("mouseover", async (e) => {
+    var currentWalletId = getWalletId(transaction);
+    if (!currentWalletId || currentWalletId === walletId)
+      return;
+
+    walletId = currentWalletId;
+    console.log(currentWalletId);
+    showSite(`${environment.tonrichAddress}/${walletId}`, transaction);
+  });
+  transaction.insertBefore(TonrichIcon, transaction.children[0]);
+  transaction.style.display = "flex";
+  transaction.style.alignItems = "center";
+  transaction.style.justifyContent = "center";
+  transaction.style.position = "relative";
+}
 
 function getWalletId(htmlElement: HTMLElement): string | null {
   if (window.location.host.indexOf('fragment.com') !== -1) {
@@ -119,3 +122,15 @@ function showSite(url: string, element: HTMLElement) {
     element.appendChild(newIframe);
   }
 }
+
+addEventListener("click", (event) => {
+  var iframe = document.getElementById('tonapi-iframe');
+  if (!iframe) {
+    return;
+  }
+  let target = event.target;
+  if (target != iframe) {
+    walletId = null;
+    iframe.remove();
+  }
+});

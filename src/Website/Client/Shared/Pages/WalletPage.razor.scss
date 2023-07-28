@@ -69,7 +69,33 @@
 
 .wallet-id {
     cursor: pointer;
+    background-color: #FFF3ED
 }
+
+.copy-tooltip-box{
+    display: none;
+}
+
+.wallet-id:hover {
+
+    .copy-tooltip-box {
+        display: block;
+        position: absolute;
+        font-size: $FontSize14;
+        border-radius: 4px;
+        height: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0 4px;
+        @include customize() {
+            color: getValue(CopyTooltipPen);
+            background-color: getValue(CopyTooltipBackground);
+        }
+    }
+}
+
 
 .public-font-style {
     font-family: 'Roboto';
@@ -396,7 +422,7 @@
 }
 
 .nft-info {
-    min-height: 98px;
+    min-height: 61px;
     min-width: 273px;
     box-sizing: border-box;
     padding: 10px 8px 7px 8px;
@@ -439,6 +465,9 @@
         font-weight: 400;
         font-size: $FontSize12;
         line-height: 14px;
+        display:flex;
+        align-items: center;
+        justify-content:flex-start;
 
         @include customize() {
             color: getValue(SecondaryPen);
@@ -464,6 +493,7 @@
     //dont dont dont add align item please !!!!!!!!!
     .nft-information-box {
         min-width: 124px;
+        min-height: 35px;
         padding: 1px 4px;
         border-radius: $Radius4;
 
@@ -635,6 +665,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         margin-top: 12px;
+        gap: 8px 12px;
 
         .order-zero {
             background-color: red !important;
@@ -653,6 +684,7 @@
     .nft-info-wrapper {
         flex-flow: column;
         margin-top: 12px;
+        gap: 8px;
     }
 
     .nft-info {
@@ -661,6 +693,19 @@
         flex-flow: row;
         padding: 8px;
         justify-content: space-between;
+    }
+
+    .tonrich-container{
+        padding: 24px 20px;
+    }
+    .owner-info-wrapper{
+        padding-bottom : 12px;
+    }
+    .activity-diagram-part {
+        padding-bottom: 8px;
+    }
+    .about-tonrich-wrapper{
+        margin-top: 17px;
     }
 }
 

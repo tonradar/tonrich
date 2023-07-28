@@ -1,13 +1,12 @@
 .tonrich-page {
     z-index: 1;
     background-color: #f5f5f5;
-    min-height: 700px;
-    width: 450px;
-    height: max-content;
+    width: 426px;
+    height: 680px;
     position: absolute;
     visibility: visible;
-    margin-left: -28%;
-    overflow-x: hidden;
+    top: 22px;
+    left: -430px;
     -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; 
 }
@@ -29,4 +28,10 @@
     50% {
         opacity: .5;
     }
+}
+
+.newElm {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }

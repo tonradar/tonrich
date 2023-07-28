@@ -1,5 +1,7 @@
-# TonRich
-TonRich is focused on providing detailed information and insights into any TON wallet. 
+# Frequently Asked Questions (FAQ)
+
+## What is TonRich?
+Tonrich is focused on providing detailed information and insights into any TON wallet. 
 Imagine you see a wallet public key within an auction, and you have no idea of how strong or weak is that wallet. 
 Then you hover on the wallet address, and you see this popup appearing on that wallet instantly:
 
@@ -27,15 +29,25 @@ Once you install [TonRich Browser Plugin](https://chrome.google.com/webstore/det
 Tonrich will show users a comprehensive overview of the wallet's activity, balance, transactions, and more.
 
 ### TonRich Telegram Bot
-You can also use the **Tonrich Telegram bot** [@TonRichBot](https://t.me/tonrichbot) easily to get this information too, just by sending the wallet address to the bot. 
+You can also use the **Tonrich Telegram bot** [@tonrich_bot](https://t.me/tonrich_bot) easily to get this information too, just by sending the wallet address to the bot. 
 The bot will answer you by sending an image like this:
 
 ![image](https://github.com/tonradar/tonrich/assets/5070766/a489b725-42c0-4c17-9c04-9cbc2f3cf79c)
 
-# Figma Designs
-You can find the latest UI/UX designs here: [Figma](https://www.figma.com/file/IIdmrBMNhhhs1TSTEWsD9F/Melkradar%2Fdexign?type=design&node-id=1360-15514&mode=design)
+## Who uses TonRich?
+Cryptocurrency traders and investors who want to gain a competitive advantage while checking the wallets of others, whether 
+it is during NFT auctions on Fragment, or even an individual interested in investigating someone’s wallet. 
+We aim to provide our users with a key value proposition: 
+the ability to make more informed bidding decisions by enabling them to analyze influential players' behaviors in the cryptocurrency market.
+Our platform will empower users with insights into the NFT auction market that are currently inaccessible to most. 
+Moreover, our product is designed to help users who have little or no knowledge of how to read wallet transactions in the field of cryptocurrency and blockchain.
 
-![image](https://github.com/tonradar/tonrich/assets/5070766/49a2d284-9bf5-4de6-b181-62664109d46c)
-
-# About Us
- We are a bunch of developers with lots of enthusiasm for TON. Ton contact us, just drop me a line on Telegram: [@mehran](https://t.me/mehran).
+## What Information TonRich provides for each wallet?
+Using TonRich you have an instant answer to these questions about a wallet:
+ - **Balance:** How much money is in it
+ - **Worth:** The Balance + The value of NFTs that this wallet owns
+ - **Deposit Rate:** How much money is being deposited into this wallet monthly.
+ - **Deposit in last month:** How much money is being deposited to this wallet within the last month?
+ - **Spend Rate:** How much money is being spent from this wallet monthly.
+ - **Spend in last month:** How much money is being spent from this wallet within the last month?
+ - **Daily Turnover Diagram:** A GitHub activity diagram-like overview of this wallet’s activity. How much activity had this wallet on each day during the last 6 months?

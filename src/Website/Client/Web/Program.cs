@@ -30,12 +30,17 @@ public class Program
         var builder = WebAssemblyHostBuilder.CreateDefault();
         builder.Configuration.AddJsonStream(typeof(MainLayout).Assembly.GetManifestResourceStream("Tonrich.Client.Shared.appsettings.json"));
 
-        builder.Services.AddSingleton(sp => new HttpClient(sp.GetRequiredService<AppHttpClientHandler>()) { BaseAddress = new Uri(builder.Configuration.GetApiServerAddress()) });
+        var apiServerAddressConfig = builder.Configuration.GetApiServerAddress();
+
+        var apiServerAddress = new Uri($"{builder.HostEnvironment.BaseAddress}{apiServerAddressConfig}");
+
+        builder.Services.AddSingleton(sp => new HttpClient(sp.GetRequiredService<AppHttpClientHandler>()) { BaseAddress = apiServerAddress });
+
         builder.Services.AddScoped<Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader>();
         builder.Services.AddTransient<IAuthTokenProvider, ClientSideAuthTokenProvider>();
 
         builder.Services.AddSharedServices();
-        builder.Services.AddClientSharedServices();
+        builder.Services.AddClientSharedServices(builder.Configuration);
         builder.Services.AddClientWebServices();
 
         var host = builder.Build();

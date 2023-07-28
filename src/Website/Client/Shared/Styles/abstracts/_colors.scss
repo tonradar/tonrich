@@ -21,6 +21,8 @@ $themes: (
             AboutSite:#8D8D8D,
             TooltipBackground: #EBEBEB,
             TooltipHeaderTitle:#FC4C25,
+            CopyTooltipBackground: #373737,
+            CopyTooltipPen: #fff,
         ),
     dark: (
             MainBackground: #323232,
@@ -44,6 +46,8 @@ $themes: (
             AboutSite:#8A8A8A,
             TooltipBackground: #C2C2C2,
             TooltipHeaderTitle:#261005,
+            CopyTooltipBackground: #fff,
+            CopyTooltipPen: #373737,
         )
     );
 
