@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  tonrichAddress: 'https://localhost:4001/wallet',
+  tonrichAddress: 'https://dev.tonrich.app/wallet',
   pluginVersion: '0.0.1'
 };
 

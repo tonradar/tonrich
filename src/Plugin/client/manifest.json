@@ -12,6 +12,14 @@
     "default_title": "Tonrich",
     "default_popup": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*.tonviewer.com/*"],
+      "world": "MAIN",
+      "js": ["fargmentPage.js"],
+      "run_at": "document_end"
+    }
+  ],
   "background": {
     "service_worker": "background.js"
   },
