@@ -7,13 +7,14 @@
             <div class="notic-icon">
                 @if (IsTooltipOpen)
                 {
-                    <div class="tooltip-box" @onclick:stopPropagation="true" @onclick:preventDefault="true">
+                    <div class="tooltip-box-@OrderName" @onclick:stopPropagation="true" @onclick:preventDefault="true">
                         <div class="tooltip-box-header">
                             <div class="tooltip-header-title">@Title</div>
                             <div class="tooltip-box-close" @onclick=CloseToolTip></div>
                         </div>
                         <div class="tooltip-box-content">@Description</div>
                     </div>
+                    
                 }
             </div>
 
