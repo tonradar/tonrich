@@ -2,10 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Drawing;
-using System.Reflection;
-using Telegram.Bot.Types;
 using Tonrich.Job.ScreenShooter.Service.Contract;
-using Tonrich.Job.ScreenShooter.Service.Implementation;
 
 namespace Tonrich.Job.ScreenShooter.Controllers
 {
@@ -62,7 +59,7 @@ namespace Tonrich.Job.ScreenShooter.Controllers
             chromeOptions.AddArgument("--no-sandbox");
             chromeOptions.AddArgument("--disable-dev-shm-usage");
             var driver = new ChromeDriver("C://", chromeOptions);
-            driver.Manage().Window.Size = new Size(426, 680);
+            driver.Manage().Window.Size = new Size(930, 710);
 
             await _seleniumService.LoadTonrichWebsiteAsync(driver, "EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR");
             WebDrivers?.Add((driverId, driver));
