@@ -30,7 +30,7 @@ namespace Tonrich.Job.ScreenShooter.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Guid>> InitAsync()
+        public async Task<IEnumerable<Guid>> InitAsync(CancellationToken cancellationToken)
         {
             if (WebDrivers is not null)
             {
@@ -41,14 +41,17 @@ namespace Tonrich.Job.ScreenShooter.Controllers
             WebDrivers = new List<(Guid Id, WebDriver webDriver)>();
             for (int i = 0; i < MaxSeleniumInstance; i++)
             {
+                if (cancellationToken.IsCancellationRequested)
+                    throw new TaskCanceledException();
+
                 var driverId = Guid.NewGuid();
-                await InitalDriver(driverId);
+                await InitalDriver(driverId, cancellationToken);
             }
 
             return WebDrivers.Select(c => c.Id).ToList();
         }
 
-        private async Task InitalDriver(Guid driverId)
+        private async Task InitalDriver(Guid driverId, CancellationToken cancellationToken)
         {
             //var browserDriverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -61,21 +64,21 @@ namespace Tonrich.Job.ScreenShooter.Controllers
             var driver = new ChromeDriver("C://", chromeOptions);
             driver.Manage().Window.Size = new Size(930, 710);
 
-            await _seleniumService.LoadTonrichWebsiteAsync(driver, "EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR");
+            await _seleniumService.LoadTonrichWebsiteAsync(driver, "EQCFLPL8WqFYzJuftSDrO-dxtK5JRt1zNK6PziXuDnHVdcpR", cancellationToken);
             WebDrivers?.Add((driverId, driver));
         }
 
         [HttpGet]
-        public async Task<MemoryStream?> TakeScreenShootAsync(Guid driverId, string walletId)
+        public async Task<MemoryStream?> TakeScreenShootAsync(Guid driverId, string walletId, CancellationToken cancellationToken)
         {
             if (WebDrivers is null || !WebDrivers.Any(c => c.Id == driverId))
             {
                 WebDrivers ??= new();
-                await InitalDriver(driverId);
+                await InitalDriver(driverId, cancellationToken);
             }
 
             var driver = WebDrivers.Where(c => c.Id == driverId).First().webDriver;
-            return await _seleniumService.LoadTonrichWebsiteAsync(driver, walletId);
+            return await _seleniumService.LoadTonrichWebsiteAsync(driver, walletId, cancellationToken);
         }
     }
 }

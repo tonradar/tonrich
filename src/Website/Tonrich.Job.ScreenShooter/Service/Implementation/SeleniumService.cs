@@ -12,14 +12,17 @@ public class SeleniumService : ISeleniumService
     {
         this.configuration = configuration;
     }
-    public async Task<MemoryStream> LoadTonrichWebsiteAsync(WebDriver driver, string walletId)
+    public async Task<MemoryStream> LoadTonrichWebsiteAsync(WebDriver driver, string walletId, CancellationToken cancellationToken)
     {
         var address = configuration.GetValue<string>("TonrichAddress");
         driver.Navigate().GoToUrl(new Uri(new Uri(address), walletId));
 
-        await Task.Delay(TimeSpan.FromSeconds(1));
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
         while (true)
         {
+            if (cancellationToken.IsCancellationRequested)
+                throw new TaskCanceledException();
+
             try
             {
                 driver.FindElement(By.CssSelector("[class*='loading']"));
@@ -34,9 +37,9 @@ public class SeleniumService : ISeleniumService
                 driver.FindElement(By.CssSelector("[class*='loaded']"));
                 break;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await Task.Delay(TimeSpan.FromSeconds(1));
+                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
             }
         }
 
