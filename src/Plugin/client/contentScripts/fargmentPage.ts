@@ -30,6 +30,7 @@ for (let i = 0; i < transactions.length; i++) {
   // TonrichIcon.src = `${environment.tonrichAddress}/images/fragmant-icon.svg`;
   TonrichIcon.classList.add(cssExports["newElm"]);
   TonrichIcon.addEventListener("mouseover", async (e) => {
+    console.log(e);
     var currentWalletId = getWalletId(transaction);
     if (!currentWalletId || currentWalletId === walletId)
       return;
@@ -118,9 +119,6 @@ function showSite(url: string, element: HTMLElement) {
   newIframe.src = url;
 
   element.appendChild(newIframe);
-  while (!element.contains(newIframe)) {
-    element.appendChild(newIframe);
-  }
 }
 
 addEventListener("click", (event) => {
