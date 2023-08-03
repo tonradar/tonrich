@@ -113,6 +113,7 @@ public partial class WalletPage
 
     private void MouseMove(MouseEventArgs e)
     {
+        ToolTipCallerOrderName = "";
         copyTooltipPosition = $"top: {e.ClientY + 15}px; left: {e.ClientX + 15}px;";
     }
     private void HandleToggleTooltipClicked(string toolTipCallerOrderName)
@@ -122,6 +123,7 @@ public partial class WalletPage
 
     private async Task CopyAsync()
     {
+        ToolTipCallerOrderName = "";
         await JSRuntime.InvokeVoidAsync("window.App.copy", AccountInfo?.Address);
     }
 
