@@ -97,7 +97,7 @@
     position: relative;
 }
 
-.tooltip-box {
+.tooltip-box-zero, .tooltip-box-one, .tooltip-box-two, .tooltip-box-three, .tooltip-box-four, .tooltip-box-five {
     width: 250px;
     height: 100px;
     cursor: default;
@@ -108,10 +108,10 @@
     padding: 8px 10px;
     border-radius: 0px 8px 8px 8px;
     box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.3);
+
     @include customize() {
         background-color: getValue(TooltipBackground);
     }
-
 
     .tooltip-box-header {
         display: flex;
@@ -153,56 +153,75 @@
     }
 }
 
-.value-container {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: $FontSize12;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    @include customize() {
-        color: getValue(SecondaryPen);
-    }
+.tooltip-box-four, .tooltip-box-five {
+    position: absolute;
+    right: 3px;
+    top: 18px;
+}
 
-    .trx-value {
+    .value-container {
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
-        font-size: $FontSize16;
-        line-height: 19px;
-        margin-right:4px;
+        font-size: $FontSize12;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
         @include customize() {
-            color: getValue(MainPen);
+            color: getValue(SecondaryPen);
+        }
+
+        .trx-value {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: $FontSize16;
+            line-height: 19px;
+            margin-right: 4px;
+
+            @include customize() {
+                color: getValue(MainPen);
+            }
         }
     }
-}
 
 
-@media screen and (max-width: $Breakpoint) {
+    @media screen and (max-width: $Breakpoint) {
 
-    .order-zero {
-        order: 0;
+        .order-zero {
+            order: 0;
+        }
+
+        .order-one {
+            order: 1;
+        }
+
+        .order-two {
+            order: 2;
+        }
+
+        .order-three {
+            order: 3;
+        }
+
+        .order-four {
+            order: 4;
+        }
+
+        .order-five {
+            order: 5;
+        }
+
+        .tooltip-box-four {
+            position: absolute;
+            right: -249px;
+            top: 12px;
+        }
+        .tooltip-box-one, .tooltip-box-three {
+            position: absolute;
+            right: 3px;
+            top: 18px;
+        }
     }
-
-    .order-one {
-        order: 1;
-    }
-
-    .order-two {
-        order: 2;
-    }
-
-    .order-three {
-        order: 3;
-    }
-
-    .order-four {
-        order: 4;
-    }
-
-    .order-five {
-        order: 5;
-    }
-}
