@@ -3,10 +3,20 @@
 interface CssExports {
   'blink': string;
   'blinker': string;
-  'newElm': string;
   'tonrich-page': string;
   'tonrich-page-Display': string;
   'tonrich-page-Display-visible': string;
+  'tonrich-page-fragment': string;
+  'tonrich-page-tonscan': string;
+  'tonrich-page-tonviwer': string;
+  'tonrich-tag': string;
+  'tonrich-tag-fragment': string;
+  'tonrich-tag-tonscan': string;
+  'tonrich-tag-tonviwer': string;
+  'tonrich-target-element': string;
+  'tonrich-target-element-fragment': string;
+  'tonrich-target-element-tonscan': string;
+  'tonrich-target-element-tonviwer': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
