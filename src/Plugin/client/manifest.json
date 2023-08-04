@@ -16,7 +16,7 @@
     {
       "matches": ["https://*.tonviewer.com/*"],
       "world": "MAIN",
-      "js": ["fargmentPage.js"],
+      "js": ["main.js"],
       "run_at": "document_end"
     }
   ],

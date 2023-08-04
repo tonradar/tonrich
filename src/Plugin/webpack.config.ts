@@ -1,17 +1,4 @@
 
-
-// module.exports = {
-//   mode: 'production',
-//   entry: {
-//     background: 'client/background.ts',
-//     fargmentPage: 'client/contentScripts/fargmentPage.ts'
-//   },
-//   optimization: {
-//     runtimeChunk: false,
-//   },
-//   plugins: [],
-// } as Configuration;
-
 import {Configuration} from 'webpack';
 
 
@@ -21,7 +8,7 @@ import * as CopyPlugin from 'copy-webpack-plugin';
 const config: Configuration = {
   entry: {
     background: './client/background.ts',
-    fargmentPage: './client/contentScripts/fargmentPage.ts'
+    main: './client/contentScripts/main.ts'
   },
   module: {
     rules: [
