@@ -62,12 +62,26 @@
         </style>
     }
     <style>
-        html, body, #app-container {
+        html {
+            width: 100%;
+            height: 100%;
+            font-size: 62.5%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100dvh;
+            background: #FFFF;
+            font-size: 1.6rem;
+        }
+
+        #app-container {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background: #FFFF;
         }
     </style>
     <link rel="stylesheet" href="_content/Bit.BlazorUI/styles/bit.blazorui.min.css" asp-append-version="@shoudAddAspAppendVersion" />

@@ -1178,6 +1178,15 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchPageTitle {
+            get {
+                return ResourceManager.GetString("SearchPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select your birth date.
         /// </summary>
         public static string SelectBirthDate {

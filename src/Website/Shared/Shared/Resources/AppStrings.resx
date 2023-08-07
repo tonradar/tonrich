@@ -651,4 +651,7 @@ Please confirm your email by clicking on the link.</value>
   <data name="ComingSoon" xml:space="preserve">
     <value>Coming soon</value>
   </data>
+  <data name="SearchPageTitle" xml:space="preserve">
+    <value>Search</value>
+  </data>
 </root>
