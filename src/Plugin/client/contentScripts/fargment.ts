@@ -48,7 +48,6 @@ class fragment extends tonrich {
     });
 
     let hasNewTransaction = false;
-    //todo: add tonrich badge
     for (let i = 0; i < transactions.length; i++) {
       let transaction: HTMLElement = transactions[i] as HTMLElement;
 
