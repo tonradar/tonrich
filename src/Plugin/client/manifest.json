@@ -14,9 +14,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.tonviewer.com/*"],
+      "matches": [
+        "https://*.tonviewer.com/*"
+      ],
       "world": "MAIN",
-      "js": ["main.js"],
+      "js": [
+        "main.js"
+      ],
       "run_at": "document_end"
     }
   ],
@@ -24,9 +28,7 @@
     "service_worker": "background.js"
   },
   "permissions": [
-    "cookies",
     "activeTab",
-    "storage",
     "scripting"
   ],
   "host_permissions": [
