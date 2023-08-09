@@ -23,6 +23,10 @@ $themes: (
             TooltipHeaderTitle:#FC4C25,
             CopyTooltipBackground: #373737,
             CopyTooltipPen: #fff,
+
+            //landing
+            LandingBackground: #F3F2F2,
+            HeroBackground: #D9D9D9,
         ),
     dark: (
             MainBackground: #323232,
@@ -48,6 +52,11 @@ $themes: (
             TooltipHeaderTitle:#261005,
             CopyTooltipBackground: #fff,
             CopyTooltipPen: #373737,
+
+
+            //landing
+            LandingBackground: #000,
+            HeroBackground: #1C1A1A,
         )
     );
 
@@ -93,6 +102,23 @@ $Breakpoint3: 600px;
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #FF5C11;
+  }
+
+  .tonrich-primary-btn {
+    height: 6.4rem;
+    padding: 0 3rem;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.2rem;
+    border-radius: 4rem;
+    color: #fff;
+    background: linear-gradient(142deg, #FC4C25 0%, #FEB752 100%);
+  }
+
+  .tornich-secondary-btn {
+
   }
 
 ///todo: old

@@ -3,8 +3,17 @@
 
 <PageTitle>@Localizer[nameof(AppStrings.HomeTitle)]</PageTitle>
 
-<section>
-    <div class="hero-section"></div>
+<section class="landing-page theme-dark">
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-title">@Localizer[nameof(AppStrings.HeroTitle)]</div>
+            <div class="hero-description">
+                @Localizer[nameof(AppStrings.HeroDescription)]
+            </div>
+            <button class="tonrich-primary-btn">@Localizer[nameof(AppStrings.HeroButton)]</button>
+        </div>
+        <div class="hero-img"></div>
+    </div>
     <div class="what-section"></div>
     <div class="how-section">
         <div class="plugin-intro"></div>
@@ -19,14 +28,15 @@
 </section>
 
 @* <div class="page-container">
-    <section class="page-section hero-section">
-        <h1 class="hero-section-title">@Localizer[nameof(AppStrings.HomeTitle)]</h1>
+<section class="page-section hero-section">
+<h1 class="hero-section-title">@Localizer[nameof(AppStrings.HomeTitle)]</h1>
 
-        <div class="hero-section-desc">
-            @Localizer[nameof(AppStrings.ComingSoon)]
-        </div>
+<div class="hero-section-desc">
+@Localizer[nameof(AppStrings.ComingSoon)]
+</div>
 
-        <BitTextField Class="wallet-input" Placeholder="Enter your wallet address..." OnChange="(c)=>ChangeWalletAddress(c)"></BitTextField>
-        <BitButton Href=@($"/wallet/{WalletAddress}")>Connect to wallet</BitButton>
-    </section>
+<BitTextField Class="wallet-input" Placeholder="Enter your wallet address..."
+OnChange="(c)=>ChangeWalletAddress(c)"></BitTextField>
+<BitButton Href=@($"/wallet/{WalletAddress}")>Connect to wallet</BitButton>
+</section>
 </div> *@

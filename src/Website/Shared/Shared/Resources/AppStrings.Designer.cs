@@ -638,6 +638,33 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try our plug-in now.
+        /// </summary>
+        public static string HeroButton {
+            get {
+                return ResourceManager.GetString("HeroButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A handy tool for deep insight into TON wallets and NFT auctions.
+        /// </summary>
+        public static string HeroDescription {
+            get {
+                return ResourceManager.GetString("HeroDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TonRich.
+        /// </summary>
+        public static string HeroTitle {
+            get {
+                return ResourceManager.GetString("HeroTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
