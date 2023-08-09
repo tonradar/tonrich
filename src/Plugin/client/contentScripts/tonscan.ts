@@ -28,7 +28,7 @@ class tonscan extends tonrich {
     for (let i = 0; i < transactions.length; i++) {
       let record = transactions[i] as HTMLElement;
 
-      let tonrichTagElement = record.children[0].children[2] as HTMLElement;
+      let tonrichTagElement = record.children[0].children[1] as HTMLElement;
       let walletId = this.getWalletId(record.childNodes[0] as HTMLElement);
 
       if (!walletId || tonrichTagElement.classList.contains('new-elm-added')) {
