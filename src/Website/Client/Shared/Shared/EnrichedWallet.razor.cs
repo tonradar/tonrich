@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tonrich.Client.Shared.Shared
 {
-    public class EnrichedWallet
+    public partial class EnrichedWallet
     {
     }
 }
