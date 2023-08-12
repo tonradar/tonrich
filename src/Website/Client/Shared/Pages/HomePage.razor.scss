@@ -1,14 +1,13 @@
 ﻿@import '../Styles/abstracts/_media-queries.scss';
 @import '../Styles/abstracts/_colors.scss';
+@import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
+
 
 .landing-page {
     padding: 0 5rem;
     width: 100%;
     box-sizing: border-box;
-    @include customize() {
-        background-color: getValue(LandingBackground);
-    }
 }
 
 .hero-section {

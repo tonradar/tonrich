@@ -4,3 +4,19 @@
 @import '../Styles/abstracts/_functions.scss';
 
 
+
+.about-page {
+    background-image: url("/images/background-images/about-page-background.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top center;
+    width: 100%;
+    height: 100%;
+    @include customize() {
+        background-color: getValue(PageBackground);
+    }
+}
+
+ul {
+    margin: 0;
+}

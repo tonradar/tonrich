@@ -25,7 +25,7 @@ $themes: (
             CopyTooltipPen: #fff,
 
             //landing
-            LandingBackground: #F3F2F2,
+            PageBackground: #F3F2F2,
             HeroBackground: #D9D9D9,
         ),
     dark: (
@@ -55,7 +55,7 @@ $themes: (
 
 
             //landing
-            LandingBackground: #000,
+            PageBackground: #000,
             HeroBackground: #1C1A1A,
         )
     );
@@ -78,10 +78,10 @@ $MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
 $SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
 
 //breakpoint variable
-$Breakpoint: 610px;
-$Breakpoint1: 780px;
-$Breakpoint2: 665px;
 $Breakpoint3: 600px;
+$Breakpoint: 610px;
+$Breakpoint2: 665px;
+$Breakpoint1: 780px;
 
 ::-webkit-scrollbar {
     height: 5px;

@@ -663,4 +663,7 @@ Please confirm your email by clicking on the link.</value>
   <data name="HeroTitle" xml:space="preserve">
     <value>TonRich</value>
   </data>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>About us</value>
+  </data>
 </root>
