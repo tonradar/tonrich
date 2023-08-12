@@ -3,7 +3,37 @@
 @import '../Styles/abstracts/_functions.scss';
 
 header {
-    height: 13rem;
+    height: 12rem;
+    padding: 1rem 7.6rem 1rem 5rem;
     width: 100%;
-    background-color: aquamarine;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    @include customize {
+        background-color: getValue(PageBackground);
+    }
+}
+
+.header-left-side {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-right-side {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tonrich-menu {
+    padding: 0 2.6rem;
+
+    .nav-link {
+        padding: 0 0.6rem;
+    }
 }

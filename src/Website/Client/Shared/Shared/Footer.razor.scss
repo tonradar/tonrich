@@ -3,9 +3,19 @@
 @import '../Styles/abstracts/_functions.scss';
 
 footer {
-    height: 16rem;
+    height: 8rem;
     width: 100%;
-    background-color: coral;
+    padding: 1rem 5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    @include customize {
+        background-color: getValue(PageBackground);
+        color: getValue(FooterPen);
+
+    }
 }
 
 // .footer {
