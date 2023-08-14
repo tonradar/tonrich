@@ -18,19 +18,21 @@ class fragment extends tonrich {
   handleShowMore() {
     var showMore = document.querySelector('.table-cell-more') as HTMLElement;
 
-    showMore.addEventListener('click', (e) => {
-      let hasNewElment = false;
+    if (showMore) {
+      showMore.addEventListener('click', (e) => {
+        let hasNewElment = false;
 
-      let interval = setInterval(() => {
-        hasNewElment = this.addBadgeElement();
-        if (hasNewElment) {
-          clearInterval(interval);
-          setTimeout(() => {
-            this.handleShowMore();
-          }, 500);
-        }
-      }, 100);
-    });
+        let interval = setInterval(() => {
+          hasNewElment = this.addBadgeElement();
+          if (hasNewElment) {
+            clearInterval(interval);
+            setTimeout(() => {
+              this.handleShowMore();
+            }, 500);
+          }
+        }, 100);
+      });
+    }
   }
 
   addBadgeElement(): boolean {
