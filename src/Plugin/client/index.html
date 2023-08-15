@@ -6,11 +6,129 @@
   <title>Tonrich</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.less">
+  <style>
+    .container {
+      width: 315px;
+      height: 315px;
+      background-color: #F3F2F2;
+      /* background-color: #323232; */  /* dark mode */
+      border-radius: 32px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px;
+      background-color: #FC4C25;
+      /* background-color: #FF5C11; */  /*dark mode*/
+      border-radius: 32px 32px 0 0;
+    }
+
+    .header-text {
+      color: #FFF;
+      font-family: Ubuntu;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-left: 16px;
+    }
+
+    .list-of-site {
+      padding-left: 24px;
+      margin-top: 16px;
+    }
+
+    .modal-content {
+      padding: 24px;
+    }
+
+    .modal-content-title {
+      color: #8D8D8D;
+      /* color: #C2C2C2; */  /*dark mode*/
+      font-family: Ubuntu;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    ul li a {
+      color: #261005;
+      /* color: #fff; */  /*dark mode*/
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 158.687%;
+      text-decoration-line: underline;
+    }
+
+    .modal-wraper {
+      justify-content: flex-start;
+      display: flex;
+      align-items: center;
+      line-height: 0px;
+      margin-left: 24px;
+    }
+
+    .modal-wraper-text {
+      margin-left: 4px;
+      color: #8D8D8D;
+      /* color: #8A8A8A; */   /*dark mode*/
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  </style>
 </head>
 
 <body>
   <app-root>
-    Tonrich
+    <div class="container">
+      <div class="modal-header">
+        <div class="header-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Group 1000004162">
+              <rect id="Rectangle 1" width="52" height="52" rx="11.2868" fill="white" />
+              <g id="Group 7">
+                <path id="Vector 1"
+                  d="M10 13.5557H18.881M42.1267 13.5557H34.4588C29.8221 13.5557 26.0633 17.3145 26.0633 21.9512V41.469"
+                  stroke="#FF5C11" stroke-width="6.07949" stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="header-text">TonRich</div>
+      </div>
+      <div class="modal-content">
+        <div class="modal-content-title">You can use Tonrich on:</div>
+        <ul class="list-of-site">
+          <li><a href="https://fragment.com/" target="_blank">https://fragment.com/</a></li>
+          <li><a href="https://tonscan.org/" target="_blank"> https://tonscan.org/</a></li>
+          <li><a href="https://tonviewer.com/" target="_blank">https://tonviewer.com/</a></li>
+        </ul>
+      </div>
+      <div class="modal-wraper">
+        <div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="vuesax/linear/send-2">
+              <g id="send-2">
+                <path id="Vector"
+                  d="M4.93313 4.21344L10.5931 2.32677C13.1331 1.4801 14.5131 2.86677 13.6731 5.40677L11.7865 11.0668C10.5198 14.8734 8.43979 14.8734 7.17312 11.0668L6.61312 9.38677L4.93313 8.82677C1.12646 7.5601 1.12646 5.48677 4.93313 4.21344Z"
+                  stroke="#8D8D8D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2" d="M6.73828 9.09988L9.12495 6.70654" stroke="#8D8D8D" stroke-width="1.4"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="modal-wraper-text">t.me/Tonrichbot</div>
+      </div>
+    </div>
+    </div>
   </app-root>
 </body>
 
