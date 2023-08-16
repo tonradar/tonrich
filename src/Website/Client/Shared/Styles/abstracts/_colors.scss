@@ -24,6 +24,11 @@ $themes: (
             CopyTooltipPen: #fff,
             WalletIdBackground: #FFF3ED,
             BetweenLine: #EBEBEB,
+
+            //landing
+            PageBackground: #F3F2F2,
+            HeroBackground: #D9D9D9,
+            FooterPen: #261005, /// check with design team
         ),
     dark: (
             MainBackground: #323232,
@@ -48,6 +53,12 @@ $themes: (
             CopyTooltipPen: #373737,
             WalletIdBackground: #5A5A5A,
             BetweenLine: #5A5A5A,
+
+
+            //landing
+            PageBackground: #000,
+            HeroBackground: #1C1A1A,
+            FooterPen: #fff,/// check with design team
         )
     );
 
@@ -58,6 +69,9 @@ $FontSize14: 14px;
 $FontSize16: 16px;
 $FontSize20: 20px;
 $FontSize24: 24px;
+$FontSize34: 34px;
+$FontSize48: 48px;
+$FontSize96: 96px;
 
 // border-radius variable
 $Radius32: 32px;
@@ -69,10 +83,10 @@ $MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
 $SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
 
 //breakpoint variable
-$Breakpoint: 610px;
-$Breakpoint1: 780px;
-$Breakpoint2: 665px;
 $Breakpoint3: 600px;
+$Breakpoint: 610px;
+$Breakpoint2: 665px;
+$Breakpoint1: 780px;
 
 ::-webkit-scrollbar {
     height: 5px;
@@ -93,6 +107,23 @@ $Breakpoint3: 600px;
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #FF5C11;
+  }
+
+  .tonrich-primary-btn {
+    height: 6.4rem;
+    padding: 0 3rem;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.2rem;
+    border-radius: 4rem;
+    color: #fff;
+    background: linear-gradient(142deg, #FC4C25 0%, #FEB752 100%);
+  }
+
+  .tornich-secondary-btn {
+
   }
 
 ///todo: old

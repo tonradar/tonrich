@@ -61,6 +61,15 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About us.
+        /// </summary>
+        public static string AboutPageTitle {
+            get {
+                return ResourceManager.GetString("AboutPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string Active {
@@ -638,6 +647,33 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try our plug-in now.
+        /// </summary>
+        public static string HeroButton {
+            get {
+                return ResourceManager.GetString("HeroButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A handy tool for deep insight into TON wallets and NFT auctions.
+        /// </summary>
+        public static string HeroDescription {
+            get {
+                return ResourceManager.GetString("HeroDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TonRich.
+        /// </summary>
+        public static string HeroTitle {
+            get {
+                return ResourceManager.GetString("HeroTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -1174,6 +1210,15 @@ namespace Tonrich.Shared.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchPageTitle {
+            get {
+                return ResourceManager.GetString("SearchPageTitle", resourceCulture);
             }
         }
         

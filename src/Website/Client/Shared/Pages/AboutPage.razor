@@ -1,0 +1,29 @@
+﻿@page "/about"
+@inherits AppComponentBase
+
+<PageTitle>@Localizer[nameof(AppStrings.AboutPageTitle)]</PageTitle>
+
+
+<section class="about-page">
+    <div class="about-page-background"></div>
+    <div class="about-us-top-page">
+        <div class="top-page-title">About us</div>
+        <div class="top-page-desc">Exprience Tonrich through our team's unique<br>perspective</div>
+    </div>
+    <div class="about-team">
+        <div class="about-team-title">Meat our team</div>
+        <div class="about-team-desc">
+            <div class="about-team-text">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</div>
+        </div>
+        <ul class="team-members">
+            <li class="team-member"></li>
+            <li class="team-member"></li>
+            <li class="team-member"></li>
+            <li class="team-member"></li>
+            <li class="team-member"></li>
+        </ul>
+    </div>
+
+    @* todo: make this part a component *@
+    <div class="recap-sec"></div>
+</section>

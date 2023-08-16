@@ -1,0 +1,87 @@
+﻿@import '../Styles/abstracts/_media-queries.scss';
+@import '../Styles/abstracts/_colors.scss';
+@import '../Styles/abstracts/_mixins.scss';
+@import '../Styles/abstracts/_functions.scss';
+
+
+    .about-page {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include customize() {
+            background-color: getValue(PageBackground);
+        }
+        @include customize() {
+            color: getValue(FooterPen);
+        }
+    }
+
+    .about-page-background {
+        background-image: url("/images/background-images/about-page-background.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: top center;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: -12rem;
+        left: 0;
+        right: 0;
+    }
+
+    .about-us-top-page {
+        height: 62.5rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .top-page-title {
+            text-align: center;
+            font-family: Ubuntu;
+            font-size: $FontSize96;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 0.674px;
+            margin-bottom: 2.1rem;
+        }
+
+        .top-page-desc {
+            font-family: Roboto;
+            font-size: $FontSize34;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+
+
+
+    .about-team {
+        width: 100%;
+    }
+
+    .about-team-title {
+        font-family: Ubuntu;
+        font-size: $FontSize48;
+        font-weight: 700;
+        line-height: 84px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .about-team-desc {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .about-team-text {
+            max-width: 106.6rem;
+        }
+    }
+
+    ul {
+        margin: 0;
+    }

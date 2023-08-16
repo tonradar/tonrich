@@ -651,4 +651,19 @@ Please confirm your email by clicking on the link.</value>
   <data name="ComingSoon" xml:space="preserve">
     <value>Coming soon</value>
   </data>
+  <data name="SearchPageTitle" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="HeroButton" xml:space="preserve">
+    <value>Try our plug-in now</value>
+  </data>
+  <data name="HeroDescription" xml:space="preserve">
+    <value>A handy tool for deep insight into TON wallets and NFT auctions</value>
+  </data>
+  <data name="HeroTitle" xml:space="preserve">
+    <value>TonRich</value>
+  </data>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>About us</value>
+  </data>
 </root>

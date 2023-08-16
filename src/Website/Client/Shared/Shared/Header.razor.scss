@@ -2,59 +2,38 @@
 @import '../Styles/abstracts/_colors.scss';
 @import '../Styles/abstracts/_functions.scss';
 
-.header {
-    position: fixed;
-    top: 0;
-    z-index: 100;
+header {
+    height: 12rem;
+    padding: 1rem 7.6rem 1rem 5rem;
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: rem(48px);
-    padding: 0 rem(32px);
+    justify-content: space-between;
     box-sizing: border-box;
-    background-color: $Gray5;
-
-    @media all and (max-width: #{em(370px)}) {
-        padding: 0 rem(16px);
+    @include customize {
+        background-color: getValue(PageBackground);
     }
 }
 
-.logo-lnk {
-    width: rem(24px);
-    min-width: rem(24px);
-    height: rem(24px);
-    border-radius: rem(4px);
-    background-image: url('images/icons/tonrich-logo.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.header-contact {
+.header-left-side {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
 }
 
-::deep .header-item {
-    margin-left: rem(12px);
+.header-right-side {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-::deep .header-menu {
-    display: none;
-    margin-right: rem(12px);
+.tonrich-menu {
+    padding: 0 2.6rem;
 
-    span {
-        i {
-            color: $PrimaryColor;
-        }
-    }
-
-    @include lt-lg {
-        display: block;
+    .nav-link {
+        padding: 0 0.6rem;
     }
 }
