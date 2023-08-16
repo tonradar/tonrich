@@ -12,13 +12,23 @@
     "default_title": "Tonrich",
     "default_popup": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.tonviewer.com/*"
+      ],
+      "world": "MAIN",
+      "js": [
+        "main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "permissions": [
-    "cookies",
     "activeTab",
-    "storage",
     "scripting"
   ],
   "host_permissions": [

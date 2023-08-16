@@ -1,0 +1,100 @@
+.tonrich-page {
+    width: 426px;
+    height: 680px;
+}
+
+.tonrich-page-fragment {
+  
+    @extend .tonrich-page;
+
+    z-index: 1;
+    background-color: #f5f5f5;
+    position: fixed;
+    visibility: visible;
+    top: 80px;
+    left: 15px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+.tonrich-page-tonviwer {
+  
+    @extend .tonrich-page;
+    
+    z-index: 1;
+    background-color: #f5f5f5;
+    position: fixed;
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+}
+
+.tonrich-page-tonscan {
+  
+    @extend .tonrich-page;
+    
+    background-color: #f5f5f5;
+    position: fixed;
+    visibility: visible;
+    top: 70px;
+    right: 20px;
+   
+}
+
+.tonrich-target-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+.tonrich-target-element-fragment {
+    @extend .tonrich-target-element;
+}
+
+.tonrich-target-element-tonviwer {
+    @extend .tonrich-target-element;
+}
+
+.tonrich-target-element-tonscan {
+    @extend .tonrich-target-element;
+}
+
+
+.tonrich-tag {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.tonrich-tag-fragment {
+    @extend .tonrich-tag ;
+}
+
+.tonrich-tag-tonviwer {
+    @extend .tonrich-tag ;
+}
+
+.tonrich-tag-tonscan {
+    @extend .tonrich-tag ;
+}
+
+.tonrich-page::-webkit-scrollbar{
+    display: none;
+}
+.tonrich-page-Display{
+    visibility: hidden;
+}
+.tonrich-page-Display-visible{
+    visibility: visible;
+}
+
+.blink {
+    animation: blinker 5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: .5;
+    }
+}

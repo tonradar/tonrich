@@ -5,5 +5,5 @@ namespace Tonrich.Job.ScreenShooter.Service.Contract;
 
 public interface ISeleniumService
 {
-    Task<MemoryStream> LoadTonrichWebsiteAsync(WebDriver driver, string walletId);
+    Task<MemoryStream> LoadTonrichWebsiteAsync(WebDriver driver, string walletId, CancellationToken cancellationToken);
 }
