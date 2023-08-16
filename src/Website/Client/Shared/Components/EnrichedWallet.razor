@@ -1,0 +1,276 @@
+﻿@using Tonrich.Client.Shared.Shared
+@using Tonrich.Shared.Util;
+@inherits AppComponentBase
+
+
+@if (isPageBusy)
+{
+    <div class="tonrich-container">
+        <div class="owner-info-wrapper">
+            <div class="tonrich-logo"></div>
+            <div>
+                <div class="tonrich-title">TonRich</div>
+            </div>
+        </div>
+        <div class="trx-info-wrapper">
+            <div class="trx-card-loading-mode">1</div>
+            <div class="trx-card-loading-mode">2</div>
+            <div class="trx-card-loading-mode">3</div>
+            <div class="trx-card-loading-mode">4</div>
+            <div class="trx-card-loading-mode">5</div>
+            <div class="trx-card-loading-mode">6</div>
+        </div>
+        <div class="activity-diagram-wrapper">
+            <div class="activity-diagram-part">
+                <div class="month-row-caption">
+                    @foreach (var month in Months)
+                    {
+                        <div class="caption-item">@month.Name</div>
+                    }
+                </div>
+                <div class="diagram-day-result">
+                    <div class="day-column-caption">
+                        @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+                        {
+                            if (@ShowWeekTitle(dayOfWeek))
+                            {
+                                <div class="caption-item">@dayOfWeek.ToString().Substring(0,3)</div>
+                            }
+                        }
+                    </div>
+                    <div class="diagram-result-box">
+                        @foreach (var row in ActivityChartDates)
+                        {
+                            @foreach (var columnInARow in row)
+                            {
+                                var activity = GetActivity(columnInARow.DateTimeOffset);
+                                <div class="diagram-unit range-zero"></div>
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="color-guide-table"></div>
+        </div>
+
+        <div class="nft-info-wrapper">
+            <div class="nft-info">
+            </div>
+            <div class="nft-list-container-loading-mode"></div>
+        </div>
+        <div class="about-tonrich-wrapper">
+            <div class="tonrich-site-icon"><a>Tonrich.com</a></div>
+            <div class="tonrich-telegram-icon"><a>t.me/Tonrichbot</a></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="tonrich-container">
+        <div class="owner-info-wrapper">
+            <div class="tonrich-logo"></div>
+            <div>
+                <div class="tonrich-title">TonRich</div>
+                <div>
+                    @if (AccountInfo is null)
+                    {
+                        <MiniLoading ColorName="main"></MiniLoading>
+                    }
+                    else
+                    {
+                        <div class="wallet-info" @onmousemove="MouseMove" @onclick=CopyAsync>
+                            @if (AccountInfo?.Name != null)
+                            {
+                                <div class="wallet-name public-font-style">@AccountInfo.Name<span class="dash">-</span></div>
+                            }
+                            <div class="wallet-id public-font-style">
+                                @WalletId
+                                <div style="@copyTooltipPosition" class="copy-tooltip-box">Copy</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="trx-info-wrapper">
+            <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON"
+                         Description="The balance of wallet" IsBusy="@(AccountInfo is null)" OrderName="zero"
+                         IsTooltipOpen="@(ToolTipCallerOrderName == "zero" )" OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+            <TrxInfoCard IconName="deposit-rate" Title="Deposit rate" Value="@TransactionInfo?.DepositRate"
+                         Unit="TON/Month" Description="How much money has been transferred in to this wallet last month"
+                         IsBusy="@(TransactionInfo is null)" OrderName="two"
+                         IsTooltipOpen=@(ToolTipCallerOrderName == "two" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+            <TrxInfoCard IconName="spend-rate" Title="Spend rate" Value="@TransactionInfo?.SpentRate" Unit="TON/Month"
+                         Description="How much money is being transferred out from the wallet monthly (during last 6 months)"
+                         IsBusy="@(TransactionInfo is null)" OrderName="four"
+                         IsTooltipOpen=@(ToolTipCallerOrderName == "four" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+            <TrxInfoCard IconName="worth" Title="Worth (Balance+ Owned NFT)" Value="@Worth" Unit="TON"
+                         Description="Total amount of balance and owned NFTs (at their buying price)" IsBusy="@(Worth is null)" OrderName="one"
+                         IsTooltipOpen=@(ToolTipCallerOrderName == "one" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+            <TrxInfoCard IconName="deposit-last-month" Title="Deposit last month"
+                         Value="@TransactionInfo?.DepositLastMonth" Unit="TON"
+                         Description="How much money has been transferred in to this wallet last month" IsBusy="@(TransactionInfo is null)" OrderName="three"
+                         IsTooltipOpen=@(ToolTipCallerOrderName == "three" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+            <TrxInfoCard IconName="spend-last-month" Title="Spend last month" Value="@TransactionInfo?.SpentLastMonth"
+                         Unit="TON" Description="How much money has been transferred out from this wallet last month"
+                         IsBusy="@(TransactionInfo is null)" OrderName="five"
+                         IsTooltipOpen=@(ToolTipCallerOrderName == "five" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
+
+        </div>
+        <div class="activity-diagram-wrapper">
+            <div class="activity-diagram-part">
+                <div class="month-row-caption">
+                    @foreach (var month in Months)
+                    {
+                        <div class="caption-item">@month.Name</div>
+                    }
+                </div>
+                <div class="diagram-day-result">
+                    <div class="day-column-caption">
+                        @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+                        {
+                            if (@ShowWeekTitle(dayOfWeek))
+                            {
+                                <div class="caption-item">@dayOfWeek.ToString().Substring(0,3)</div>
+                            }
+                        }
+                    </div>
+                    <div class="diagram-result-box">
+
+                        @for (int yIndex = 0; yIndex < ActivityChartDates.Count; yIndex++)
+                        {
+                            var row = ActivityChartDates[yIndex].ToList();
+                            @for (int xIndex = 0; xIndex < row.Count; xIndex++)
+                            {
+                                @if (isDiagramBusy)
+                                {
+                                    @if (yIndex == 3 && loadingUints.Contains(xIndex))
+                                    {
+                                        <div class="diagram-unit loading-unit-@(xIndex.ToString())"></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="diagram-unit range-zero"></div>
+                                    }
+                                }
+                                else
+                                {
+                                    var activity = GetActivity(row[xIndex].DateTimeOffset);
+                                    <div class="diagram-unit range-@(GetActivityColor(activity.ActivityAmount))">
+                                        <div class="diagram-unit-tool-tip">@activity.ActivityAmount.ToNoneZeroDecimal() on @activity.ActivityDate.DateTime.ToShortDateString()</div>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="color-guide-table">
+                <div class="color-guide-title">Color Guide</div>
+                <ul class="guide-list">
+                    <li>
+                        <div class="range-zero"></div>No activity
+                    </li>
+                    <li>
+                        <div class="range-one"></div>0-10
+                    </li>
+                    <li>
+                        <div class="range-two"></div>10-100
+                    </li>
+                    <li>
+                        <div class="range-three"></div>100-1000
+                    </li>
+                    <li>
+                        <div class="range-four"></div>1000+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nft-info-wrapper">
+            <div class="nft-info">
+                <div class="nft-info-header">
+                    <div class="nft-icon">NFT</div>
+                    <div class="nft-value">
+                        @if (NFTPrice is null)
+                        {
+                            <span><MiniLoading /></span>
+                        }
+                        else
+                        {
+                            <span>@NFTPrice</span>
+                        }
+                        TON
+                    </div>
+                </div>
+
+                <div class="nft-information">
+                    <div class="nft-information-box">
+                        <div class="nft-information-title">Number</div>
+                        @if (UserNamesCount is null)
+                        {
+                            <span class="nft-information-value">
+                                <MiniLoading ColorName="orange" />
+                            </span>
+
+                        }
+                        else
+                        {
+                            <span class="nft-information-value">@NumbersCount</span>
+                        }
+                    </div>
+                    <div class="nft-information-box">
+                        <div class="nft-information-title">Username</div>
+                        @if (UserNamesCount is null)
+                        {
+                            <span class="nft-information-value">
+                                <MiniLoading ColorName="orange" />
+                            </span>
+
+                        }
+                        else
+                        {
+                            <span class="nft-information-value">@UserNamesCount</span>
+                        }
+                    </div>
+                </div>
+
+            </div>
+            <div class="nft-list-container">
+
+                @if (NFTs is null)
+                {
+                    <div class="empty-mode"><MiniLoading /></div>
+                }
+                else if (NFTs.Any())
+                {
+                    <ul class="nft-list-content">
+                        @foreach (var nft in NFTs)
+                        {
+                            <li class="nft-box">@nft.Name</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="empty-mode">This wallet address has no NFT</div>
+                }
+
+            </div>
+        </div>
+        <div class="about-tonrich-wrapper">
+            <div class="tonrich-site-icon"><a href="https://tonrich.app" class="about-me-link" target="_blank">Tonrich.com</a></div>
+            <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" class="about-me-link" target="_blank">t.me/Tonrichbot</a></div>
+        </div>
+    </div>
+}
