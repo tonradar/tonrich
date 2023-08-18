@@ -28,7 +28,7 @@
 
 @mixin sections-text() {
     letter-spacing: -0.84px;
-    line-height: 3.8rem;
+    line-height: 3.7rem;
     font-size: 2.4rem;
     font-family: Roboto;
     font-weight: 300;
@@ -61,7 +61,7 @@
     border: none;
     padding: 1.6rem 3rem;
 
-    &:hover {
+    &:hover { 
         opacity: 1;
     }
 

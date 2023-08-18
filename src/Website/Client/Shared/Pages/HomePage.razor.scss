@@ -1,8 +1,7 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_mixins.scss';
-@import '../Styles/abstracts/_functions.scss';
-
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_mixins.scss";
+@import "../Styles/abstracts/_functions.scss";
 
 /*.landing-page {
     padding: 0 5rem;
@@ -42,21 +41,41 @@
     }
 }*/
 
+.btn-arrow {
+    width: 24px;
+    height: 24px;
+    background: url("images/landing-page/Forward-arrow.svg") center/cover
+        no-repeat;
+    // border: 1px solid blue;
+    display: inline-block;
+    margin-left: 12px;
+    position: relative;
+    top: 3px;
+}
+
+.black-arrow {
+    filter: invert(100%) sepia(4%) saturate(916%) hue-rotate(228deg)
+        brightness(112%) contrast(101%);
+}
+
 .hero-section {
-    background: url("images/background-images/hero-background.png") center/cover no-repeat;
+    background: url("images/landing-page/hero-background.png") center/cover
+        no-repeat;
     width: 92vw;
     border-radius: 2rem;
-    height: 69.5rem;
-    margin: 10px auto 0;
+    height: 740px;
+    margin: 1rem auto 0;
     color: white;
 
     .hero-img {
         width: 85vw;
-        height: 125rem;
+        max-width: 1390px;
+        height: 132rem;
         position: absolute;
         right: 0;
         top: 0;
-        background: url("images/background-images/hero-triangle.png") center/cover no-repeat;
+        background: url("images/landing-page/hero-triangle.png") center/cover
+            no-repeat;
     }
 
     .hero-content {
@@ -64,11 +83,11 @@
         height: 37rem;
         grid-template-rows: repeat(3, 1fr);
         position: relative;
-        top: 214px;
+        top: 240px;
         left: 80px;
 
         &-title {
-            background: url("images/background-images/hero-logo.svg") left no-repeat;
+            background: url("images/landing-page/hero-logo.svg") left no-repeat;
             padding-left: 9.5rem;
             display: inline;
             font-size: 7.7rem;
@@ -88,21 +107,16 @@
         }
 
         &-btn {
-            // background: url("../img/hero-arrow.svg") cover no-repeat right,
-            //     linear-gradient(to top left, #feb752, #fc4c25);
-
-            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
-            // background: url("../img/hero-arrow.svg") cover/right no-repeat;
-            // background-size: 10px;
-
             @include sections-btn();
+            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
         }
     }
 }
 
 .discover-section {
-    margin: 12.5rem auto;
-    background: linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)), url("images/background-images/hero-background.png") center/cover no-repeat;
+    margin: 12.5rem auto 9.5rem;
+    background: linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)),
+        url("images/landing-page/hero-background.png") center/cover no-repeat;
     width: 92vw;
     height: 82rem;
     border-radius: 2rem;
@@ -115,14 +129,17 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url("images/background-images/Discover-background.png") right/cover no-repeat;
+        background: url("images/landing-page/Discover-background.png")
+            right/cover no-repeat;
         opacity: 0.9;
         border-radius: 2rem;
     }
 
     .discover-app {
-        background: url("images/background-images/Discover-app.png") left/cover no-repeat;
+        background: url("images/landing-page/Discover-app.png") left/cover
+            no-repeat;
         width: 50.5vw;
+        max-width: 869px;
         height: 700px;
         // border: 1px solid rgb(17, 0, 255);
         position: absolute;
@@ -134,7 +151,10 @@
         width: 35vw;
         max-height: 495px;
         position: absolute;
-        top: 17.6rem;
+
+        // SCSS ERROR!!!
+        // top: min(13vw, 220px);
+
         top: 13vw;
         left: 6%;
 
@@ -166,17 +186,25 @@
 }
 
 .how-sections {
-    border: 2px solid pink;
+    // border: 2px solid pink;
     color: white;
 
+    .how-to-use {
+        font-size: 5.8rem;
+        line-height: 8.45rem;
+        letter-spacing: -2.44px;
+        font-weight: 300;
+        font-family: Ubuntu;
+        padding-left: 114px;
+    }
+
     .how-section {
-        height: 610px;
+        height: 595px;
         width: 92vw;
         // border: 1px solid blue;
         margin: 40px auto;
         border-radius: 2rem;
         position: relative;
-        background: url("images/background-images/hero-background.png") center/cover no-repeat;
     }
 
     .splash-of-color {
@@ -192,9 +220,16 @@
 
     .browser-intro {
         position: relative;
+        background: linear-gradient(
+                rgba(255, 0, 0, 0.07),
+                rgba(255, 0, 0, 0.07)
+            ),
+            url("images/landing-page/hero-background.png") center/cover
+                no-repeat;
 
         .splash-of-color {
-            background: linear-gradient( rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07) ), url("images/background-images/how1-background.png") right/cover no-repeat;
+            background: url("images/landing-page/how1-background.png")
+                right/cover no-repeat;
             background-position: 150px;
             opacity: 0.9;
         }
@@ -234,17 +269,95 @@
 
         .browser-img {
             // border: 1px solid white;
-            width: 535px;
+            width: 510px;
             height: 550px;
-            background: url("images/background-images/how1-image.png") center/cover no-repeat;
+            background: url("images/landing-page/how1-image.png") center/cover
+                no-repeat;
             position: absolute;
-            right: 2vw;
+            right: 3vw;
             bottom: 0;
             z-index: 2;
         }
     }
-}
 
+    // -----------------------------------
+
+    .telegram-intro {
+        position: relative;
+        background: linear-gradient(
+                rgba(255, 255, 255, 0.25),
+                rgba(255, 255, 255, 0.25)
+            ),
+            url("images/landing-page/hero-background.png") center/cover
+                no-repeat;
+
+        .splash-of-color {
+            background: url("images/landing-page/how2-background.png")
+                center/cover no-repeat;
+            opacity: 0.8;
+            width: 900px;
+        }
+
+        .telegram-content {
+            // border: 2px solid rgb(30, 255, 0);
+            z-index: 2;
+            width: 35vw;
+            max-height: 600px;
+            position: absolute;
+            top: 2.8vw;
+            left: 6%;
+
+            .telegram-header {
+                // border: 1px solid rgb(0, 242, 255);
+                @include sections-header();
+                white-space: nowrap;
+                font-weight: 500;
+                margin-top: 26px;
+            }
+
+            .telegram-text {
+                @include sections-text();
+                margin-bottom: 6.6vw;
+
+                // SCSS ERORR!!!
+                // margin-bottom: min(3vw, 102px);
+            }
+
+            .telegram-btn {
+                @include sections-btn();
+                background: white;
+                color: black;
+            }
+        }
+
+        .telegram-img1 {
+            width: 346px;
+            height: 532px;
+            background: url("images/landing-page/how2-image1.png") bottom/cover
+                no-repeat;
+            position: absolute;
+            right: 19.25vw;
+            bottom: 0;
+            z-index: 2;
+            // border: 1px solid red;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .telegram-img2 {
+            width: 352px;
+            height: 440px;
+            background: url("images/landing-page/how2-image2.png") bottom/cover
+                no-repeat;
+            position: absolute;
+            right: 99px;
+            right: 6.5vw;
+            bottom: 0;
+            z-index: 2;
+            // border: 1px solid red;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+}
 
 //old code
 // .page-container {
@@ -352,4 +465,3 @@
 //     width: 420px;
 //     margin: 5px;
 // }
-
