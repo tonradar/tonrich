@@ -50,5 +50,9 @@
   {
     "outputFile": "Shared/TrxInfoCard.razor.css",
     "inputFile": "Shared/TrxInfoCard.razor.scss"
+  },
+  {
+    "outputFile": "Components/EnrichedWallet.razor.css",
+    "inputFile": "Components/EnrichedWallet.razor.scss"
   }
 ]

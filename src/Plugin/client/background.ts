@@ -29,6 +29,6 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
   if (tab.status === 'complete' && (tab.url.includes('fragment.com') || tab.url.includes('tonscan.org') ||  tab.url.includes('tonviewer.com')))
 
-    await executeOnTab({ tabId, allFrames: true }, ['fargmentPage.js']);
+    await executeOnTab({ tabId, allFrames: true }, ['main.js']);
 });
 

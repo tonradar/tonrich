@@ -17,3 +17,56 @@
         }
     }
 }
+
+@mixin sections-header() {
+    font-size: 5.8rem;
+    letter-spacing: -0.5px;
+    line-height: 8.45rem;
+    font-family: "Ubuntu", sans-serif;
+    padding: 20px 0 15px;
+}
+
+@mixin sections-text() {
+    letter-spacing: -0.84px;
+    line-height: 3.7rem;
+    font-size: 2.4rem;
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+@mixin gray-frames() {
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline;
+    padding: 11px 22px;
+    font-size: 2.4rem;
+    font-family: Roboto;
+    font-weight: 600;
+    opacity: 0.8;
+    letter-spacing: -0.9px;
+}
+
+@mixin sections-btn {
+    font-family: Ubuntu;
+    height: 6.7rem;
+    border-radius: 4rem;
+    margin-top: 1.8rem;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.08rem;
+    cursor: pointer;
+    opacity: 0.95;
+    transition: opacity 0.1s, transform 0.15s;
+    border: none;
+    padding: 1.6rem 3rem;
+
+    &:hover { 
+        opacity: 1;
+    }
+
+    &:active {
+        opacity: 0.85;
+        transform: translate(0, 2px);
+    }
+}

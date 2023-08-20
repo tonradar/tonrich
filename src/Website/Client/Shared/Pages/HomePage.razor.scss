@@ -1,13 +1,13 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_mixins.scss';
-@import '../Styles/abstracts/_functions.scss';
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_mixins.scss";
+@import "../Styles/abstracts/_functions.scss";
 
-
-.landing-page {
+/*.landing-page {
     padding: 0 5rem;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid red;
 }
 
 .hero-section {
@@ -38,6 +38,324 @@
         width: 100rem;
         height: 100rem;
         background-color: orange;
+    }
+}*/
+
+.btn-arrow {
+    width: 24px;
+    height: 24px;
+    background: url("images/landing-page/Forward-arrow.svg") center/cover
+        no-repeat;
+    // border: 1px solid blue;
+    display: inline-block;
+    margin-left: 12px;
+    position: relative;
+    top: 3px;
+}
+
+.black-arrow {
+    filter: invert(100%) sepia(4%) saturate(916%) hue-rotate(228deg)
+        brightness(112%) contrast(101%);
+}
+
+.hero-section {
+    background: url("images/landing-page/hero-background.png") center/cover
+        no-repeat;
+    width: 92vw;
+    border-radius: 2rem;
+    height: 740px;
+    margin: 1rem auto 0;
+    color: white;
+
+    .hero-img {
+        width: 85vw;
+        max-width: 1390px;
+        height: 132rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: url("images/landing-page/hero-triangle.png") center/cover
+            no-repeat;
+    }
+
+    .hero-content {
+        width: 45vw;
+        height: 37rem;
+        grid-template-rows: repeat(3, 1fr);
+        position: relative;
+        top: 240px;
+        left: 80px;
+
+        &-title {
+            background: url("images/landing-page/hero-logo.svg") left no-repeat;
+            padding-left: 9.5rem;
+            display: inline;
+            font-size: 7.7rem;
+            font-family: Space Grotesk;
+            font-weight: 700;
+            letter-spacing: 0.19rem;
+            line-height: 7.788rem;
+        }
+
+        &-description {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            font-size: 3.4rem;
+            line-height: 3.86rem;
+            letter-spacing: -0.1rem;
+            margin: 45px 0 35px;
+        }
+
+        &-btn {
+            @include sections-btn();
+            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
+        }
+    }
+}
+
+.discover-section {
+    margin: 12.5rem auto 9.5rem;
+    background: linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)),
+        url("images/landing-page/hero-background.png") center/cover no-repeat;
+    width: 92vw;
+    height: 82rem;
+    border-radius: 2rem;
+    position: relative;
+    color: white;
+
+    .splash-of-color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("images/landing-page/Discover-background.png")
+            right/cover no-repeat;
+        opacity: 0.9;
+        border-radius: 2rem;
+    }
+
+    .discover-app {
+        background: url("images/landing-page/Discover-app.png") left/cover
+            no-repeat;
+        width: 50.5vw;
+        max-width: 869px;
+        height: 700px;
+        // border: 1px solid rgb(17, 0, 255);
+        position: absolute;
+        right: 0;
+        top: 48px;
+    }
+
+    .discover-content {
+        width: 35vw;
+        max-height: 495px;
+        position: absolute;
+
+        // SCSS ERROR!!!
+        // top: min(13vw, 220px);
+
+        top: 13vw;
+        left: 6%;
+
+        .discover-frame {
+            @include gray-frames();
+        }
+
+        .discover-header {
+            @include sections-header();
+            font-weight: 100;
+            white-space: nowrap;
+            margin: 21px 0 7px;
+
+            span {
+                @include sections-header();
+                font-weight: 700;
+            }
+        }
+
+        .discover-text {
+            @include sections-text();
+
+            &-padding-top {
+                padding-top: 10px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.how-sections {
+    // border: 2px solid pink;
+    color: white;
+
+    .how-to-use {
+        font-size: 5.8rem;
+        line-height: 8.45rem;
+        letter-spacing: -2.44px;
+        font-weight: 300;
+        font-family: Ubuntu;
+        padding-left: 114px;
+    }
+
+    .how-section {
+        height: 595px;
+        width: 92vw;
+        // border: 1px solid blue;
+        margin: 40px auto;
+        border-radius: 2rem;
+        position: relative;
+    }
+
+    .splash-of-color {
+        // border: 1px solid yellow;
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .browser-intro {
+        position: relative;
+        background: linear-gradient(
+                rgba(255, 0, 0, 0.07),
+                rgba(255, 0, 0, 0.07)
+            ),
+            url("images/landing-page/hero-background.png") center/cover
+                no-repeat;
+
+        .splash-of-color {
+            background: url("images/landing-page/how1-background.png")
+                right/cover no-repeat;
+            background-position: 150px;
+            opacity: 0.9;
+        }
+
+        .browser-content {
+            // border: 2px solid rgb(30, 255, 0);
+            z-index: 2;
+            width: 35vw;
+            max-height: 600px;
+            position: absolute;
+            top: 5vw;
+            left: 6%;
+
+            .introducing-frame {
+                @include gray-frames();
+            }
+
+            .browser-header {
+                // border: 1px solid rgb(0, 242, 255);
+                @include sections-header();
+                white-space: nowrap;
+                font-weight: 500;
+                margin-top: 26px;
+            }
+
+            .browser-text {
+                @include sections-text();
+                margin-bottom: 28px;
+            }
+
+            .browser-btn {
+                @include sections-btn();
+                background: white;
+                color: black;
+            }
+        }
+
+        .browser-img {
+            // border: 1px solid white;
+            width: 510px;
+            height: 550px;
+            background: url("images/landing-page/how1-image.png") center/cover
+                no-repeat;
+            position: absolute;
+            right: 3vw;
+            bottom: 0;
+            z-index: 2;
+        }
+    }
+
+    // -----------------------------------
+
+    .telegram-intro {
+        position: relative;
+        background: linear-gradient(
+                rgba(255, 255, 255, 0.25),
+                rgba(255, 255, 255, 0.25)
+            ),
+            url("images/landing-page/hero-background.png") center/cover
+                no-repeat;
+
+        .splash-of-color {
+            background: url("images/landing-page/how2-background.png")
+                center/cover no-repeat;
+            opacity: 0.8;
+            width: 900px;
+        }
+
+        .telegram-content {
+            // border: 2px solid rgb(30, 255, 0);
+            z-index: 2;
+            width: 35vw;
+            max-height: 600px;
+            position: absolute;
+            top: 2.8vw;
+            left: 6%;
+
+            .telegram-header {
+                // border: 1px solid rgb(0, 242, 255);
+                @include sections-header();
+                white-space: nowrap;
+                font-weight: 500;
+                margin-top: 26px;
+            }
+
+            .telegram-text {
+                @include sections-text();
+                margin-bottom: 6.6vw;
+
+                // SCSS ERORR!!!
+                // margin-bottom: min(3vw, 102px);
+            }
+
+            .telegram-btn {
+                @include sections-btn();
+                background: white;
+                color: black;
+            }
+        }
+
+        .telegram-img1 {
+            width: 346px;
+            height: 532px;
+            background: url("images/landing-page/how2-image1.png") bottom/cover
+                no-repeat;
+            position: absolute;
+            right: 19.25vw;
+            bottom: 0;
+            z-index: 2;
+            // border: 1px solid red;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .telegram-img2 {
+            width: 352px;
+            height: 440px;
+            background: url("images/landing-page/how2-image2.png") bottom/cover
+                no-repeat;
+            position: absolute;
+            right: 99px;
+            right: 6.5vw;
+            bottom: 0;
+            z-index: 2;
+            // border: 1px solid red;
+            border-radius: 20px 20px 0 0;
+        }
     }
 }
 
@@ -147,4 +465,3 @@
 //     width: 420px;
 //     margin: 5px;
 // }
-
