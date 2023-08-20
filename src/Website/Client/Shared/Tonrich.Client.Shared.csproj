@@ -11,6 +11,8 @@
         <SupportedPlatform Include="browser" />
 
         <Content Remove="compilerconfig.json" />
+
+        <Content Remove="wwwroot\images\background-images\image.svg" />
         <None Include="compilerconfig.json" />
         <None Include="Shared\LoadingComponent.razor.scss" />
 
