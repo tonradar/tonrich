@@ -22,6 +22,10 @@
                 <!-- In the Blazor Web Assembly mode, the API project will host the web client app itself -->
         <Content Condition=" '$(BlazorMode)' != 'BlazorServer' " Remove="Pages\_Host.cshtml" />
         <Content Condition=" '$(BlazorMode)' != 'BlazorServer' " Remove="Pages\_Layout.cshtml" />
+        <Content Remove="wwwroot\images\background-images\aoutusrecap.png" />
+        <Content Remove="wwwroot\images\background-images\Forward-Arrow.svg" />
+        <Content Remove="wwwroot\images\background-images\member1gray.png" />
+        <Content Remove="wwwroot\images\member1gray.png" />
         <Compile Condition=" '$(BlazorMode)' != 'BlazorServer' " Remove="Services\Implementations\ServerSideAuthTokenProvider.cs" />
         <Compile Condition=" '$(BlazorMode)' != 'BlazorServer' " Remove="Extensions\HttpRequestExtensions.cs" />
             </ItemGroup>

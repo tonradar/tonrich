@@ -22,7 +22,7 @@
         background-size: 100% auto;
         background-position: top center;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         position: absolute;
         top: -12rem;
         left: 0;
@@ -30,7 +30,7 @@
     }
 
     .about-us-top-page {
-        height: 62.5rem;
+        height: 80rem;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -51,6 +51,7 @@
             font-size: $FontSize34;
             font-weight: 400;
             text-align: center;
+            max-width: 90%;
         }
     }
 
@@ -81,6 +82,155 @@
             max-width: 106.6rem;
         }
     }
+
+    .team-members {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(3,3fr);
+        grid-template-rows:36.5vw 36.5vw;
+        padding: 6.4rem 9.8rem 9.5rem 9.8rem;   
+    }
+
+    .team-members > div {
+        border-radius: 3rem;   
+    }
+
+    .team-members div:hover {
+        filter: none;
+    }
+
+    
+
+    .team-member1 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+
+    .team-member2 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .team-member3 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .team-member4 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .team-member5 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .team-member6 {
+        position: relative;
+        background-image: url("/images/background-images/member1.png");
+        filter:grayscale(100%);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .team-member-info {
+        position:absolute;
+        bottom: 2rem;
+        right: 2rem;
+        left: 2rem;
+        padding: 2rem;        
+        height: 5.4rem;
+        border-radius: 2.1rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        background-color:#FFFFFF66;
+    
+        
+                               
+            .team-member-info-header {
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 23px;
+                text-align: left;
+            }
+
+            .team-member-info-desc {
+                top: 2rem;
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 19px;
+                text-align: left;
+
+            }
+
+    }
+
+.try-tonrich {
+    position: relative;
+    height: 105.2rem;
+    margin: 8rem;
+    border-radius: 1rem;
+    background-image: url(/images/background-images/trytonrich.png);
+    background-color: #300D36;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top center;
+
+    .try-tonrich-title {
+        font-family: Ubuntu;
+        font-size: 5.8rem;
+        font-weight: 700;
+        line-height: 6.5rem;
+        text-align: left;
+        padding-left: 7rem;
+        padding-top: 9.9rem;
+    }
+
+    .try-tonrich-disc {
+        padding-left: 7rem;
+        font-family: Ubuntu;
+        font-size: 3.4rem;
+        font-weight: 400;
+        line-height: 4.5rem;
+        text-align: left;
+
+        .try-tonrich-desc1 {
+            padding-top: 7rem;
+            width: 40%;
+        }
+
+        .try-tonrich-desc2 {
+            padding-top: 3.3rem;
+            width: 50%;
+        }
+
+        .try-tonrich-desc3 {
+            padding-top: 3.3rem;
+            width: 60%;
+        }
+    }
+}
+
 
     ul {
         margin: 0;
