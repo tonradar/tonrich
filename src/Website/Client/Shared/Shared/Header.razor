@@ -2,19 +2,21 @@
 @inherits AppComponentBase
 
 <header>
-    <div class="header-left-side">
-        TonRich
-    </div>
-    <div class="header-right-side">
-        <nav class="tonrich-menu">
-            <NavLink class="nav-link" href="about">
-                About
-            </NavLink>
-        </nav>
-        <button class="tornich-secondary-btn">Install TonRich now</button>
-        <div class="theme-btn-wrapper">
-            <button class="change-theme-btn" @onclick=ToggleTheme>change Theme</button>
-            <div class="theme-title">@(IsDarkTheme ? "Dark" : "Light") mode</div>
+    <div class="header-content">
+        <div class="header-left-side">
+            TonRich
+        </div>
+        <div class="header-right-side">
+            <nav class="tonrich-menu">
+                <NavLink class="nav-link" href="about">
+                    About
+                </NavLink>
+            </nav>
+            <button class="tornich-secondary-btn">Install TonRich now</button>
+            <div class="theme-btn-wrapper">
+                <button class="change-theme-btn" @onclick=ToggleTheme>change Theme</button>
+                <div class="theme-title">@(IsDarkTheme ? "Dark" : "Light") mode</div>
+            </div>
         </div>
     </div>
 </header>

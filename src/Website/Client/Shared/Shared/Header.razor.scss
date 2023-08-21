@@ -9,12 +9,20 @@ header {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-sizing: border-box;
-    z-index: 10;
     @include customize {
         background-color: getValue(PageBackground);
     }
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 8;
 }
 
 .header-left-side {
