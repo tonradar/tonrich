@@ -11,6 +11,7 @@ header {
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    z-index: 10;
     @include customize {
         background-color: getValue(PageBackground);
     }
@@ -35,5 +36,21 @@ header {
 
     .nav-link {
         padding: 0 0.6rem;
+    }
+}
+
+.theme-btn-wrapper {
+    margin-left: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    @include customize {
+        color: getValue(MainPen);
+    }
+
+    .change-theme-btn {
+        cursor: pointer;
+        margin-right: 4px;
     }
 }

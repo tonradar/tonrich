@@ -6,6 +6,8 @@ public partial class Header : IDisposable
     private bool _isUserAuthenticated;
 
     [Parameter] public EventCallback OnToggleMenu { get; set; }
+    [Parameter] public bool IsDarkTheme {get; set;} = true;
+    [Parameter] public EventCallback OnToggleTheme { get; set; }
 
     protected override async Task OnInitAsync()
     {
@@ -36,6 +38,12 @@ public partial class Header : IDisposable
     {
         await OnToggleMenu.InvokeAsync();
     }
+
+    public async Task ToggleTheme() {
+        await OnToggleTheme.InvokeAsync();
+    }
+
+
 
     public void Dispose()
     {

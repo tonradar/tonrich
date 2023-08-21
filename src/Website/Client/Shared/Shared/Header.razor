@@ -13,8 +13,8 @@
         </nav>
         <button class="tornich-secondary-btn">Install TonRich now</button>
         <div class="theme-btn-wrapper">
-            <div class="change-theme-btn"></div>
-            <div class="theme-title">Night mode</div>
+            <button class="change-theme-btn" @onclick=ToggleTheme>change Theme</button>
+            <div class="theme-title">@(IsDarkTheme ? "Dark" : "Light") mode</div>
         </div>
     </div>
 </header>

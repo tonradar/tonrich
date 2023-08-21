@@ -1,8 +1,8 @@
 ﻿@namespace Tonrich.Client.Shared
 @inherits LayoutComponentBase
 
-<div class="main theme-dark">
-    <Header />
+<div class="main @ThemeClass(IsDarkTheme)">
+    <Header OnToggleTheme="HandleToggleTheme" IsDarkTheme="IsDarkTheme"/>
     <div class="main-content">
         <AppErrorBoundary>
             @Body
