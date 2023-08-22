@@ -648,7 +648,7 @@
     }
 }
 
-@media screen and (max-width: $Breakpoint) {
+@media screen and (max-width: $Breakpoint2) {
     .wallet-info {
         margin-bottom: 11px;
     }
@@ -666,7 +666,7 @@
     }
 }
 
-@media screen and (max-width: $Breakpoint) {
+@media screen and (max-width: $Breakpoint2) {
     .trx-info-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;

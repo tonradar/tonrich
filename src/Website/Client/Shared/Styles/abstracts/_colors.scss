@@ -83,10 +83,11 @@ $MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
 $SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
 
 //breakpoint variable
-$Breakpoint3: 600px;
-$Breakpoint: 610px;
-$Breakpoint2: 665px;
-$Breakpoint1: 780px;
+$Breakpoint1: 600px;
+$Breakpoint2: 610px;
+$Breakpoint3: 665px;
+$Breakpoint4: 780px;
+$Breakpoint5: 1200px;
 
 ::-webkit-scrollbar {
     height: 5px;

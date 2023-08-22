@@ -36,6 +36,8 @@
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 7;
 
         .top-page-title {
             text-align: center;
@@ -60,6 +62,8 @@
 
     .about-team {
         width: 100%;
+        position: relative;
+        z-index: 7;
     }
 
     .about-team-title {
@@ -100,55 +104,37 @@
         filter: none;
     }
 
-    
-
-    .team-member1 {
+    .team-member{
         position: relative;
-        background-image: url("/images/background-images/member1.png");
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
         filter:grayscale(100%);
         background-position: center;
         background-size: cover;
+    }
+
+    .team-member1 {
+        background-image: url("/images/background-images/member1.png");
     }
 
 
     .team-member2 {
-        position: relative;
         background-image: url("/images/background-images/member1.png");
-        filter:grayscale(100%);
-        background-position: center;
-        background-size: cover;
     }
 
     .team-member3 {
-        position: relative;
         background-image: url("/images/background-images/member1.png");
-        filter:grayscale(100%);
-        background-position: center;
-        background-size: cover;
     }
 
     .team-member4 {
-        position: relative;
         background-image: url("/images/background-images/member1.png");
-        filter:grayscale(100%);
-        background-position: center;
-        background-size: cover;
     }
 
     .team-member5 {
-        position: relative;
         background-image: url("/images/background-images/member1.png");
-        filter:grayscale(100%);
-        background-position: center;
-        background-size: cover;
     }
 
     .team-member6 {
-        position: relative;
         background-image: url("/images/background-images/member1.png");
-        filter:grayscale(100%);
-        background-position: center;
-        background-size: cover;
     }
 
     .team-member-info {
@@ -235,4 +221,17 @@
 
     ul {
         margin: 0;
+    }
+
+
+
+    //media queries
+    @media screen and (max-width: $Breakpoint5) {
+        .team-members {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(3,2fr);
+            grid-template-rows:36.5vw 36.5vw;
+            padding: 6.4rem 9.8rem 9.5rem 9.8rem;   
+        }
     }
