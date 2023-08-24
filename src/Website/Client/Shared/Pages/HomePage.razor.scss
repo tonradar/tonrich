@@ -64,7 +64,7 @@
     width: 92vw;
     border-radius: 2rem;
     height: 74rem;
-    margin: 1rem auto 0;
+    margin: 13rem auto 0;
     color: white;
 
     .hero-img {
@@ -159,7 +159,7 @@
         // top: min(13vw, 220px);
         top: 13vw;
         left: 6%;
-        z-index: 2;
+        z-index: 3;
 
         .discover-frame {
             @include gray-frames();
@@ -238,7 +238,7 @@
 
     .browser-content {
         // border: 2px solid rgb(30, 255, 0);
-        z-index: 2;
+        z-index: 3;
         width: 35vw;
         max-height: 600px;
         position: absolute;
@@ -303,7 +303,7 @@
 
     .telegram-content {
         // border: 2px solid rgb(30, 255, 0);
-        z-index: 2;
+        z-index: 3;
         width: 35vw;
         max-height: 600px;
         position: absolute;
@@ -378,7 +378,7 @@
 
     .check-content {
         // border: 2px solid rgb(30, 255, 0);
-        z-index: 2;
+        z-index: 3;
         width: 35vw;
         max-height: 600px;
         position: absolute;
@@ -561,7 +561,7 @@
         top: 75px;
         left: 6%;
         // border: 1px solid red;
-        z-index: 2;
+        z-index: 3;
 
         .recap-header {
             @include sections-header();
