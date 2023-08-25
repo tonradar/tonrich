@@ -6,13 +6,19 @@ footer {
     width: 100%;
     box-sizing: border-box;
     height: 80px;
-    color: white;
-    font-family: Ubuntu;
-    font-weight: 500;
-    display: flex;
-    @include customize {
-        background-color: getValue(PageBackground);
+
+    @include customize() {
+        color: getValue(Footer-color);
     }
+
+    font-weight: 500;
+    font-family: Ubuntu;
+    display: flex;
+
+    @include customize {
+        background-color: getValue(Footer-background);
+    }
+
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
@@ -26,7 +32,7 @@ footer {
     }
 
     .footer-rights {
-        opacity: 0.4;
+        opacity: 0.8;
         cursor: default;
     }
 
@@ -36,16 +42,16 @@ footer {
         gap: 40px;
 
         div {
-            opacity: 0.4;
+            opacity: 0.8;
             cursor: pointer;
             transition: opacity 0.15s;
 
             &:hover {
-                opacity: 0.8;
+                opacity: 1;
             }
 
             &:active {
-                opacity: 0.6;
+                opacity: 0.9;
             }
         }
     }

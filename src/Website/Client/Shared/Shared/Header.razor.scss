@@ -11,9 +11,9 @@ header {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    @include customize {
-        background-color: getValue(PageBackground);
-    }
+    position: absolute;
+    top:0;
+    left:0;
 }
 
 .header-content {

@@ -29,6 +29,13 @@ $themes: (
             PageBackground: #F3F2F2,
             HeroBackground: #D9D9D9,
             FooterPen: #261005, /// check with design team
+
+            // New EnrichedWallet:
+            EnrichedWallet-background: unquote('url("./images/background-images/Main-page-background.png") top/cover no-repeat, #7f7f7f'),
+
+            // New Footer:
+            Footer-color: #FFF,
+            Footer-background: #7f7f7f,
         ),
     dark: (
             MainBackground: #323232,
@@ -59,6 +66,13 @@ $themes: (
             PageBackground: #000,
             HeroBackground: #1C1A1A,
             FooterPen: #fff,/// check with design team
+
+            // New EnrichedWallet:
+            EnrichedWallet-background: unquote('url("./images/background-images/Main-page-background.png") top/cover no-repeat, #000'),
+            
+            // New Footer:
+            Footer-color: #fff,
+            Footer-background: #000,
         )
     );
 
