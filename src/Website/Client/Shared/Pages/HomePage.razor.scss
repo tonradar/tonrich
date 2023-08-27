@@ -277,12 +277,12 @@
 
             @include customize() {
                 color: getValue(TextColorSec);
+            }
 
                 // IDK what the problem is...
-                .btn-arrow {
-                    @include customize() {
-                        background: getValue(Change-color-Arrow);
-                    }
+            .btn-arrow {
+                @include customize() {
+                    background: getValue(Change-color-Arrow);
                 }
             }
         }
