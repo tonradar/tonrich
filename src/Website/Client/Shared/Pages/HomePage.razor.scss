@@ -42,40 +42,38 @@
 }*/
 
 .btn-arrow {
-    width: 24px;
-    height: 24px;
-    background: url("images/landing-page/Forward-arrow.svg") center/cover
-        no-repeat;
-    // border: 1px solid blue;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png") center/cover no-repeat;
+    // border: 0.1rem solid blue;
     display: inline-block;
-    margin-left: 12px;
+    margin-left: 1.2rem;
     position: relative;
-    top: 3px;
-}
-
-.black-arrow {
-    filter: invert(100%) sepia(4%) saturate(916%) hue-rotate(228deg)
-        brightness(112%) contrast(101%);
+    top: 0.55rem;
 }
 
 .hero-section {
-    background: url("images/landing-page/hero-background.png") center/cover
-        no-repeat;
+    @include customize() {
+        background: getValue(Hero-background-img);
+    }
+
     width: 92vw;
     border-radius: 2rem;
-    height: 740px;
-    margin: 1rem auto 0;
-    color: white;
+    height: 74rem;
+    margin: 13rem auto 0;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
 
     .hero-img {
-        width: 85vw;
-        max-width: 1390px;
+        width: 84vw;
+        max-width: 139rem;
         height: 132rem;
         position: absolute;
         right: 0;
         top: 0;
-        background: url("images/landing-page/hero-triangle.png") center/cover
-            no-repeat;
+        background: url("images/landing-page/Both/hero-triangle.png") center/cover no-repeat;
     }
 
     .hero-content {
@@ -83,11 +81,14 @@
         height: 37rem;
         grid-template-rows: repeat(3, 1fr);
         position: relative;
-        top: 240px;
-        left: 80px;
+        top: 24rem;
+        left: 8rem;
 
         &-title {
-            background: url("images/landing-page/hero-logo.svg") left no-repeat;
+            @include customize() {
+                background: getValue(Hero-title-background);
+            }
+
             padding-left: 9.5rem;
             display: inline;
             font-size: 7.7rem;
@@ -103,7 +104,7 @@
             font-size: 3.4rem;
             line-height: 3.86rem;
             letter-spacing: -0.1rem;
-            margin: 45px 0 35px;
+            margin: 4.5rem 0 3.5rem;
         }
 
         &-btn {
@@ -115,13 +116,20 @@
 
 .discover-section {
     margin: 12.5rem auto 9.5rem;
-    background: linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)),
-        url("images/landing-page/hero-background.png") center/cover no-repeat;
+
+    @include customize() {
+        background: getValue(Discover-background-img);
+    }
+
     width: 92vw;
     height: 82rem;
     border-radius: 2rem;
     position: relative;
-    color: white;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
+    // color: red;
 
     .splash-of-color {
         position: absolute;
@@ -129,15 +137,16 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url("images/landing-page/Discover-background.png")
-            right/cover no-repeat;
+        background: url("images/landing-page/Both/Discover-background.png") right/cover no-repeat;
         opacity: 0.9;
         border-radius: 2rem;
     }
 
     .discover-app {
-        background: url("images/landing-page/Discover-app.png") left/cover
-            no-repeat;
+        @include customize() {
+            background: getValue(Discover-image);
+        }
+
         width: 50.5vw;
         max-width: 869px;
         height: 700px;
@@ -145,18 +154,17 @@
         position: absolute;
         right: 0;
         top: 48px;
+        z-index: 1;
     }
 
     .discover-content {
         width: 35vw;
         max-height: 495px;
         position: absolute;
-
-        // SCSS ERROR!!!
         // top: min(13vw, 220px);
-
         top: 13vw;
         left: 6%;
+        z-index: 2;
 
         .discover-frame {
             @include gray-frames();
@@ -187,175 +195,456 @@
 
 .how-sections {
     // border: 2px solid pink;
-    color: white;
-
-    .how-to-use {
-        font-size: 5.8rem;
-        line-height: 8.45rem;
-        letter-spacing: -2.44px;
-        font-weight: 300;
-        font-family: Ubuntu;
-        padding-left: 114px;
+    @include customize() {
+        color: getValue(TextColor);
     }
+}
 
-    .how-section {
-        height: 595px;
-        width: 92vw;
-        // border: 1px solid blue;
-        margin: 40px auto;
-        border-radius: 2rem;
-        position: relative;
+.how-to-use {
+    font-size: 5.8rem;
+    line-height: 8.45rem;
+    letter-spacing: -2.44px;
+    font-weight: 300;
+    font-family: Ubuntu;
+    padding-left: 114px;
+}
+
+.how-section {
+    height: 595px;
+    width: 92vw;
+    // border: 1px solid blue;
+    margin: 40px auto;
+    border-radius: 2rem;
+    position: relative;
+}
+
+.splash-of-color {
+    // border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.browser-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Browser-background-image);
     }
 
     .splash-of-color {
-        // border: 1px solid yellow;
-        width: 100%;
-        height: 100%;
-        border-radius: 2rem;
+        background: url("images/landing-page/Both/how1-background.png") right/cover no-repeat;
+        background-position: 150px;
+        opacity: 0.9;
+    }
+
+    .browser-content {
+        // border: 2px solid rgb(30, 255, 0);
+        z-index: 2;
+        width: 35vw;
+        max-height: 600px;
         position: absolute;
+        top: 5vw;
+        left: 6%;
+
+        .introducing-frame {
+            @include gray-frames();
+        }
+
+        .browser-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+            margin-top: 26px;
+        }
+
+        .browser-text {
+            @include sections-text();
+            margin-bottom: 28px;
+        }
+
+        .browser-btn {
+            @include sections-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+
+                // IDK what the problem is...
+            .btn-arrow {
+                @include customize() {
+                    background: getValue(Change-color-Arrow);
+                }
+            }
+        }
+    }
+
+    .browser-img {
+        // border: 1px solid white;
+        width: 510px;
+        height: 550px;
+
+        @include customize() {
+            background: getValue(Browser-image);
+        }
+
+        position: absolute;
+        right: 3vw;
+        bottom: 0;
+        z-index: 2;
+    }
+}
+
+.telegram-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Telegram-background-image);
+    }
+
+    color: white;
+    overflow: hidden;
+
+    .splash-of-color {
+        background: url("images/landing-page/Both/how2-background.png") center/cover no-repeat;
+        opacity: 0.8;
+        width: 900px;
+    }
+
+    .telegram-content {
+        // border: 2px solid rgb(30, 255, 0);
+        z-index: 2;
+        width: 35vw;
+        max-height: 600px;
+        position: absolute;
+        top: 2.8vw;
+        left: 6%;
+
+        .telegram-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+            margin-top: 26px;
+        }
+
+        .telegram-text {
+            @include sections-text();
+            // margin-bottom: 102px;
+            margin-bottom: 6.6vw;
+        }
+
+        .telegram-btn {
+            @include sections-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+
+            .btn-arrow {
+                @include customize() {
+                    background: getValue(Change-color-Arrow);
+                }
+            }
+        }
+    }
+
+    .telegram-img1 {
+        width: 346px;
+        height: 532px;
+
+        @include customize() {
+            background: getValue(Telegram-image1);
+        }
+
+        position: absolute;
+        right: 19.25vw;
+        bottom: 0;
+        z-index: 2;
+        // border: 1px solid red;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .telegram-img2 {
+        width: 352px;
+        height: 410px;
+
+        @include customize() {
+            background: getValue(Telegram-image2);
+        }
+
+        position: absolute;
+        right: 6.5vw;
+        bottom: 0;
+        z-index: 2;
+        border-radius: 20px 20px 0 0;
+        // border: 1px solid rgb(84, 84, 84);
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.check-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Check-background-image);
+    }
+
+    .splash-of-color {
+        background: url("images/landing-page/Both/how3-background.png") right/cover no-repeat;
+        background-position: 220px;
+        opacity: 0.7;
+    }
+
+    .check-content {
+        // border: 2px solid rgb(30, 255, 0);
+        z-index: 2;
+        width: 35vw;
+        max-height: 600px;
+        position: absolute;
+        top: 5vw;
+        left: 6%;
+
+        .introducing-frame {
+            @include gray-frames();
+        }
+
+        .check-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+            margin-top: 26px;
+        }
+
+        .check-text {
+            @include sections-text();
+            margin-bottom: 28px;
+        }
+
+        .check-btn {
+            @include sections-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+        }
+    }
+
+    .check-img {
+        // border: 1px solid white;
+        width: 665px;
+        // width: 43vw;
+        height: 528px;
+        // problem
+        @include customize() {
+            background: getValue(check-image);
+        }
+
+        position: absolute;
+        right: 5.2vw;
+        bottom: 1vw;
+        z-index: 2;
+    }
+
+    .check-wallet-adrs {
+        // border: 1px solid red;
+        width: 426px;
+        height: 68px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        @include customize() {
+            background-color: getValue(walletBackground);
+        }
+
+        position: relative;
+        top: 20px;
+        right: 12px;
+
+        .wallet-input {
+            padding: 16px 0 16px 25px;
+            width: 358px;
+            height: 64px;
+            border: none;
+            background-color: transparent;
+            color: rgb(255, 243, 237);
+            // border: 1px solid rgb(43, 0, 255);
+            font-size: 18px;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .wallet-btn {
+            @include customize() {
+                background-color: getValue(walletBtn);
+            }
+
+            border: none;
+            border-radius: 50%;
+            padding: 12px;
+            width: 54px;
+            height: 54px;
+            cursor: pointer;
+            opacity: 0.95;
+            transition: opacity 0.15s;
+
+            .btn-arrow {
+                margin: 0;
+                width: 29px;
+                height: 29px;
+                position: relative;
+                top: 0px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+.work-seamlessly-section {
+    margin: 155px auto 155px auto;
+    // border: 1px solid blue;
+    width: 969px;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
+
+    .work-seamlessly-text {
+        letter-spacing: -1.44px;
+        font-weight: 300;
+        font-size: 5.8rem;
+        font-family: Ubuntu;
+        text-align: center;
+        padding-right: 30px;
+    }
+
+    .work-seamlessly-logo {
+        margin-top: 67px;
+        // border: 1px solid red;
+        display: flex;
+        margin: 62px 50px 0;
+
+        div {
+            // border: 1px solid yellow;
+            width: 100%;
+            height: 60px;
+        }
+
+        .logo-img1 {
+            @include customize() {
+                background: getValue(Logo-image1);
+            }
+
+            background-size: 180px;
+        }
+
+        .logo-img2 {
+            @include customize() {
+                background: getValue(Logo-image2);
+            }
+
+            background-size: 180px;
+        }
+
+        .logo-img3 {
+            @include customize() {
+                background: getValue(Logo-image3);
+            }
+
+            background-size: 170px;
+        }
+    }
+}
+
+.recap-section {
+    margin: 12.5rem auto 9.5rem;
+
+    @include customize() {
+        background: getValue(Recap-background-image);
+    }
+
+    width: 92vw;
+    height: 92rem;
+    border-radius: 2rem;
+    position: relative;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
+
+    overflow: hidden;
+
+    .recap-content {
+        // width: 43vw;
+        width: 660px;
+        position: absolute;
+        top: 75px;
+        left: 6%;
+        // border: 1px solid red;
+        z-index: 2;
+
+        .recap-header {
+            @include sections-header();
+            font-weight: 500;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .recap-text {
+            letter-spacing: -2.3px;
+            line-height: 4.55rem;
+            font-size: 3.5rem;
+            font-family: Ubuntu;
+            padding-top: 40px;
+        }
+
+        .recap-btn {
+            @include sections-btn();
+            margin-top: 85px;
+            margin-left: 13px;
+            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
+        }
+    }
+
+    .recap-img {
+        width: 85vw;
+        max-width: 1186px;
+        height: 920px;
+        position: absolute;
+        right: 0;
         top: 0;
-        left: 0;
-        z-index: 1;
-    }
-
-    .browser-intro {
-        position: relative;
-        background: linear-gradient(
-                rgba(255, 0, 0, 0.07),
-                rgba(255, 0, 0, 0.07)
-            ),
-            url("images/landing-page/hero-background.png") center/cover
-                no-repeat;
-
-        .splash-of-color {
-            background: url("images/landing-page/how1-background.png")
-                right/cover no-repeat;
-            background-position: 150px;
-            opacity: 0.9;
-        }
-
-        .browser-content {
-            // border: 2px solid rgb(30, 255, 0);
-            z-index: 2;
-            width: 35vw;
-            max-height: 600px;
-            position: absolute;
-            top: 5vw;
-            left: 6%;
-
-            .introducing-frame {
-                @include gray-frames();
-            }
-
-            .browser-header {
-                // border: 1px solid rgb(0, 242, 255);
-                @include sections-header();
-                white-space: nowrap;
-                font-weight: 500;
-                margin-top: 26px;
-            }
-
-            .browser-text {
-                @include sections-text();
-                margin-bottom: 28px;
-            }
-
-            .browser-btn {
-                @include sections-btn();
-                background: white;
-                color: black;
-            }
-        }
-
-        .browser-img {
-            // border: 1px solid white;
-            width: 510px;
-            height: 550px;
-            background: url("images/landing-page/how1-image.png") center/cover
-                no-repeat;
-            position: absolute;
-            right: 3vw;
-            bottom: 0;
-            z-index: 2;
-        }
-    }
-
-    // -----------------------------------
-
-    .telegram-intro {
-        position: relative;
-        background: linear-gradient(
-                rgba(255, 255, 255, 0.25),
-                rgba(255, 255, 255, 0.25)
-            ),
-            url("images/landing-page/hero-background.png") center/cover
-                no-repeat;
-
-        .splash-of-color {
-            background: url("images/landing-page/how2-background.png")
-                center/cover no-repeat;
-            opacity: 0.8;
-            width: 900px;
-        }
-
-        .telegram-content {
-            // border: 2px solid rgb(30, 255, 0);
-            z-index: 2;
-            width: 35vw;
-            max-height: 600px;
-            position: absolute;
-            top: 2.8vw;
-            left: 6%;
-
-            .telegram-header {
-                // border: 1px solid rgb(0, 242, 255);
-                @include sections-header();
-                white-space: nowrap;
-                font-weight: 500;
-                margin-top: 26px;
-            }
-
-            .telegram-text {
-                @include sections-text();
-                margin-bottom: 6.6vw;
-
-                // SCSS ERORR!!!
-                // margin-bottom: min(3vw, 102px);
-            }
-
-            .telegram-btn {
-                @include sections-btn();
-                background: white;
-                color: black;
-            }
-        }
-
-        .telegram-img1 {
-            width: 346px;
-            height: 532px;
-            background: url("images/landing-page/how2-image1.png") bottom/cover
-                no-repeat;
-            position: absolute;
-            right: 19.25vw;
-            bottom: 0;
-            z-index: 2;
-            // border: 1px solid red;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .telegram-img2 {
-            width: 352px;
-            height: 440px;
-            background: url("images/landing-page/how2-image2.png") bottom/cover
-                no-repeat;
-            position: absolute;
-            right: 99px;
-            right: 6.5vw;
-            bottom: 0;
-            z-index: 2;
-            // border: 1px solid red;
-            border-radius: 20px 20px 0 0;
-        }
+        // border: 1px solid red;
+        background: url("images/landing-page/Both/recap-img.png") center/cover no-repeat;
     }
 }
 
