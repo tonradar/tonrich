@@ -8,6 +8,7 @@
 
     @include customize() {
         background: getValue(EnrichedWallet-background);
+        background-position: 0px -120px;
     }
 }
 
@@ -23,7 +24,7 @@
     @include customize() {
         background-color: getValue(MainBackground);
     }
-    margin: 167px auto 88px;
+    margin: 47px auto 88px;
 }
 
 .owner-info-wrapper {

@@ -70,8 +70,12 @@ $themes: (
             EnrichedWallet-background: unquote('url("./images/background-images/Main-page-background.png") top/cover no-repeat, #7f7f7f'),
 
             // New Footer:
-            Footer-color: #FFF,
-            Footer-background: #7f7f7f,
+            Footer-color: #a19793,
+            Footer-background: #F3F2F2,
+
+            // Footer colors for EnrichedWallet:
+            // Footer-color: #FFF,
+            // Footer-background: #7f7f7f,
         ),
     dark: (
             MainBackground: #323232,
@@ -223,10 +227,6 @@ $Breakpoint1: 780px;
     border-radius: 4rem;
     color: #fff;
     background: linear-gradient(142deg, #FC4C25 0%, #FEB752 100%);
-  }
-
-  .tornich-secondary-btn {
-
   }
 
 ///todo: old
