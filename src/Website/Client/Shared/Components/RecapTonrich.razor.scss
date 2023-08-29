@@ -5,21 +5,18 @@
 
 .recap-section {
     margin: 12.5rem auto 9.5rem;
-
-    @include customize() {
-        background: getValue(Recap-background-image);
-    }
-
     width: 92vw;
     height: 92rem;
     border-radius: 2rem;
     position: relative;
-
+    overflow: hidden;
+    z-index: 7;
+    @include customize() {
+        background: getValue(Recap-background-image);
+    }
     @include customize() {
         color: getValue(TextColor);
     }
-
-    overflow: hidden;
 
     .recap-content {
         // width: 43vw;
