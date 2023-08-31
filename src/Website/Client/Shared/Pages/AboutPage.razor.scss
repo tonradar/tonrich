@@ -91,7 +91,7 @@
     .team-members {
         display: grid;
         gap: 2rem;
-        grid-template-columns: repeat(3,3fr);
+        grid-template-columns: repeat(3,1fr);
         grid-template-rows:36.5vw 36.5vw;
         padding: 6.4rem 9.8rem 9.5rem 9.8rem;   
     }
@@ -230,8 +230,20 @@
         .team-members {
             display: grid;
             gap: 2rem;
-            grid-template-columns: repeat(3,2fr);
-            grid-template-rows:36.5vw 36.5vw;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows:50vw 50vw 50vw;
+            padding: 6.4rem 9.8rem 9.5rem 9.8rem;
+        }
+    }
+
+
+     //media queries
+    @media screen and (max-width: 40rem) {
+        .team-members {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows:80vw 80vw 80vw 80vw 80vw 80vw;
             padding: 6.4rem 9.8rem 9.5rem 9.8rem;   
         }
     }
