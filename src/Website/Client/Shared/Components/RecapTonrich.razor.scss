@@ -34,7 +34,7 @@
             @include sections-header();
             font-weight: 500;
             padding-left: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .recap-text {
@@ -46,7 +46,7 @@
         }
 
         .recap-btn {
-            @include sections-btn();
+            @include tonrich-btn();
             margin-top: 85px;
             margin-left: 13px;
             background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
@@ -61,6 +61,19 @@
         right: 0;
         top: 0;
         // border: 1px solid red;
-        background: url("images/landing-page/Both/recap-img.png") center/cover no-repeat;
+        background: url("images/landing-page/Both/recap-img.png") center/cover
+            no-repeat;
     }
+}
+
+.btn-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png")
+        center/cover no-repeat;
+    // border: 0.1rem solid blue;
+    display: inline-block;
+    margin-left: 1.2rem;
+    position: relative;
+    top: 0.55rem;
 }
