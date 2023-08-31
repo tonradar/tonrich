@@ -32,7 +32,7 @@
     .hero-img {
         width: 84vw;
         max-width: 139rem;
-        height: 132rem;
+        height: 131rem;
         position: absolute;
         right: 0;
         top: 0;
@@ -86,7 +86,7 @@
     }
 
     width: 92vw;
-    height: 82rem;
+    min-height: 82rem;
     border-radius: 2rem;
     position: relative;
 
@@ -123,11 +123,8 @@
 
     .discover-content {
         width: 35vw;
-        max-height: 495px;
-        position: absolute;
-        // top: min(13vw, 220px);
-        top: 12vw;
-        left: 6%;
+        position: relative;
+        padding: 12vw 0 0 6%;
         z-index: 2;
         // border: 1px solid red;
 
@@ -175,7 +172,7 @@
 }
 
 .how-section {
-    height: 595px;
+    min-height: 595px;
     width: 92vw;
     // border: 1px solid blue;
     margin: 40px auto;
@@ -210,12 +207,10 @@
 
     .browser-content {
         // border: 2px solid rgb(30, 255, 0);
+        position: relative;
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 5vw;
-        left: 6%;
+        padding: 2.8vw 0 0 6%;
 
         .introducing-frame {
             @include gray-frames();
@@ -226,12 +221,11 @@
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
-            margin-top: 13px;
         }
 
         .browser-text {
             @include sections-text();
-            margin-bottom: 28px;
+            margin-bottom: 23px;
         }
 
         .browser-btn {
@@ -277,7 +271,6 @@
     }
 
     color: white;
-    overflow: hidden;
 
     .splash-of-color {
         background: url("images/landing-page/Both/how2-background.png")
@@ -290,10 +283,8 @@
         // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 4.5vw;
-        left: 6%;
+        position: relative;
+        padding: 4.5vw 0 0 6%;
 
         .telegram-header {
             // border: 1px solid rgb(0, 242, 255);
@@ -305,7 +296,7 @@
         .telegram-text {
             @include sections-text();
             // margin-bottom: 102px;
-            margin-bottom: 6.6vw;
+            margin-bottom: 3.6vw;
         }
 
         .telegram-btn {
@@ -379,10 +370,8 @@
         // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 4.8vw;
-        left: 6%;
+        position: relative;
+        padding: 4.8vw 0 0 6%;
 
         .introducing-frame {
             @include gray-frames();
@@ -417,8 +406,8 @@
     .check-img {
         // border: 1px solid white;
         width: 665px;
-        // width: 43vw;
         height: 528px;
+        
         // problem
         @include customize() {
             background: getValue(check-image);
@@ -438,6 +427,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-bottom: 4rem;
 
         @include customize() {
             background-color: getValue(walletBackground);

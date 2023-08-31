@@ -666,4 +666,91 @@ Please confirm your email by clicking on the link.</value>
   <data name="AboutPageTitle" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="." xml:space="preserve">
+    <value />
+  </data>
+  <data name=".." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Aloha" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LandingBrowserBtn" xml:space="preserve">
+    <value>Try our plug-in now</value>
+  </data>
+  <data name="LandingBrowserGrayBox" xml:space="preserve">
+    <value>INTRODUCING</value>
+  </data>
+  <data name="LandingBrowserText" xml:space="preserve">
+    <value>Tonrich browser plug-in works seamlessly with popular sites such as fragment.com, tonscan.org and tonapi.io. The only thing you need to do is hover over a wallet address on these sites, Tonrich will show users a comprehensive overview of the wallet's activity, balance, transactions, and more.</value>
+  </data>
+  <data name="LandingBrowserTitle" xml:space="preserve">
+    <value>Browser plug-in</value>
+  </data>
+  <data name="LandingCheckGrayBox" xml:space="preserve">
+    <value>INTRODUCING</value>
+  </data>
+  <data name="LandingCheckInputPlaceholder" xml:space="preserve">
+    <value>Enter the wallet address here</value>
+  </data>
+  <data name="LandingCheckText" xml:space="preserve">
+    <value>You can also use our Website just by a click to get ta comprehensive overview of the wallet's activity, balance, transactions, and more, just enter the wallet address, an image like this will enrich you:</value>
+  </data>
+  <data name="LandingCheckTitle" xml:space="preserve">
+    <value>Check it now</value>
+  </data>
+  <data name="LandingDiscoverGrayBox" xml:space="preserve">
+    <value>DISCOVER TONRICH</value>
+  </data>
+  <data name="LandingDiscoverTitle1" xml:space="preserve">
+    <value>What is</value>
+  </data>
+  <data name="LandingDiscoverTitle2" xml:space="preserve">
+    <value>TonRich?</value>
+  </data>
+  <data name="LandingDiscoverTxt1" xml:space="preserve">
+    <value>Tonrich is the ultimate tool for anyone who wants to uncover the secrets of TON wallets and gain valuable insights into the NFT market. Download Tonrich today and start your journey into the world of TON wallets and NFT auctions!</value>
+  </data>
+  <data name="LandingDiscoverTxt2" xml:space="preserve">
+    <value>You can also use Tonrich to compare different wallets and see how they relate to each other.</value>
+  </data>
+  <data name="LandingHeroBtn" xml:space="preserve">
+    <value>Try our plug-in now</value>
+  </data>
+  <data name="LandingHeroTitle" xml:space="preserve">
+    <value>TonRich</value>
+  </data>
+  <data name="LandingHeroTxt" xml:space="preserve">
+    <value>A handy tool for deep insight into TON wallets and NFT auctions</value>
+  </data>
+  <data name="LandingHowTitle" xml:space="preserve">
+    <value>How to use it?</value>
+  </data>
+  <data name="LandingTelegramBtn" xml:space="preserve">
+    <value>Try our bot now</value>
+  </data>
+  <data name="LandingTelegramText" xml:space="preserve">
+    <value>You can also use the Tonrich Telegram bot easily to get ta comprehensive overview of the wallet's activity, balance, transactions, and more, just by sending the wallet address to the bot. The bot will answer you by sending an image like this:</value>
+  </data>
+  <data name="LandingTelegramTitle" xml:space="preserve">
+    <value>Telegram bot</value>
+  </data>
+  <data name="LandingWorkSeamlessly" xml:space="preserve">
+    <value>Work seamlessly with popular services</value>
+  </data>
+  <data name="RecapBtn" xml:space="preserve">
+    <value>Try TonRich</value>
+  </data>
+  <data name="RecapText1" xml:space="preserve">
+    <value>Do you want to know more about TON wallets and their transactions?</value>
+  </data>
+  <data name="RecapText2" xml:space="preserve">
+    <value>Do you want to access rich and detailed information about any wallet in TON with just a simple hover?</value>
+  </data>
+  <data name="RecapText3" xml:space="preserve">
+    <value>Do you want to gain a competitive edge in the NFT market by analyzing the behavior of your competitors in real-time?</value>
+  </data>
+  <data name="RecapTitle" xml:space="preserve">
+    <value>Let’s recap!</value>
+  </data>
 </root>
