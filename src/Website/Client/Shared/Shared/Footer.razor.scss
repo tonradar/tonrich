@@ -6,6 +6,8 @@ footer {
     width: 100%;
     box-sizing: border-box;
     height: 80px;
+    position: relative;
+    z-index: 2;
 
     @include customize() {
         color: getValue(Footer-color);

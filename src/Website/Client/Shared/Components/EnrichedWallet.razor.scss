@@ -3,16 +3,22 @@
 @import "../Styles/abstracts/_mixins.scss";
 @import "../Styles/abstracts/_functions.scss";
 
-.tonrich-page {
+.tonrich-background {
     width: 100%;
+    height: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     @include customize() {
         background: getValue(EnrichedWallet-background);
-        background-position: 0px -120px;
     }
+    z-index: 1;
 }
 
 .tonrich-container {
+    position: relative;
+    z-index: 2;
     max-width: 914px;
     min-width: 426px;
     width: 100%;
