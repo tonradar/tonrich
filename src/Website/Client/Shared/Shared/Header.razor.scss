@@ -11,9 +11,10 @@ header {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
+
+    @include customize() {
+        background: getValue(PageBackground);
+    }
 }
 
 .header-content {

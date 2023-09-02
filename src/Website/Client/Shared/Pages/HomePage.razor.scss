@@ -3,48 +3,11 @@
 @import "../Styles/abstracts/_mixins.scss";
 @import "../Styles/abstracts/_functions.scss";
 
-/*.landing-page {
-    padding: 0 5rem;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid red;
-}
-
-.hero-section {
-    width: 100%;
-    min-height: 69.5rem;
-    position: relative;
-    border-radius: 2rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    @include customize() {
-        background-color: getValue(HeroBackground);
-    }
-
-    .hero-content {
-        padding-left: 7.9rem;
-
-        .hero-title {
-            padding-top: 8rem;
-        }
-    }
-
-    .hero-img {
-        position: absolute;
-        top: -5rem;
-        right: -5rem;
-        width: 100rem;
-        height: 100rem;
-        background-color: orange;
-    }
-}*/
-
 .btn-arrow {
     width: 2.6rem;
     height: 2.6rem;
-    background: url("images/landing-page/Both/Forward-arrow-white.png") center/cover no-repeat;
+    background: url("images/landing-page/Both/Forward-arrow-white.png")
+        center/cover no-repeat;
     // border: 0.1rem solid blue;
     display: inline-block;
     margin-left: 1.2rem;
@@ -60,7 +23,7 @@
     width: 92vw;
     border-radius: 2rem;
     height: 74rem;
-    margin: 13rem auto 0;
+    margin: 1rem auto 0;
 
     @include customize() {
         color: getValue(TextColor);
@@ -69,11 +32,12 @@
     .hero-img {
         width: 84vw;
         max-width: 139rem;
-        height: 132rem;
+        height: 131rem;
         position: absolute;
         right: 0;
         top: 0;
-        background: url("images/landing-page/Both/hero-triangle.png") center/cover no-repeat;
+        background: url("images/landing-page/Both/hero-triangle.png")
+            center/cover no-repeat;
     }
 
     .hero-content {
@@ -90,7 +54,7 @@
             }
 
             padding-left: 9.5rem;
-            display: inline;
+            display: inline-block;
             font-size: 7.7rem;
             font-family: Space Grotesk;
             font-weight: 700;
@@ -108,7 +72,7 @@
         }
 
         &-btn {
-            @include sections-btn();
+            @include tonrich-btn();
             background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
         }
     }
@@ -122,14 +86,13 @@
     }
 
     width: 92vw;
-    height: 82rem;
+    min-height: 82rem;
     border-radius: 2rem;
     position: relative;
 
     @include customize() {
         color: getValue(TextColor);
     }
-    // color: red;
 
     .splash-of-color {
         position: absolute;
@@ -137,7 +100,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url("images/landing-page/Both/Discover-background.png") right/cover no-repeat;
+        background: url("images/landing-page/Both/Discover-background.png")
+            right/cover no-repeat;
         opacity: 0.9;
         border-radius: 2rem;
     }
@@ -159,12 +123,10 @@
 
     .discover-content {
         width: 35vw;
-        max-height: 495px;
-        position: absolute;
-        // top: min(13vw, 220px);
-        top: 13vw;
-        left: 6%;
+        position: relative;
+        padding: 12vw 0 0 6%;
         z-index: 2;
+        // border: 1px solid red;
 
         .discover-frame {
             @include gray-frames();
@@ -174,7 +136,7 @@
             @include sections-header();
             font-weight: 100;
             white-space: nowrap;
-            margin: 21px 0 7px;
+            margin: 7px 0 7px;
 
             span {
                 @include sections-header();
@@ -206,11 +168,11 @@
     letter-spacing: -2.44px;
     font-weight: 300;
     font-family: Ubuntu;
-    padding-left: 114px;
+    padding-left: 125px;
 }
 
 .how-section {
-    height: 595px;
+    min-height: 595px;
     width: 92vw;
     // border: 1px solid blue;
     margin: 40px auto;
@@ -237,19 +199,18 @@
     }
 
     .splash-of-color {
-        background: url("images/landing-page/Both/how1-background.png") right/cover no-repeat;
+        background: url("images/landing-page/Both/how1-background.png")
+            right/cover no-repeat;
         background-position: 150px;
         opacity: 0.9;
     }
 
     .browser-content {
         // border: 2px solid rgb(30, 255, 0);
+        position: relative;
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 5vw;
-        left: 6%;
+        padding: 2.8vw 0 0 6%;
 
         .introducing-frame {
             @include gray-frames();
@@ -260,16 +221,15 @@
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
-            margin-top: 26px;
         }
 
         .browser-text {
             @include sections-text();
-            margin-bottom: 28px;
+            margin-bottom: 23px;
         }
 
         .browser-btn {
-            @include sections-btn();
+            @include tonrich-btn();
 
             @include customize() {
                 background-color: getValue(BtnWhite);
@@ -279,7 +239,6 @@
                 color: getValue(TextColorSec);
             }
 
-                // IDK what the problem is...
             .btn-arrow {
                 @include customize() {
                     background: getValue(Change-color-Arrow);
@@ -312,10 +271,10 @@
     }
 
     color: white;
-    overflow: hidden;
 
     .splash-of-color {
-        background: url("images/landing-page/Both/how2-background.png") center/cover no-repeat;
+        background: url("images/landing-page/Both/how2-background.png")
+            center/cover no-repeat;
         opacity: 0.8;
         width: 900px;
     }
@@ -324,27 +283,24 @@
         // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 2.8vw;
-        left: 6%;
+        position: relative;
+        padding: 4.5vw 0 0 6%;
 
         .telegram-header {
             // border: 1px solid rgb(0, 242, 255);
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
-            margin-top: 26px;
         }
 
         .telegram-text {
             @include sections-text();
             // margin-bottom: 102px;
-            margin-bottom: 6.6vw;
+            margin-bottom: 3.6vw;
         }
 
         .telegram-btn {
-            @include sections-btn();
+            @include tonrich-btn();
 
             @include customize() {
                 background-color: getValue(BtnWhite);
@@ -404,7 +360,8 @@
     }
 
     .splash-of-color {
-        background: url("images/landing-page/Both/how3-background.png") right/cover no-repeat;
+        background: url("images/landing-page/Both/how3-background.png")
+            right/cover no-repeat;
         background-position: 220px;
         opacity: 0.7;
     }
@@ -413,10 +370,8 @@
         // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
-        max-height: 600px;
-        position: absolute;
-        top: 5vw;
-        left: 6%;
+        position: relative;
+        padding: 4.8vw 0 0 6%;
 
         .introducing-frame {
             @include gray-frames();
@@ -427,7 +382,7 @@
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
-            margin-top: 26px;
+            margin-top: 16px;
         }
 
         .check-text {
@@ -436,7 +391,7 @@
         }
 
         .check-btn {
-            @include sections-btn();
+            @include tonrich-btn();
 
             @include customize() {
                 background-color: getValue(BtnWhite);
@@ -451,8 +406,8 @@
     .check-img {
         // border: 1px solid white;
         width: 665px;
-        // width: 43vw;
         height: 528px;
+        
         // problem
         @include customize() {
             background: getValue(check-image);
@@ -472,6 +427,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-bottom: 4rem;
 
         @include customize() {
             background-color: getValue(walletBackground);
@@ -585,112 +541,3 @@
         }
     }
 }
-
-
-
-//old code
-// .page-container {
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: flex-start;
-//     align-items: center;
-//     width: 100%;
-//     padding: 0 rem(16px);
-//     box-sizing: border-box;
-// }
-
-// .page-section {
-//     width: 100%;
-// }
-
-// .hero-section {
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: flex-start;
-//     align-items: center;
-//     width: 100%;
-//     padding: rem(144px) 0;
-//     box-sizing: border-box;
-
-//     @include lt-xl {
-//         padding: rem(130px) 0;
-//     }
-
-//     @include sm {
-//         padding: rem(120px) 0;
-//     }
-// }
-
-// .hero-section-title {
-//     margin-bottom: rem(32px);
-//     font-weight: bold;
-//     font-size: rem(42px);
-//     line-height: rem(62px);
-//     color: #FF5C11;
-//     text-align: center;
-
-//     @include lg {
-//         margin-bottom: rem(24px);
-//         font-size: rem(34px);
-//         line-height: rem(56px);
-//     }
-
-//     @include md {
-//         margin-bottom: rem(24px);
-//         font-size: rem(26px);
-//         line-height: rem(44px);
-//     }
-
-//     @include sm {
-//         margin-bottom: rem(16px);
-//         font-size: rem(24px);
-//         line-height: rem(40px);
-//     }
-// }
-
-// .hero-section-desc {
-//     max-width: rem(1232px);
-//     margin-bottom: rem(40px);
-//     font-size: rem(24px);
-//     line-height: rem(40px);
-//     color: $Green2;
-//     text-align: center;
-
-//     @include lg {
-//         max-width: rem(821px);
-//         margin-bottom: rem(38px);
-//         font-size: rem(20px);
-//         line-height: rem(32px);
-//     }
-
-//     @include md {
-//         max-width: rem(572px);
-//         margin-bottom: rem(32px);
-//         font-size: rem(18px);
-//         line-height: rem(28px);
-//     }
-
-//     @include sm {
-//         max-width: 100%;
-//         margin-bottom: rem(32px);
-//         font-size: rem(14px);
-//         line-height: rem(24px);
-//     }
-// }
-
-// ::deep .hero-section-cta {
-//     height: rem(34px);
-//     border: rem(1px) solid $White;
-//     color: $White;
-//     background-color: $SecondaryColor;
-
-//     &:hover {
-//         background-color: $SecondaryColor;
-//         border-color: $White;
-//     }
-// }
-
-// ::deep .wallet-input {
-//     width: 420px;
-//     margin: 5px;
-// }

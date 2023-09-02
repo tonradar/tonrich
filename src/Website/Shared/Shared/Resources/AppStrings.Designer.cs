@@ -61,6 +61,24 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _ {
+            get {
+                return ResourceManager.GetString(".", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string __ {
+            get {
+                return ResourceManager.GetString("..", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About us.
         /// </summary>
         public static string AboutPageTitle {
@@ -93,6 +111,15 @@ namespace Tonrich.Shared.Resources {
         public static string All {
             get {
                 return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Aloha {
+            get {
+                return ResourceManager.GetString("Aloha", resourceCulture);
             }
         }
         
@@ -764,6 +791,195 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try our plug-in now.
+        /// </summary>
+        public static string LandingBrowserBtn {
+            get {
+                return ResourceManager.GetString("LandingBrowserBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INTRODUCING.
+        /// </summary>
+        public static string LandingBrowserGrayBox {
+            get {
+                return ResourceManager.GetString("LandingBrowserGrayBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tonrich browser plug-in works seamlessly with popular sites such as fragment.com, tonscan.org and tonapi.io. The only thing you need to do is hover over a wallet address on these sites, Tonrich will show users a comprehensive overview of the wallet&apos;s activity, balance, transactions, and more..
+        /// </summary>
+        public static string LandingBrowserText {
+            get {
+                return ResourceManager.GetString("LandingBrowserText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browser plug-in.
+        /// </summary>
+        public static string LandingBrowserTitle {
+            get {
+                return ResourceManager.GetString("LandingBrowserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INTRODUCING.
+        /// </summary>
+        public static string LandingCheckGrayBox {
+            get {
+                return ResourceManager.GetString("LandingCheckGrayBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the wallet address here.
+        /// </summary>
+        public static string LandingCheckInputPlaceholder {
+            get {
+                return ResourceManager.GetString("LandingCheckInputPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can also use our Website just by a click to get ta comprehensive overview of the wallet&apos;s activity, balance, transactions, and more, just enter the wallet address, an image like this will enrich you:.
+        /// </summary>
+        public static string LandingCheckText {
+            get {
+                return ResourceManager.GetString("LandingCheckText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check it now.
+        /// </summary>
+        public static string LandingCheckTitle {
+            get {
+                return ResourceManager.GetString("LandingCheckTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DISCOVER TONRICH.
+        /// </summary>
+        public static string LandingDiscoverGrayBox {
+            get {
+                return ResourceManager.GetString("LandingDiscoverGrayBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is.
+        /// </summary>
+        public static string LandingDiscoverTitle1 {
+            get {
+                return ResourceManager.GetString("LandingDiscoverTitle1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TonRich?.
+        /// </summary>
+        public static string LandingDiscoverTitle2 {
+            get {
+                return ResourceManager.GetString("LandingDiscoverTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tonrich is the ultimate tool for anyone who wants to uncover the secrets of TON wallets and gain valuable insights into the NFT market. Download Tonrich today and start your journey into the world of TON wallets and NFT auctions!.
+        /// </summary>
+        public static string LandingDiscoverTxt1 {
+            get {
+                return ResourceManager.GetString("LandingDiscoverTxt1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can also use Tonrich to compare different wallets and see how they relate to each other..
+        /// </summary>
+        public static string LandingDiscoverTxt2 {
+            get {
+                return ResourceManager.GetString("LandingDiscoverTxt2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try our plug-in now.
+        /// </summary>
+        public static string LandingHeroBtn {
+            get {
+                return ResourceManager.GetString("LandingHeroBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TonRich.
+        /// </summary>
+        public static string LandingHeroTitle {
+            get {
+                return ResourceManager.GetString("LandingHeroTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A handy tool for deep insight into TON wallets and NFT auctions.
+        /// </summary>
+        public static string LandingHeroTxt {
+            get {
+                return ResourceManager.GetString("LandingHeroTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to use it?.
+        /// </summary>
+        public static string LandingHowTitle {
+            get {
+                return ResourceManager.GetString("LandingHowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try our bot now.
+        /// </summary>
+        public static string LandingTelegramBtn {
+            get {
+                return ResourceManager.GetString("LandingTelegramBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can also use the Tonrich Telegram bot easily to get ta comprehensive overview of the wallet&apos;s activity, balance, transactions, and more, just by sending the wallet address to the bot. The bot will answer you by sending an image like this:.
+        /// </summary>
+        public static string LandingTelegramText {
+            get {
+                return ResourceManager.GetString("LandingTelegramText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telegram bot.
+        /// </summary>
+        public static string LandingTelegramTitle {
+            get {
+                return ResourceManager.GetString("LandingTelegramTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work seamlessly with popular services.
+        /// </summary>
+        public static string LandingWorkSeamlessly {
+            get {
+                return ResourceManager.GetString("LandingWorkSeamlessly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field of type {0} must be a string, array or ICollection type..
         /// </summary>
         public static string LengthAttribute_InvalidValueType {
@@ -1075,6 +1291,51 @@ namespace Tonrich.Shared.Resources {
         public static string RangeAttribute_ValidationError {
             get {
                 return ResourceManager.GetString("RangeAttribute_ValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try TonRich.
+        /// </summary>
+        public static string RecapBtn {
+            get {
+                return ResourceManager.GetString("RecapBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to know more about TON wallets and their transactions?.
+        /// </summary>
+        public static string RecapText1 {
+            get {
+                return ResourceManager.GetString("RecapText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to access rich and detailed information about any wallet in TON with just a simple hover?.
+        /// </summary>
+        public static string RecapText2 {
+            get {
+                return ResourceManager.GetString("RecapText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to gain a competitive edge in the NFT market by analyzing the behavior of your competitors in real-time?.
+        /// </summary>
+        public static string RecapText3 {
+            get {
+                return ResourceManager.GetString("RecapText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let’s recap!.
+        /// </summary>
+        public static string RecapTitle {
+            get {
+                return ResourceManager.GetString("RecapTitle", resourceCulture);
             }
         }
         

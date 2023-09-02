@@ -1,4 +1,4 @@
-﻿@import './_colors.scss';
+﻿@import "./_colors.scss";
 
 @mixin customize() {
     $array: $themes;
@@ -8,8 +8,13 @@
             $array-map: () !global;
 
             @each $key, $submap in $map {
-                $value: map-get(map-get($array, $theme), '#{$key}');
-                $array-map: map-merge($array-map, ($key: $value)) !global;
+                $value: map-get(map-get($array, $theme), "#{$key}");
+                $array-map: map-merge(
+                    $array-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
             }
 
             @content;
@@ -45,7 +50,7 @@
         color: getValue(Frame-color);
     }
 
-    display: inline;
+    display: inline-block;
     padding: 11px 22px;
     font-size: 2.4rem;
     font-family: Roboto;
@@ -54,11 +59,12 @@
     letter-spacing: -0.9px;
 }
 
-@mixin sections-btn {
+@mixin tonrich-btn {
     font-family: Ubuntu;
     height: 6.7rem;
     border-radius: 4rem;
     margin-top: 1.8rem;
+    margin-bottom: 2rem;
     color: white;
     font-size: 2.5rem;
     font-weight: 600;
