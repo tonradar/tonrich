@@ -3,3 +3,76 @@
 @import '../Styles/abstracts/_mixins.scss';
 @import '../Styles/abstracts/_functions.scss';
 
+.search-page {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    @include customize() {
+        background-color: getValue(PageBackground);
+    }
+
+    @include customize() {
+        color: getValue(FooterPen);
+    }
+}
+
+.search-page-background {
+    background-image: url("/images/background-images/Main-page-background.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: -12rem;
+    left: 0;
+    right: 0;
+}
+
+.search-page-logo {
+    background-image: url("/images/icons/tonrich-logo.svg");
+    background-size: 13vw;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 13vw;
+}
+
+.search-page-title {
+    font-family: Space Grotesk;
+    font-size: 67px;
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    text-align: center;
+    margin-top: 26px
+}
+
+
+.search-page-desc {
+    font-family: Roboto;
+    font-size: 39px;
+    font-weight: 300;
+    letter-spacing: -0.045em;
+    text-align: center;
+}
+
+.search-items {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-wallet {
+    width: 61vw;
+    margin-top: 56.2px;
+    padding: 7px 6px 7px 20px;
+    border-radius: 40px;
+    border: 1.5px solid #FFFFFF;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    background-color: #FFFFFF26;
+}
