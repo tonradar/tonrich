@@ -1,7 +1,19 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_mixins.scss';
-@import '../Styles/abstracts/_functions.scss';
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_mixins.scss";
+@import "../Styles/abstracts/_functions.scss";
+
+.btn-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png")
+        center/cover no-repeat;
+    // border: 0.1rem solid blue;
+    display: inline-block;
+    margin-left: 1.2rem;
+    position: relative;
+    top: 0.55rem;
+}
 
 .search-page {
     width: 100%;
@@ -21,38 +33,55 @@
     background-image: url("/images/background-images/Main-page-background.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
-    background-position: top center;
+    background-position: top;
     position: absolute;
     width: 100%;
-    height: 100vh;
-    top: -12rem;
+    height: 155vh;
+    top: -16.5rem;
     left: 0;
     right: 0;
+    z-index: 1;
+}
+
+.page-content {
+    position: relative;
+    z-index: 2;
+    // border: 1px solid green;
+    height: 150vh;
+    // border: 10px solid red;
 }
 
 .search-page-logo {
-    background-image: url("/images/icons/tonrich-logo.svg");
-    background-size: 13vw;
+    background: url("/images/icons/tonrich-logo.svg");
+    background-size: 14.5vw;
     background-repeat: no-repeat;
     background-position: top center;
-    height: 13vw;
+    height: 14.5vw;
+    margin-top: 38px;
+    // border: 1px solid red;
 }
 
 .search-page-title {
     font-family: Space Grotesk;
-    font-size: 67px;
+    font-size: 70px;
     font-weight: 700;
-    letter-spacing: -0.065em;
+    letter-spacing: -4px;
     text-align: center;
-    margin-top: 26px
-}
+    margin-top: 18px;
+    
+    @include customize() {
+        color: getValue(Search-tonrich-title);
+    }
 
+    // border: 1px solid red;
+    line-height: 70px;
+}
 
 .search-page-desc {
     font-family: Roboto;
-    font-size: 39px;
+    font-size: 40px;
     font-weight: 300;
-    letter-spacing: -0.045em;
+    letter-spacing: -1.2px;
     text-align: center;
 }
 
@@ -61,18 +90,65 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    position: relative;
+    // border: 1px solid red;
+    width: 61vw;
+    margin: 60px auto 500px;
 }
 
 .search-wallet {
-    width: 61vw;
-    margin-top: 56.2px;
+    width: 100%;
+    height: 50px;
     padding: 7px 6px 7px 20px;
     border-radius: 40px;
-    border: 1.5px solid #FFFFFF;
+
+    border: 2px solid red;
+    
+    @include customize() {
+        border-color: getValue(Search-wallet-border);
+    }
+
     font-family: Ubuntu;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0.75px;
-    background-color: #FFFFFF26;
+    background-color: #ffffff26;
+
+    @include customize() {
+        color: getValue(Search-wallet-txt-color);
+    }
+}
+
+.wallet-btn {
+    @include customize() {
+        background-color: getValue(walletBtn);
+    }
+
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+    opacity: 0.95;
+    transition: opacity 0.15s;
+    position: absolute;
+    right: 5px;
+
+    .btn-arrow {
+        margin: 0;
+        width: 29px;
+        height: 29px;
+        position: relative;
+        top: 0px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
 }

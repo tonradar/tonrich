@@ -83,6 +83,11 @@ $themes: (
             Header-btn-color: #FFF,
             Header-btn-background: #FF5C11,
             Header-btn-separator: #DBDBDB,
+
+            // New Search-page:
+            Search-tonrich-title: #FC4C25,
+            Search-wallet-border: #e2e2e240,
+            Search-wallet-txt-color: #000000
         ),
     dark: (
             MainBackground: #323232,
@@ -182,6 +187,10 @@ $themes: (
             Header-btn-background: #ffffff,
             Header-btn-separator: #5a5a5a,
 
+            // New Search-page:
+            Search-tonrich-title: #e0e0e0,
+            Search-wallet-border: #ffffff,
+            Search-wallet-txt-color: #ffffff,
         )
     );
 
