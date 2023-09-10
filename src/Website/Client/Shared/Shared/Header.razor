@@ -1,21 +1,35 @@
 ﻿@namespace Tonrich.Client.Shared
 @inherits AppComponentBase
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Space+Grotesk:wght@700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+
 <header>
     <div class="header-content">
         <div class="header-left-side">
             TonRich
         </div>
+
         <div class="header-right-side">
             <nav class="tonrich-menu">
                 <NavLink class="nav-link" href="about">
-                    About
+                    About us
                 </NavLink>
             </nav>
-            <button class="tornich-secondary-btn">Install TonRich now</button>
+
+            <button class="header-btn">Install TonRich now</button>
+
+            <div class="header-separator"></div>
+
             <div class="theme-btn-wrapper">
-                <button class="change-theme-btn" @onclick=ToggleTheme>change Theme</button>
-                <div class="theme-title">@(IsDarkTheme ? "Dark" : "Light") mode</div>
+                <label class="switch">
+                  <input type="checkbox" checked @onchange=ToggleTheme>
+                  <span class="slider round"></span>
+                </label>
+                @* <button class="change-theme-btn" @onclick=ToggleTheme>change Theme</button> *@
+                <div class="theme-title">@(IsDarkTheme ? "Night" : "Light") mode</div>
             </div>
         </div>
     </div>

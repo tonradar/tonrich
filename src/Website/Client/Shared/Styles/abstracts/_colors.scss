@@ -76,6 +76,13 @@ $themes: (
             // Footer colors for EnrichedWallet:
             // Footer-color: #FFF,
             // Footer-background: #7f7f7f,
+
+            // New Header:
+            Header-logo: url("images/header/tonrich-logo-light.png") no-repeat 0% / 36px,
+            Header-title-color: #FC4C25,
+            Header-btn-color: #FFF,
+            Header-btn-background: #FF5C11,
+            Header-btn-separator: #DBDBDB,
         ),
     dark: (
             MainBackground: #323232,
@@ -166,6 +173,15 @@ $themes: (
             // New Footer:
             Footer-color: #fff,
             Footer-background: #000,
+
+            // New Header: 
+
+            Header-logo: url("images/header/tonrich-logo-dark.png") no-repeat 0% / 36px,
+            Header-title-color: #c0bfbf,
+            Header-btn-color: #fc4c25,
+            Header-btn-background: #ffffff,
+            Header-btn-separator: #5a5a5a,
+
         )
     );
 
