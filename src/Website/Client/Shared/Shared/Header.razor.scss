@@ -110,12 +110,20 @@ header {
         @include customize() {
             color: getValue(FooterPen);
         }
+
+        opacity: 1;
+        cursor: pointer;
+        transition: opacity 0.15s;
     }
 
     ::deep a:active {
         @include customize() {
             color: getValue(FooterPen);
         }
+    }
+
+    ::deep a:hover {
+        opacity: 0.8;
     }
 }
 
