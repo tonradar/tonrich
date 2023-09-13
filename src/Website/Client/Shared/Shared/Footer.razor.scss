@@ -43,6 +43,26 @@ footer {
         display: flex;
         gap: 40px;
 
+        ::deep a {
+            @include customize() {
+                color: getValue(FooterPen);
+            }
+
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+
+        ::deep a:active {
+            @include customize() {
+                color: getValue(FooterPen);
+            }
+        }
+
+        ::deep a:hover {
+            opacity: 1;
+        }
+
         div {
             opacity: 0.8;
             cursor: pointer;

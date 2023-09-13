@@ -8,7 +8,8 @@ public partial class MainLayout : IDisposable
     private bool _isMenuOpen;
     private bool _isUserAuthenticated;
     public bool IsDarkTheme = true;
-    string ThemeClass(bool isDarkTheme) 
+
+    static string ThemeClass(bool isDarkTheme) 
         => isDarkTheme ? "theme-dark" : "theme-light";
 #pragma warning disable CS0414 // The field 'MainLayout.ErrorBoundaryRef' is assigned but its value is never used
     private ErrorBoundary ErrorBoundaryRef = default!;

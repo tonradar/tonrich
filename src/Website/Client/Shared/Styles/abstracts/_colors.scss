@@ -254,6 +254,15 @@ $Breakpoint1: 780px;
     background: linear-gradient(142deg, #FC4C25 0%, #FEB752 100%);
   }
 
+::deep a {
+    text-decoration: none;
+}
+
+::deep a:active {
+    text-decoration: none;
+}
+
+
 ///todo: old
 $PrimaryColor: #0078D4;
 $SecondaryColor: #0D2960;

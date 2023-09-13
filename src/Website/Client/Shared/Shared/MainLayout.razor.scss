@@ -14,13 +14,13 @@
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-
-    @include customize() {
-        background: getValue(PageBackground);
-    }
 }
 
 .main-content {
     flex-grow: 2;
     width: 100%;
+
+    @include customize() {
+        background: getValue(PageBackground);
+    }
 }

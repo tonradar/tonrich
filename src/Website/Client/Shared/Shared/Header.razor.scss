@@ -104,8 +104,19 @@ header {
 .tonrich-menu {
     padding: 0 2rem;
     font-size: 18px;
-    color: white;
     text-decoration: none;
+
+    ::deep a {
+        @include customize() {
+            color: getValue(FooterPen);
+        }
+    }
+
+    ::deep a:active {
+        @include customize() {
+            color: getValue(FooterPen);
+        }
+    }
 }
 
 .theme-title {
@@ -187,3 +198,4 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
