@@ -70,6 +70,24 @@ namespace Tonrich.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We are a team of enthusiastic software and business developers actively working on Telegram-related projects mostly..
+        /// </summary>
+        public static string AboutUsDesc1 {
+            get {
+                return ResourceManager.GetString("AboutUsDesc1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our new focus on TON blockchain is a testament to its dedication to staying at the forefront of emerging technological trends, and a commitment to providing world-class services to its customers..
+        /// </summary>
+        public static string AboutUsDesc2 {
+            get {
+                return ResourceManager.GetString("AboutUsDesc2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string Active {
@@ -805,6 +823,24 @@ namespace Tonrich.Shared.Resources {
         public static string MaxLengthAttribute_ValidationError {
             get {
                 return ResourceManager.GetString("MaxLengthAttribute_ValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meat our team.
+        /// </summary>
+        public static string MeatOurTeam {
+            get {
+                return ResourceManager.GetString("MeatOurTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here are the faces behind us, a team of brilliant and enthusiastic individuals who love what they do..
+        /// </summary>
+        public static string MeatOurTeamDesc {
+            get {
+                return ResourceManager.GetString("MeatOurTeamDesc", resourceCulture);
             }
         }
         

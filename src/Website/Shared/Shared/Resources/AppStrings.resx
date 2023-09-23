@@ -666,4 +666,16 @@ Please confirm your email by clicking on the link.</value>
   <data name="AboutPageTitle" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="AboutUsDesc1" xml:space="preserve">
+    <value>We are a team of enthusiastic software and business developers actively working on Telegram-related projects mostly.</value>
+  </data>
+  <data name="AboutUsDesc2" xml:space="preserve">
+    <value>Our new focus on TON blockchain is a testament to its dedication to staying at the forefront of emerging technological trends, and a commitment to providing world-class services to its customers.</value>
+  </data>
+  <data name="MeatOurTeam" xml:space="preserve">
+    <value>Meat our team</value>
+  </data>
+  <data name="MeatOurTeamDesc" xml:space="preserve">
+    <value>Here are the faces behind us, a team of brilliant and enthusiastic individuals who love what they do.</value>
+  </data>
 </root>
