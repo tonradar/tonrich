@@ -6,4 +6,8 @@ namespace Tonrich.Client.Shared.Components;
 
 public partial class RecapTonrich
 {
+    private void HandelPluginButtonClick()
+    {   
+        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichPluginUrl)));
+    }
 }

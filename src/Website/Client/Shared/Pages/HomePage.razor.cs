@@ -7,4 +7,14 @@ public partial class HomePage
     {
         WalletAddress = address;
     }
+
+    private void HandelPluginButtonClick()
+    {
+        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichPluginUrl)));
+    }
+
+    private void HandelTelegramButtonClick()
+    {
+        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichTelegramBotUrl)));
+    }
 }
