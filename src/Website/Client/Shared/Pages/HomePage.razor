@@ -37,7 +37,7 @@
             <div class="hero-content-description">
                 @Localizer[nameof(AppStrings.LandingHeroTxt)]
             </div>
-            <button class="hero-content-btn" @onclick="HandelPluginButtonClick">
+            <button class="hero-content-btn" @onclick="HandelPluginButtonClickAsync">
                 @Localizer[nameof(AppStrings.LandingHeroBtn)]<span class="btn-arrow"></span>
             </button>
         </div>
@@ -70,7 +70,7 @@
                 <div class="browser-text">
                     @Localizer[nameof(AppStrings.LandingBrowserText)]
                 </div>
-                <button class="browser-btn" @onclick="HandelPluginButtonClick">
+                <button class="browser-btn" @onclick="HandelPluginButtonClickAsync">
                     @Localizer[nameof(AppStrings.LandingBrowserBtn)]<span class="btn-arrow"></span>
                 </button>
             </div>
@@ -87,7 +87,7 @@
                 <div class="telegram-text">
                     @Localizer[nameof(AppStrings.LandingTelegramText)]
                 </div>
-                <button class="telegram-btn" @onclick="HandelTelegramButtonClick">
+                <button class="telegram-btn" @onclick="HandelTelegramButtonClickAsync">
                     @Localizer[nameof(AppStrings.LandingTelegramBtn)]<span class="btn-arrow"></span>
                 </button>
             </div>

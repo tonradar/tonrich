@@ -6,8 +6,9 @@ namespace Tonrich.Client.Shared.Components;
 
 public partial class RecapTonrich
 {
-    private void HandelPluginButtonClick()
+    [AutoInject] private IConfigService ConfigService { get; set; } = default!;
+    private async Task HandelPluginButtonClickAsync()
     {   
-        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichPluginUrl)));
+        NavigationManager.NavigateTo(await ConfigService.GetTonRichPluginUrl());
     }
 }

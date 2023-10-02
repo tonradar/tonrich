@@ -13,6 +13,10 @@ public class AppSettings
     public string UserProfileImagePath { get; set; } = default!;
 
     public string WebServerAddress { get; set; } = default!;
+
+    public string TonRichTelegramBotUrl { get; set; } = default!;
+
+    public string TonRichPluginUrl { get; set; } = default!;
 }
 
 public class HealthCheckSettings

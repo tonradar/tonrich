@@ -26,4 +26,12 @@
                 console.error(error);
             });
     }
+
+    public static setLocalStorageItem(key: string, value: string): void {
+        localStorage.setItem(key, value);
+    }
+
+    public static getLocalStorageItem(key: string): string | null {
+        return localStorage.getItem(key);
+    }
 }

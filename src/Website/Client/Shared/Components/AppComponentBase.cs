@@ -17,8 +17,6 @@ public partial class AppComponentBase : ComponentBase
     [AutoInject] protected IAuthTokenProvider AuthTokenProvider = default!;
 
     [AutoInject] protected IStringLocalizer<AppStrings> Localizer = default!;
-    
-    [AutoInject] protected IStringLocalizer<AppUrlStrings> AppUrlLocalizer = default!;
 
     [AutoInject] protected IAuthenticationService AuthenticationService = default!;
 

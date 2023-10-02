@@ -2,19 +2,20 @@
 
 public partial class HomePage
 {
+    [AutoInject] private IConfigService ConfigService { get; set; } = default!;
     public string WalletAddress { get; set; }
     void ChangeWalletAddress(string address)
     {
         WalletAddress = address;
     }
 
-    private void HandelPluginButtonClick()
+    private async Task HandelPluginButtonClickAsync()
     {
-        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichPluginUrl)));
+        NavigationManager.NavigateTo(await ConfigService.GetTonRichPluginUrl());
     }
 
-    private void HandelTelegramButtonClick()
+    private async Task HandelTelegramButtonClickAsync()
     {
-        NavigationManager.NavigateTo(AppUrlLocalizer.GetString(nameof(AppUrlStrings.TonRichTelegramBotUrl)));
+        NavigationManager.NavigateTo(await ConfigService.GetTonRichTelegramBotUrl());
     }
 }

@@ -37,15 +37,6 @@
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Resources\AppUrlStrings.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>AppUrlStrings.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
-        <Compile Update="Resources\AppUrlStrings.Designer.cs">
-          <DesignTime>True</DesignTime>
-          <AutoGen>True</AutoGen>
-          <DependentUpon>AppUrlStrings.resx</DependentUpon>
-        </Compile>
     </ItemGroup>
 
 </Project>

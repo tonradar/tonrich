@@ -32,6 +32,7 @@ public static class Services
             .Configure<BrotliCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest)
             .Configure<GzipCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest);
         services.AddTransient<IAuthTokenProvider, ServerSideAuthTokenProvider>();
+        services.AddScoped<IConfigService, ConfigService>();
 
         services.AddSharedServices();
         services.AddClientSharedServices(configuration);
