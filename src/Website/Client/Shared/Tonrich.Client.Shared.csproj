@@ -86,8 +86,4 @@
         </EmbeddedResource>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="wwwroot\images\icons\" />
-    </ItemGroup>
-
 </Project>

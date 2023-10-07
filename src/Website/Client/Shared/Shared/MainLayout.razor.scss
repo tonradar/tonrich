@@ -1,9 +1,10 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_functions.scss';
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_functions.scss";
+
 @font-face {
-    font-family: 'Roboto';
-    src: url('/Roboto.ttf');
+    font-family: "Roboto";
+    src: url("/Roboto.ttf");
 }
 
 .main {
@@ -18,7 +19,8 @@
 .main-content {
     flex-grow: 2;
     width: 100%;
-    @include customize {
-        background-color: getValue(PageBackground);
+
+    @include customize() {
+        background: getValue(PageBackground);
     }
 }

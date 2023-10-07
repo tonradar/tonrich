@@ -1,20 +1,81 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_functions.scss';
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_functions.scss";
 
 footer {
-    height: 8rem;
     width: 100%;
-    padding: 1rem 5rem;
     box-sizing: border-box;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    @include customize {
-        background-color: getValue(PageBackground);
-        color: getValue(FooterPen);
+    height: 80px;
+    position: relative;
+    z-index: 2;
 
+    @include customize() {
+        color: getValue(Footer-color);
+    }
+
+    font-weight: 500;
+    font-family: Ubuntu;
+    display: flex;
+
+    @include customize {
+        background-color: getValue(Footer-background);
+    }
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+
+    div {
+        font-size: 17px;
+
+        &::selection {
+            background: transparent;
+        }
+    }
+
+    .footer-rights {
+        opacity: 0.8;
+        cursor: default;
+    }
+
+    .footer-btns {
+        // border: 1px solid yellow;
+        display: flex;
+        gap: 40px;
+
+        ::deep a {
+            @include customize() {
+                color: getValue(FooterPen);
+            }
+
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+
+        ::deep a:active {
+            @include customize() {
+                color: getValue(FooterPen);
+            }
+        }
+
+        ::deep a:hover {
+            opacity: 1;
+        }
+
+        div {
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.15s;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: 0.9;
+            }
+        }
     }
 }
 

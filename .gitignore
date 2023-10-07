@@ -370,3 +370,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/src/Website/Client/Shared/wwwroot/images/icons/tonrichT.svg
+/src/Website/Client/Web/wwwroot/images/icons/tonrichT.svg
