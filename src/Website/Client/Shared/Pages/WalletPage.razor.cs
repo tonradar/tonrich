@@ -1,9 +1,12 @@
 ﻿namespace Tonrich.Client.Shared.Pages;
 
-public partial class WalletPage
+public partial class WalletPage:IDisposable
 {
     [Parameter] public required string WalletId { get; set; }
     [Parameter] public string Theme { get; set; } = "light";
+
+    [CascadingParameter(Name = "AppStateDto")]
+    private AppStateDto? AppStateDto { get; set; }
     protected override void OnInitialized()
     {
         var query = new Uri(NavigationManager.Uri).Query;
@@ -18,6 +21,10 @@ public partial class WalletPage
                 }
             }
         }
+
+        if (AppStateDto != null) 
+            AppStateDto.IsInWalletPage = true;
+
         base.OnInitialized();
     }
 
@@ -26,5 +33,11 @@ public partial class WalletPage
     private void AccountLoad(bool value)
     {
         isAccountBoxBusy = !value;
+    }
+
+    public void Dispose()
+    {
+        if (AppStateDto != null) 
+            AppStateDto.IsInWalletPage = false;
     }
 }

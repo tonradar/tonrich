@@ -2,12 +2,14 @@
 @inherits LayoutComponentBase
 
 <div class="main @ThemeClass(IsDarkTheme)">
-    <Header OnToggleTheme="HandleToggleTheme" IsDarkTheme="IsDarkTheme"/>
-    <div class="main-content">
-        <AppErrorBoundary>
-            @Body
-        </AppErrorBoundary>
-    </div>
+    <CascadingValue Value="@AppStateDto" Name="AppStateDto">
+        <Header OnToggleTheme="HandleToggleTheme" IsDarkTheme="IsDarkTheme"/>
+        <div class="main-content">
+            <AppErrorBoundary>
+                @Body
+            </AppErrorBoundary>
+        </div>
+    </CascadingValue>
     <Footer />
 </div>
 

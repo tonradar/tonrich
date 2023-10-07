@@ -21,6 +21,8 @@ public partial class MainLayout : IDisposable
 
     [AutoInject] private AppAuthenticationStateProvider _authStateProvider = default!;
 
+    [AutoInject] private AppStateDto AppStateDto { get; set; } = default!;
+
     protected override void OnParametersSet()
     {
         // TODO: we can try to recover from exception after rendering the ErrorBoundary with this line.
