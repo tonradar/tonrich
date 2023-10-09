@@ -16,7 +16,6 @@ header {
     @include customize() {
         background: getValue(PageBackground);
     }
-
     // border: 1px solid red;
 }
 
@@ -46,7 +45,6 @@ header {
     @include customize() {
         color: getValue(Header-title-color);
     }
-
     // background: url("images/header/tonrich-logo-dark.png") no-repeat;
     // background-position: 0%;
     // background-size: 36px;
@@ -102,7 +100,7 @@ header {
 }
 
 .tonrich-menu {
-    padding: 0 2rem;
+    // padding: 0 2rem;
     font-size: 18px;
     text-decoration: none;
 
@@ -207,3 +205,87 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.check-wallet-adrs {
+    // border: 1px solid red;
+    width: 412px;
+    height: 50px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4rem;
+
+    @include customize() {
+        background-color: getValue(Header-input-background);
+    }
+
+    position: relative;
+    top: 20px;
+    right: 12px;
+
+    .wallet-input {
+        padding: 16px 0 16px 25px;
+        width: 358px;
+        height: 64px;
+        border: none;
+        background-color: transparent;
+        font-size: 18px;
+        box-sizing: border-box;
+
+        @include customize() {
+            color: getValue(Header-input-color);
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            @include customize() {
+                color: getValue(Header-input-color) !important;
+            }
+        }
+    }
+
+    .wallet-btn {
+        @include customize() {
+            background-color: getValue(walletBtn);
+        }
+
+        border: none;
+        border-radius: 50%;
+        // padding: 12px;
+        width: 43px;
+        height: 43px;
+        cursor: pointer;
+        opacity: 0.95;
+        transition: opacity 0.15s;
+
+        .btn-arrow {
+            margin: 0;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            top: 2px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:active {
+            opacity: 0.9;
+        }
+    }
+}
+
+.btn-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png") center/cover no-repeat;
+    // border: 0.1rem solid blue;
+    display: inline-block;
+    margin-left: 1.2rem;
+    position: relative;
+    top: 0.55rem;
+}
