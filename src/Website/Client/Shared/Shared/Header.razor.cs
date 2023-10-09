@@ -14,6 +14,8 @@ public partial class Header : IDisposable
 
     private bool IsInWalletPage { get; set; } = false;
 
+    private string? SearchWalletText { get; set; }
+
     protected override async Task OnInitAsync()
     {
         AuthenticationStateProvider.AuthenticationStateChanged += VerifyUserIsAuthenticatedOrNot;
@@ -74,5 +76,13 @@ public partial class Header : IDisposable
         AuthenticationStateProvider.AuthenticationStateChanged -= VerifyUserIsAuthenticatedOrNot;
 
         _disposed = true;
+    }
+
+    private void OnSearchWalletClick()
+    {
+        if (string.IsNullOrWhiteSpace(SearchWalletText))
+            return;
+
+        NavigationManager.NavigateTo($"/wallet/{SearchWalletText}");
     }
 }
