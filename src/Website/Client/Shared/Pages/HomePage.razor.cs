@@ -4,6 +4,8 @@ public partial class HomePage
 {
     [AutoInject] private IConfigService ConfigService { get; set; } = default!;
     public string WalletAddress { get; set; }
+    private string? SearchWalletText { get; set; }
+
     void ChangeWalletAddress(string address)
     {
         WalletAddress = address;
@@ -17,5 +19,13 @@ public partial class HomePage
     private async Task HandelTelegramButtonClickAsync()
     {
         NavigationManager.NavigateTo(await ConfigService.GetTonRichTelegramBotUrl());
+    }
+
+    private void OnSearchWalletClick()
+    {
+        if (string.IsNullOrWhiteSpace(SearchWalletText))
+            return;
+
+        NavigationManager.NavigateTo($"/wallet/{SearchWalletText}");
     }
 }
