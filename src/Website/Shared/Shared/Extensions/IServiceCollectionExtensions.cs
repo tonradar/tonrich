@@ -11,7 +11,7 @@ public static class IServiceCollectionExtensions
         services.AddScoped<ITonService, TonService>();
         services.AddScoped<ITonApiProvider, TonApiProvider>();
         services.AddScoped<IFragmentProvider, FragmentProvider>();
-        services.AddScoped<AppStateDto, AppStateDto>();
+        services.AddTransient<AppStateDto, AppStateDto>();
 
         services.AddLocalization();
 

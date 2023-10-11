@@ -12,7 +12,7 @@ public partial class Header : IDisposable
     [CascadingParameter(Name = "AppStateDto")]
     private AppStateDto? AppStateDto { get; set; }
 
-    private bool IsInWalletPage { get; set; } = false;
+    private bool IsInWalletPage => NavigationManager.Uri.Contains("/wallet");
 
     private string? SearchWalletText { get; set; }
 
@@ -23,15 +23,6 @@ public partial class Header : IDisposable
         _isUserAuthenticated = await StateService.GetValue($"{nameof(Header)}-isUserAuthenticated", AuthenticationStateProvider.IsUserAuthenticatedAsync);
 
         await base.OnInitAsync();
-    }
-
-    protected override Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (AppStateDto == null) 
-            return base.OnAfterRenderAsync(firstRender);
-
-        IsInWalletPage = AppStateDto.IsInWalletPage;
-        return base.OnAfterRenderAsync(firstRender);
     }
 
     async void VerifyUserIsAuthenticatedOrNot(Task<AuthenticationState> task)
