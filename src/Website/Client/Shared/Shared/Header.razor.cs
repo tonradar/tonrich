@@ -31,7 +31,6 @@ public partial class Header : IDisposable
             return base.OnAfterRenderAsync(firstRender);
 
         IsInWalletPage = AppStateDto.IsInWalletPage;
-        StateHasChanged();
         return base.OnAfterRenderAsync(firstRender);
     }
 
