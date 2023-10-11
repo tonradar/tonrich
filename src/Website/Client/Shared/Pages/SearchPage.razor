@@ -13,8 +13,8 @@
             <div class="search-page-desc">Rich look at a glance</div>
             
             <div class="search-items">
-                <input type="text" class="search-wallet" placeholder="Enter the wallet address here">
-                <button class="wallet-btn">
+                <input type="text" class="search-wallet" placeholder="Enter the wallet address here" @bind="SearchWalletText">
+                <button class="wallet-btn" @onclick="OnSearchWalletClick">
                     <span class="btn-arrow"></span>
                 </button>
             </div>
