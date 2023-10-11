@@ -742,9 +742,12 @@
 }
 
 .wallet-not-found {
-    color: $White;
     font-family: "Ubuntu";
     font-style: normal;
     font-weight: 500;
     font-size: $FontSize24;
+
+    @include customize() {
+        color: getValue(MainPen);
+    }
 }
