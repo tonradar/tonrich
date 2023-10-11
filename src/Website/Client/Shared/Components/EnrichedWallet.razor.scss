@@ -740,3 +740,11 @@
         color: getValue(AboutSite);
     }
 }
+
+.wallet-not-found {
+    color: $White;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: $FontSize24;
+}

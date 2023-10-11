@@ -70,7 +70,13 @@
 }   
 else    
 {   
-    <div class="tonrich-background"></div>
+    @if (IsWalletNotFound)
+    {
+        <div class="wallet-not-found">Wallet not found</div>
+    }
+    else
+    {
+        <div class="tonrich-background"></div>
         <div class="tonrich-container">
             <div class="owner-info-wrapper">
                 <div class="tonrich-logo"></div>
@@ -101,31 +107,31 @@ else
                 <TrxInfoCard IconName="balance" Title="Balance" Value="@AccountInfo?.Balance" Unit="TON"
                              Description="The balance of wallet" IsBusy="@(AccountInfo is null)" OrderName="zero"
                              IsTooltipOpen="@(ToolTipCallerOrderName == "zero" )" OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
                 <TrxInfoCard IconName="deposit-rate" Title="Deposit rate" Value="@TransactionInfo?.DepositRate"
                              Unit="TON/Month" Description="How much money has been transferred in to this wallet last month"
                              IsBusy="@(TransactionInfo is null)" OrderName="two"
                              IsTooltipOpen=@(ToolTipCallerOrderName == "two" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
                 <TrxInfoCard IconName="spend-rate" Title="Spend rate" Value="@TransactionInfo?.SpentRate" Unit="TON/Month"
                              Description="How much money is being transferred out from the wallet monthly (during last 6 months)"
                              IsBusy="@(TransactionInfo is null)" OrderName="four"
                              IsTooltipOpen=@(ToolTipCallerOrderName == "four" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
                 <TrxInfoCard IconName="worth" Title="Worth (Balance+ Owned NFT)" Value="@Worth" Unit="TON"
                              Description="Total amount of balance and owned NFTs (at their buying price)" IsBusy="@(Worth is null)" OrderName="one"
                              IsTooltipOpen=@(ToolTipCallerOrderName == "one" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
                 <TrxInfoCard IconName="deposit-last-month" Title="Deposit last month"
                              Value="@TransactionInfo?.DepositLastMonth" Unit="TON"
                              Description="How much money has been transferred in to this wallet last month" IsBusy="@(TransactionInfo is null)" OrderName="three"
                              IsTooltipOpen=@(ToolTipCallerOrderName == "three" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
                 <TrxInfoCard IconName="spend-last-month" Title="Spend last month" Value="@TransactionInfo?.SpentLastMonth"
                              Unit="TON" Description="How much money has been transferred out from this wallet last month"
                              IsBusy="@(TransactionInfo is null)" OrderName="five"
                              IsTooltipOpen=@(ToolTipCallerOrderName == "five" ) OnToggleTooltipClicked="HandleToggleTooltipClicked" />
-    
+
             </div>
             <div class="activity-diagram-wrapper">
                 <div class="activity-diagram-part">
@@ -146,7 +152,7 @@ else
                             }
                         </div>
                         <div class="diagram-result-box">
-    
+
                             @for (int yIndex = 0; yIndex < ActivityChartDates.Count; yIndex++)
                             {
                                 var row = ActivityChartDates[yIndex].ToList();
@@ -175,8 +181,8 @@ else
                         </div>
                     </div>
                 </div>
-    
-    
+
+
                 <div class="color-guide-table">
                     <div class="color-guide-title">Color Guide</div>
                     <ul class="guide-list">
@@ -198,7 +204,7 @@ else
                     </ul>
                 </div>
             </div>
-    
+
             <div class="nft-info-wrapper">
                 <div class="nft-info">
                     <div class="nft-info-header">
@@ -215,7 +221,7 @@ else
                             TON
                         </div>
                     </div>
-    
+
                     <div class="nft-information">
                         <div class="nft-information-box">
                             <div class="nft-information-title">Number</div>
@@ -224,7 +230,7 @@ else
                                 <span class="nft-information-value">
                                     <MiniLoading ColorName="orange" />
                                 </span>
-    
+
                             }
                             else
                             {
@@ -238,7 +244,7 @@ else
                                 <span class="nft-information-value">
                                     <MiniLoading ColorName="orange" />
                                 </span>
-    
+
                             }
                             else
                             {
@@ -246,10 +252,10 @@ else
                             }
                         </div>
                     </div>
-    
+
                 </div>
                 <div class="nft-list-container">
-    
+
                     @if (NFTs is null)
                     {
                         <div class="empty-mode"><MiniLoading /></div>
@@ -267,7 +273,7 @@ else
                     {
                         <div class="empty-mode">This wallet address has no NFT</div>
                     }
-    
+
                 </div>
             </div>
             <div class="about-tonrich-wrapper">
@@ -275,4 +281,5 @@ else
                 <div class="tonrich-telegram-icon"><a href="https://t.me/tonrichapp" class="about-me-link" target="_blank">t.me/Tonrichbot</a></div>
             </div>
         </div>
+    }
 }
