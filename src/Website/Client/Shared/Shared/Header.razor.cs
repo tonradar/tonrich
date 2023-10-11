@@ -75,4 +75,9 @@ public partial class Header : IDisposable
 
         NavigationManager.NavigateTo($"/wallet/{SearchWalletText}");
     }
+
+    private void OnLogoClick()
+    {
+        NavigationManager.NavigateTo($"/");
+    }
 }

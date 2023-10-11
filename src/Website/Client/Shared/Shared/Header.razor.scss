@@ -37,6 +37,7 @@ header {
     color: #c0bfbf;
     font-size: 37.5px;
     font-family: "Space Grotesk";
+    cursor: pointer;
 
     @include customize() {
         background: getValue(Header-logo);
