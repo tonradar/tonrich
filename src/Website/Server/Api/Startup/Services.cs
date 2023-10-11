@@ -108,6 +108,16 @@ public static class Services
             c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", configuration.GetValue<string>("TonApiServerKey"));
         });
 
+        services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));
+
+        services.AddSingleton(sp =>
+        {
+            var config = configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
+            configuration.FillCustomConfigs(config);
+            return config!;
+
+        });
+
         services.AddHealthChecks(env, configuration);
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.

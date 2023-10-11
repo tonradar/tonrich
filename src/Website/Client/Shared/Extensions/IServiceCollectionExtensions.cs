@@ -13,6 +13,7 @@ public static class IServiceCollectionExtensions
         services.AddTransient<AppHttpClientHandler>();
         services.AddScoped<AuthenticationStateProvider, AppAuthenticationStateProvider>();
         services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddScoped<IConfigService,ConfigService>();
         services.AddScoped(sp => (AppAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());
         services.AddHttpClient("TonApi", c =>
         {

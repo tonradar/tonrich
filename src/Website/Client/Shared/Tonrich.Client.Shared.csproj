@@ -11,6 +11,8 @@
         <SupportedPlatform Include="browser" />
 
         <Content Remove="compilerconfig.json" />
+
+        <Content Remove="wwwroot\images\background-images\image.svg" />
         <None Include="compilerconfig.json" />
         <None Include="Shared\LoadingComponent.razor.scss" />
 
@@ -82,10 +84,6 @@
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
         </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="wwwroot\images\icons\" />
     </ItemGroup>
 
 </Project>

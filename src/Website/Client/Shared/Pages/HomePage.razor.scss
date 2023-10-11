@@ -1,150 +1,543 @@
-﻿@import '../Styles/abstracts/_media-queries.scss';
-@import '../Styles/abstracts/_colors.scss';
-@import '../Styles/abstracts/_mixins.scss';
-@import '../Styles/abstracts/_functions.scss';
+﻿@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_mixins.scss";
+@import "../Styles/abstracts/_functions.scss";
 
-
-.landing-page {
-    padding: 0 5rem;
-    width: 100%;
-    box-sizing: border-box;
+.btn-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png")
+        center/cover no-repeat;
+    // border: 0.1rem solid blue;
+    display: inline-block;
+    margin-left: 1.2rem;
+    position: relative;
+    top: 0.55rem;
 }
 
 .hero-section {
-    width: 100%;
-    min-height: 69.5rem;
-    position: relative;
-    border-radius: 2rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
     @include customize() {
-        background-color: getValue(HeroBackground);
+        background: getValue(Hero-background-img);
     }
 
-    .hero-content {
-        padding-left: 7.9rem;
+    width: 92vw;
+    border-radius: 2rem;
+    height: 74rem;
+    margin: 1rem auto 0;
 
-        .hero-title {
-            padding-top: 8rem;
-        }
+    @include customize() {
+        color: getValue(TextColor);
     }
 
     .hero-img {
+        width: 84vw;
+        max-width: 139rem;
+        height: 131rem;
         position: absolute;
-        top: -5rem;
-        right: -5rem;
-        width: 100rem;
-        height: 100rem;
-        background-color: orange;
+        right: 0;
+        top: 0;
+        background: url("images/landing-page/Both/hero-triangle.png")
+            center/cover no-repeat;
+    }
+
+    .hero-content {
+        width: 45vw;
+        height: 37rem;
+        grid-template-rows: repeat(3, 1fr);
+        position: relative;
+        top: 24rem;
+        left: 8rem;
+
+        &-title {
+            @include customize() {
+                background: getValue(Hero-title-background);
+            }
+
+            padding-left: 9.5rem;
+            display: inline-block;
+            font-size: 7.7rem;
+            font-family: Space Grotesk;
+            font-weight: 700;
+            letter-spacing: 0.19rem;
+            line-height: 7.788rem;
+        }
+
+        &-description {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            font-size: 3.4rem;
+            line-height: 3.86rem;
+            letter-spacing: -0.1rem;
+            margin: 4.5rem 0 3.5rem;
+        }
+
+        &-btn {
+            @include tonrich-btn();
+            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
+        }
     }
 }
 
-//old code
-// .page-container {
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: flex-start;
-//     align-items: center;
-//     width: 100%;
-//     padding: 0 rem(16px);
-//     box-sizing: border-box;
-// }
+.discover-section {
+    margin: 12.5rem auto 9.5rem;
 
-// .page-section {
-//     width: 100%;
-// }
+    @include customize() {
+        background: getValue(Discover-background-img);
+    }
 
-// .hero-section {
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: flex-start;
-//     align-items: center;
-//     width: 100%;
-//     padding: rem(144px) 0;
-//     box-sizing: border-box;
+    width: 92vw;
+    min-height: 82rem;
+    border-radius: 2rem;
+    position: relative;
 
-//     @include lt-xl {
-//         padding: rem(130px) 0;
-//     }
+    @include customize() {
+        color: getValue(TextColor);
+    }
 
-//     @include sm {
-//         padding: rem(120px) 0;
-//     }
-// }
+    .splash-of-color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("images/landing-page/Both/Discover-background.png")
+            right/cover no-repeat;
+        opacity: 0.9;
+        border-radius: 2rem;
+    }
 
-// .hero-section-title {
-//     margin-bottom: rem(32px);
-//     font-weight: bold;
-//     font-size: rem(42px);
-//     line-height: rem(62px);
-//     color: #FF5C11;
-//     text-align: center;
+    .discover-app {
+        @include customize() {
+            background: getValue(Discover-image);
+        }
 
-//     @include lg {
-//         margin-bottom: rem(24px);
-//         font-size: rem(34px);
-//         line-height: rem(56px);
-//     }
+        width: 50.5vw;
+        max-width: 869px;
+        height: 700px;
+        // border: 1px solid rgb(17, 0, 255);
+        position: absolute;
+        right: 0;
+        top: 48px;
+        z-index: 1;
+    }
 
-//     @include md {
-//         margin-bottom: rem(24px);
-//         font-size: rem(26px);
-//         line-height: rem(44px);
-//     }
+    .discover-content {
+        width: 35vw;
+        position: relative;
+        padding: 12vw 0 0 6%;
+        z-index: 2;
+        // border: 1px solid red;
 
-//     @include sm {
-//         margin-bottom: rem(16px);
-//         font-size: rem(24px);
-//         line-height: rem(40px);
-//     }
-// }
+        .discover-frame {
+            @include gray-frames();
+        }
 
-// .hero-section-desc {
-//     max-width: rem(1232px);
-//     margin-bottom: rem(40px);
-//     font-size: rem(24px);
-//     line-height: rem(40px);
-//     color: $Green2;
-//     text-align: center;
+        .discover-header {
+            @include sections-header();
+            font-weight: 100;
+            white-space: nowrap;
+            margin: 7px 0 7px;
 
-//     @include lg {
-//         max-width: rem(821px);
-//         margin-bottom: rem(38px);
-//         font-size: rem(20px);
-//         line-height: rem(32px);
-//     }
+            span {
+                @include sections-header();
+                font-weight: 700;
+            }
+        }
 
-//     @include md {
-//         max-width: rem(572px);
-//         margin-bottom: rem(32px);
-//         font-size: rem(18px);
-//         line-height: rem(28px);
-//     }
+        .discover-text {
+            @include sections-text();
 
-//     @include sm {
-//         max-width: 100%;
-//         margin-bottom: rem(32px);
-//         font-size: rem(14px);
-//         line-height: rem(24px);
-//     }
-// }
+            &-padding-top {
+                padding-top: 10px;
+                overflow: hidden;
+            }
+        }
+    }
+}
 
-// ::deep .hero-section-cta {
-//     height: rem(34px);
-//     border: rem(1px) solid $White;
-//     color: $White;
-//     background-color: $SecondaryColor;
+.how-sections {
+    // border: 2px solid pink;
+    @include customize() {
+        color: getValue(TextColor);
+    }
+}
 
-//     &:hover {
-//         background-color: $SecondaryColor;
-//         border-color: $White;
-//     }
-// }
+.how-to-use {
+    font-size: 5.8rem;
+    line-height: 8.45rem;
+    letter-spacing: -2.44px;
+    font-weight: 300;
+    font-family: Ubuntu;
+    padding-left: 125px;
+}
 
-// ::deep .wallet-input {
-//     width: 420px;
-//     margin: 5px;
-// }
+.how-section {
+    min-height: 595px;
+    width: 92vw;
+    // border: 1px solid blue;
+    margin: 40px auto;
+    border-radius: 2rem;
+    position: relative;
+}
 
+.splash-of-color {
+    // border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.browser-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Browser-background-image);
+    }
+
+    .splash-of-color {
+        background: url("images/landing-page/Both/how1-background.png")
+            right/cover no-repeat;
+        background-position: 150px;
+        opacity: 0.9;
+    }
+
+    .browser-content {
+        // border: 2px solid rgb(30, 255, 0);
+        position: relative;
+        z-index: 2;
+        width: 35vw;
+        padding: 2.8vw 0 0 6%;
+
+        .introducing-frame {
+            @include gray-frames();
+        }
+
+        .browser-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .browser-text {
+            @include sections-text();
+            margin-bottom: 23px;
+        }
+
+        .browser-btn {
+            @include tonrich-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+
+            .btn-arrow {
+                @include customize() {
+                    background: getValue(Change-color-Arrow);
+                }
+            }
+        }
+    }
+
+    .browser-img {
+        // border: 1px solid white;
+        width: 510px;
+        height: 550px;
+
+        @include customize() {
+            background: getValue(Browser-image);
+        }
+
+        position: absolute;
+        right: 3vw;
+        bottom: 0;
+        z-index: 2;
+    }
+}
+
+.telegram-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Telegram-background-image);
+    }
+
+    color: white;
+
+    .splash-of-color {
+        background: url("images/landing-page/Both/how2-background.png")
+            center/cover no-repeat;
+        opacity: 0.8;
+        width: 900px;
+    }
+
+    .telegram-content {
+        // border: 2px solid rgb(30, 255, 0);
+        z-index: 2;
+        width: 35vw;
+        position: relative;
+        padding: 4.5vw 0 0 6%;
+
+        .telegram-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .telegram-text {
+            @include sections-text();
+            // margin-bottom: 102px;
+            margin-bottom: 3.6vw;
+        }
+
+        .telegram-btn {
+            @include tonrich-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+
+            .btn-arrow {
+                @include customize() {
+                    background: getValue(Change-color-Arrow);
+                }
+            }
+        }
+    }
+
+    .telegram-img1 {
+        width: 346px;
+        height: 532px;
+
+        @include customize() {
+            background: getValue(Telegram-image1);
+        }
+
+        position: absolute;
+        right: 19.25vw;
+        bottom: 0;
+        z-index: 2;
+        // border: 1px solid red;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .telegram-img2 {
+        width: 352px;
+        height: 410px;
+
+        @include customize() {
+            background: getValue(Telegram-image2);
+        }
+
+        position: absolute;
+        right: 6.5vw;
+        bottom: 0;
+        z-index: 2;
+        border-radius: 20px 20px 0 0;
+        // border: 1px solid rgb(84, 84, 84);
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.check-intro {
+    position: relative;
+
+    @include customize() {
+        background: getValue(Check-background-image);
+    }
+
+    .splash-of-color {
+        background: url("images/landing-page/Both/how3-background.png")
+            right/cover no-repeat;
+        background-position: 220px;
+        opacity: 0.7;
+    }
+
+    .check-content {
+        // border: 2px solid rgb(30, 255, 0);
+        z-index: 2;
+        width: 35vw;
+        position: relative;
+        padding: 4.8vw 0 0 6%;
+
+        .introducing-frame {
+            @include gray-frames();
+        }
+
+        .check-header {
+            // border: 1px solid rgb(0, 242, 255);
+            @include sections-header();
+            white-space: nowrap;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+
+        .check-text {
+            @include sections-text();
+            margin-bottom: 28px;
+        }
+
+        .check-btn {
+            @include tonrich-btn();
+
+            @include customize() {
+                background-color: getValue(BtnWhite);
+            }
+
+            @include customize() {
+                color: getValue(TextColorSec);
+            }
+        }
+    }
+
+    .check-img {
+        // border: 1px solid white;
+        width: 665px;
+        height: 528px;
+        
+        // problem
+        @include customize() {
+            background: getValue(check-image);
+        }
+
+        position: absolute;
+        right: 5.2vw;
+        bottom: 1vw;
+        z-index: 2;
+    }
+
+    .check-wallet-adrs {
+        // border: 1px solid red;
+        width: 426px;
+        height: 68px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4rem;
+
+        @include customize() {
+            background-color: getValue(walletBackground);
+        }
+
+        position: relative;
+        top: 20px;
+        right: 12px;
+
+        .wallet-input {
+            padding: 16px 0 16px 25px;
+            width: 358px;
+            height: 64px;
+            border: none;
+            background-color: transparent;
+            color: rgb(255, 243, 237);
+            // border: 1px solid rgb(43, 0, 255);
+            font-size: 18px;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .wallet-btn {
+            @include customize() {
+                background-color: getValue(walletBtn);
+            }
+
+            border: none;
+            border-radius: 50%;
+            padding: 12px;
+            width: 54px;
+            height: 54px;
+            cursor: pointer;
+            opacity: 0.95;
+            transition: opacity 0.15s;
+
+            .btn-arrow {
+                margin: 0;
+                width: 29px;
+                height: 29px;
+                position: relative;
+                top: 0px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+.work-seamlessly-section {
+    margin: 155px auto 155px auto;
+    // border: 1px solid blue;
+    width: 969px;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
+
+    .work-seamlessly-text {
+        letter-spacing: -1.44px;
+        font-weight: 300;
+        font-size: 5.8rem;
+        font-family: Ubuntu;
+        text-align: center;
+        padding-right: 30px;
+    }
+
+    .work-seamlessly-logo {
+        margin-top: 67px;
+        // border: 1px solid red;
+        display: flex;
+        margin: 62px 50px 0;
+
+        div {
+            // border: 1px solid yellow;
+            width: 100%;
+            height: 60px;
+        }
+
+        .logo-img1 {
+            @include customize() {
+                background: getValue(Logo-image1);
+            }
+
+            background-size: 180px;
+        }
+
+        .logo-img2 {
+            @include customize() {
+                background: getValue(Logo-image2);
+            }
+
+            background-size: 180px;
+        }
+
+        .logo-img3 {
+            @include customize() {
+                background: getValue(Logo-image3);
+            }
+
+            background-size: 170px;
+        }
+    }
+}

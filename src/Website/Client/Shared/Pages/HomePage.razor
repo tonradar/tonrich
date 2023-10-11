@@ -4,7 +4,7 @@
 <PageTitle>@Localizer[nameof(AppStrings.HomeTitle)]</PageTitle>
 
 <section class="landing-page">
-    <div class="hero-section">
+    @* <div class="hero-section">
         <div class="hero-content">
             <div class="hero-title">@Localizer[nameof(AppStrings.HeroTitle)]</div>
             <div class="hero-description">
@@ -22,21 +22,116 @@
         <div class="plugin-intro"></div>
     </div>
     <div class="supported-websites-section"></div>
+ *@
 
-    @* todo: make this part a component *@
-    <div class="recap-section"></div>
+@* Temp Fonts *@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Space+Grotesk:wght@700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <div class="hero-section">
+        <div class="hero-img"></div>
+        <div class="hero-content">
+            <div class="hero-content-title">@Localizer[nameof(AppStrings.LandingHeroTitle)]</div>
+            <div class="hero-content-description">
+                @Localizer[nameof(AppStrings.LandingHeroTxt)]
+            </div>
+            <button class="hero-content-btn" @onclick="HandelPluginButtonClickAsync">
+                @Localizer[nameof(AppStrings.LandingHeroBtn)]<span class="btn-arrow"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="discover-section">
+        <div class="splash-of-color"></div>
+        <div class="discover-content">
+            <div class="discover-frame">@Localizer[nameof(AppStrings.LandingDiscoverGrayBox)]</div>
+            <div class="discover-header">@Localizer[nameof(AppStrings.LandingDiscoverTitle1)] <span>@Localizer[nameof(AppStrings.LandingDiscoverTitle2)]</span></div>
+            <div class="discover-text">
+                @Localizer[nameof(AppStrings.LandingDiscoverTxt1)]
+            </div>
+            <div class="discover-text discover-text-padding-top">
+                @Localizer[nameof(AppStrings.LandingDiscoverTxt2)]
+            </div>
+        </div>
+        <div class="discover-app"></div>
+    </div>
+
+    <div class="how-sections">
+        <div class="how-to-use">@Localizer[nameof(AppStrings.LandingHowTitle)]</div>
+
+        <div class="browser-intro how-section">
+            <div class="splash-of-color"></div>
+
+            <div class="browser-content">
+                <div class="introducing-frame">@Localizer[nameof(AppStrings.LandingBrowserGrayBox)]</div>
+                <div class="browser-header">@Localizer[nameof(AppStrings.LandingBrowserTitle)]</div>
+                <div class="browser-text">
+                    @Localizer[nameof(AppStrings.LandingBrowserText)]
+                </div>
+                <button class="browser-btn" @onclick="HandelPluginButtonClickAsync">
+                    @Localizer[nameof(AppStrings.LandingBrowserBtn)]<span class="btn-arrow"></span>
+                </button>
+            </div>
+
+            <div class="browser-img"></div>
+        </div>
+
+        <div class="telegram-intro how-section">
+            <div class="splash-of-color"></div>
+            <div class="splash-of-color"></div>
+
+            <div class="telegram-content">
+                <div class="telegram-header">@Localizer[nameof(AppStrings.LandingTelegramTitle)]</div>
+                <div class="telegram-text">
+                    @Localizer[nameof(AppStrings.LandingTelegramText)]
+                </div>
+                <button class="telegram-btn" @onclick="HandelTelegramButtonClickAsync">
+                    @Localizer[nameof(AppStrings.LandingTelegramBtn)]<span class="btn-arrow"></span>
+                </button>
+            </div>
+
+            <div class="telegram-img1"></div>
+            <div class="telegram-img2"></div>
+        </div>
+
+        <div class="check-intro how-section">
+            <div class="splash-of-color"></div>
+            <div class="splash-of-color"></div>
+
+            <div class="check-content">
+                <div class="introducing-frame">@Localizer[nameof(AppStrings.LandingCheckGrayBox)]</div>
+                <div class="check-header">@Localizer[nameof(AppStrings.LandingCheckTitle)]</div>
+                <div class="check-text">
+                    @Localizer[nameof(AppStrings.LandingCheckText)]
+                </div>
+                <div class="check-wallet-adrs">
+                    <input type="text"
+                           class="wallet-input"
+                           autocomplete="off"
+                           placeholder="Enter the wallet address here" @bind="SearchWalletText" />
+                    <button class="wallet-btn" @onclick="OnSearchWalletClick">
+                        <span class="btn-arrow"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="check-img"></div>
+        </div>
+    </div>
+
+    <div class="work-seamlessly-section">
+        <div class="work-seamlessly-text">
+            @Localizer[nameof(AppStrings.LandingWorkSeamlessly)]
+        </div>
+        <div class="work-seamlessly-logo">
+            <div class="logo-img1"></div>
+            <div class="logo-img2"></div>
+            <div class="logo-img3"></div>
+        </div>
+    </div>
+
+    <RecapTonrich></RecapTonrich>
 </section>
 
-@* <div class="page-container">
-<section class="page-section hero-section">
-<h1 class="hero-section-title">@Localizer[nameof(AppStrings.HomeTitle)]</h1>
-
-<div class="hero-section-desc">
-@Localizer[nameof(AppStrings.ComingSoon)]
-</div>
-
-<BitTextField Class="wallet-input" Placeholder="Enter your wallet address..."
-OnChange="(c)=>ChangeWalletAddress(c)"></BitTextField>
-<BitButton Href=@($"/wallet/{WalletAddress}")>Connect to wallet</BitButton>
-</section>
-</div> *@

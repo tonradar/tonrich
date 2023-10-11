@@ -6,6 +6,15 @@ public partial class Header : IDisposable
     private bool _isUserAuthenticated;
 
     [Parameter] public EventCallback OnToggleMenu { get; set; }
+    [Parameter] public bool IsDarkTheme { get; set; } = true;
+    [Parameter] public EventCallback OnToggleTheme { get; set; }
+
+    [CascadingParameter(Name = "AppStateDto")]
+    private AppStateDto? AppStateDto { get; set; }
+
+    private bool IsInWalletPage { get; set; } = false;
+
+    private string? SearchWalletText { get; set; }
 
     protected override async Task OnInitAsync()
     {
@@ -14,6 +23,16 @@ public partial class Header : IDisposable
         _isUserAuthenticated = await StateService.GetValue($"{nameof(Header)}-isUserAuthenticated", AuthenticationStateProvider.IsUserAuthenticatedAsync);
 
         await base.OnInitAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (AppStateDto == null) 
+            return base.OnAfterRenderAsync(firstRender);
+
+        IsInWalletPage = AppStateDto.IsInWalletPage;
+        StateHasChanged();
+        return base.OnAfterRenderAsync(firstRender);
     }
 
     async void VerifyUserIsAuthenticatedOrNot(Task<AuthenticationState> task)
@@ -37,6 +56,13 @@ public partial class Header : IDisposable
         await OnToggleMenu.InvokeAsync();
     }
 
+    public async Task ToggleTheme()
+    {
+        await OnToggleTheme.InvokeAsync();
+    }
+
+
+
     public void Dispose()
     {
         Dispose(true);
@@ -50,5 +76,13 @@ public partial class Header : IDisposable
         AuthenticationStateProvider.AuthenticationStateChanged -= VerifyUserIsAuthenticatedOrNot;
 
         _disposed = true;
+    }
+
+    private void OnSearchWalletClick()
+    {
+        if (string.IsNullOrWhiteSpace(SearchWalletText))
+            return;
+
+        NavigationManager.NavigateTo($"/wallet/{SearchWalletText}");
     }
 }

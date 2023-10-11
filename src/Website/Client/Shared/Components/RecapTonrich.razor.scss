@@ -1,0 +1,79 @@
+@import "../Styles/abstracts/_media-queries.scss";
+@import "../Styles/abstracts/_colors.scss";
+@import "../Styles/abstracts/_mixins.scss";
+@import "../Styles/abstracts/_functions.scss";
+
+.recap-section {
+    margin: 12.5rem auto 9.5rem;
+
+    @include customize() {
+        background: getValue(Recap-background-image);
+    }
+
+    width: 92vw;
+    height: 92rem;
+    border-radius: 2rem;
+    position: relative;
+
+    @include customize() {
+        color: getValue(TextColor);
+    }
+
+    overflow: hidden;
+
+    .recap-content {
+        // width: 43vw;
+        width: 660px;
+        position: absolute;
+        top: 75px;
+        left: 6%;
+        // border: 1px solid red;
+        z-index: 2;
+
+        .recap-header {
+            @include sections-header();
+            font-weight: 500;
+            padding-left: 15px;
+            margin-bottom: 10px;
+        }
+
+        .recap-text {
+            letter-spacing: -2.3px;
+            line-height: 4.55rem;
+            font-size: 3.5rem;
+            font-family: Ubuntu;
+            padding-top: 40px;
+        }
+
+        .recap-btn {
+            @include tonrich-btn();
+            margin-top: 85px;
+            margin-left: 13px;
+            background: linear-gradient(142deg, #fc4c25 0%, #feb752 100%);
+        }
+    }
+
+    .recap-img {
+        width: 85vw;
+        max-width: 1186px;
+        height: 920px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        // border: 1px solid red;
+        background: url("images/landing-page/Both/recap-img.png") center/cover
+            no-repeat;
+    }
+}
+
+.btn-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    background: url("images/landing-page/Both/Forward-arrow-white.png")
+        center/cover no-repeat;
+    // border: 0.1rem solid blue;
+    display: inline-block;
+    margin-left: 1.2rem;
+    position: relative;
+    top: 0.55rem;
+}

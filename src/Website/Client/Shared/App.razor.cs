@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Net.Http;
+using System.Reflection;
 using Microsoft.AspNetCore.Components.Routing;
 
 namespace Tonrich.Client.Shared;
@@ -11,6 +12,8 @@ public partial class App
 #endif
 
     [AutoInject] private IJSRuntime _jsRuntime = default!;
+
+    [AutoInject] private HttpClient _httpClient = default!;
 
     private bool _cultureHasNotBeenSet = true;
 
@@ -35,5 +38,21 @@ public partial class App
             _lazyLoadedAssemblies.AddRange(assemblies);
         }
 #endif
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var tonRichPluginUrl = await _jsRuntime.InvokeAsync<string>("App.getLocalStorageItem", "TonRichPluginUrl");
+            var tonRichTelegramBotUrl = await _jsRuntime.InvokeAsync<string>("App.getLocalStorageItem", "TonRichTelegramBotUrl");
+            if (!string.IsNullOrEmpty(tonRichPluginUrl) && !string.IsNullOrEmpty(tonRichTelegramBotUrl))
+                return;
+
+            var config = await _httpClient.GetFromJsonAsync<ConfigDto>("Config/GetConfig");
+            await _jsRuntime.InvokeVoidAsync("App.setLocalStorageItem", nameof(config.TonRichPluginUrl), config?.TonRichPluginUrl);
+            await _jsRuntime.InvokeVoidAsync("App.setLocalStorageItem", nameof(config.TonRichTelegramBotUrl), config?.TonRichTelegramBotUrl);
+        }
+        await base.OnAfterRenderAsync(firstRender);
     }
 }

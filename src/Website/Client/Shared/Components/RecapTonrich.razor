@@ -1,0 +1,22 @@
+@using Tonrich.Client.Shared.Shared
+@using Tonrich.Shared.Util;
+@inherits AppComponentBase
+
+<div class="recap-section">
+    <div class="recap-content">
+        <div class="recap-header">@Localizer[nameof(AppStrings.RecapTitle)]</div>
+        <div class="recap-text">
+            @Localizer[nameof(AppStrings.RecapText1)]
+        </div>
+        <div class="recap-text">
+            @Localizer[nameof(AppStrings.RecapText2)]
+        </div>
+        <div class="recap-text">
+            @Localizer[nameof(AppStrings.RecapText3)]
+        </div>
+        <button class="recap-btn" @onclick="HandelPluginButtonClickAsync">
+            @Localizer[nameof(AppStrings.RecapBtn)]<span class="btn-arrow"></span>
+        </button>
+    </div>
+    <div class="recap-img"></div>
+</div>

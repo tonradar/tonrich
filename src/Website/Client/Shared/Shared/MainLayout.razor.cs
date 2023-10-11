@@ -7,6 +7,10 @@ public partial class MainLayout : IDisposable
     private bool _disposed;
     private bool _isMenuOpen;
     private bool _isUserAuthenticated;
+    public bool IsDarkTheme = true;
+
+    static string ThemeClass(bool isDarkTheme) 
+        => isDarkTheme ? "theme-dark" : "theme-light";
 #pragma warning disable CS0414 // The field 'MainLayout.ErrorBoundaryRef' is assigned but its value is never used
     private ErrorBoundary ErrorBoundaryRef = default!;
 #pragma warning restore CS0414 // The field 'MainLayout.ErrorBoundaryRef' is assigned but its value is never used
@@ -16,6 +20,8 @@ public partial class MainLayout : IDisposable
     [AutoInject] private IExceptionHandler _exceptionHandler = default!;
 
     [AutoInject] private AppAuthenticationStateProvider _authStateProvider = default!;
+
+    [AutoInject] private AppStateDto AppStateDto { get; set; } = default!;
 
     protected override void OnParametersSet()
     {
@@ -61,6 +67,10 @@ public partial class MainLayout : IDisposable
     private void ToggleMenuHandler()
     {
         _isMenuOpen = !_isMenuOpen;
+    }
+
+    private void HandleToggleTheme() {
+        IsDarkTheme = !IsDarkTheme;
     }
 
     public void Dispose()

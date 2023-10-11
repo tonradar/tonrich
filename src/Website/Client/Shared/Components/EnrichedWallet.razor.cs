@@ -24,6 +24,7 @@ public partial class EnrichedWallet
     private bool isDiagramBusy = true;
     private string? ToolTipCallerOrderName { get; set; }
     public string copyTooltipPosition = "";
+    private bool IsWalletNotFound { get; set; } = false;
 
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
@@ -41,7 +42,10 @@ public partial class EnrichedWallet
 
         if (AccountInfo?.Address is null)
         {
-            NavigationManager.NavigateTo("/WalletNotFound", true);
+            IsWalletNotFound = true;
+            isDiagramBusy = false;
+            await OnAccountLoad.InvokeAsync(true);
+            await InvokeAsync(StateHasChanged);
             return;
         }
 
