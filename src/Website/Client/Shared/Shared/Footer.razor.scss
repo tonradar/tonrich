@@ -45,7 +45,7 @@ footer {
 
         ::deep a {
             @include customize() {
-                color: getValue(FooterPen);
+                color: getValue(Footer-color);
             }
 
             opacity: 0.8;
@@ -55,7 +55,7 @@ footer {
 
         ::deep a:active {
             @include customize() {
-                color: getValue(FooterPen);
+                color: getValue(Footer-color);
             }
         }
 

@@ -407,7 +407,7 @@
         // border: 1px solid white;
         width: 665px;
         height: 528px;
-        
+
         // problem
         @include customize() {
             background: getValue(check-image);
@@ -450,6 +450,10 @@
 
             &:focus {
                 outline: none;
+            }
+
+            @include customize() {
+                color: getValue(MainPen);
             }
         }
 
