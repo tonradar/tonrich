@@ -8,6 +8,7 @@ public partial class Header : IDisposable
     [Parameter] public EventCallback OnToggleMenu { get; set; }
     [Parameter] public bool IsDarkTheme { get; set; } = true;
     [Parameter] public EventCallback OnToggleTheme { get; set; }
+    [AutoInject] private IConfigService ConfigService { get; set; } = default!;
 
     [CascadingParameter(Name = "AppStateDto")]
     private AppStateDto? AppStateDto { get; set; }
@@ -79,5 +80,10 @@ public partial class Header : IDisposable
     private void OnLogoClick()
     {
         NavigationManager.NavigateTo($"/");
+    }
+
+    private async Task HandelPluginButtonClickAsync()
+    {
+        NavigationManager.NavigateTo(await ConfigService.GetTonRichPluginUrl());
     }
 }
