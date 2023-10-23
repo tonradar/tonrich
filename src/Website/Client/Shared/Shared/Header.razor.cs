@@ -1,4 +1,6 @@
-﻿namespace Tonrich.Client.Shared;
+﻿using Microsoft.AspNetCore.Components.Web;
+
+namespace Tonrich.Client.Shared;
 
 public partial class Header : IDisposable
 {
@@ -85,5 +87,13 @@ public partial class Header : IDisposable
     private async Task HandelPluginButtonClickAsync()
     {
         NavigationManager.NavigateTo(await ConfigService.GetTonRichPluginUrl());
+    }
+
+    private void HandleOnKeyDownSearch(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            OnSearchWalletClick();
+        }
     }
 }
