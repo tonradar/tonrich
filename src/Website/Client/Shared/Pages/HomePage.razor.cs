@@ -1,4 +1,6 @@
-﻿namespace Tonrich.Client.Shared.Pages;
+﻿using Microsoft.AspNetCore.Components.Web;
+
+namespace Tonrich.Client.Shared.Pages;
 
 public partial class HomePage
 {
@@ -27,5 +29,13 @@ public partial class HomePage
             return;
 
         NavigationManager.NavigateTo($"/wallet/{SearchWalletText}");
+    }
+
+    private void HandleOnKeyDownSearch(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            OnSearchWalletClick();
+        }
     }
 }

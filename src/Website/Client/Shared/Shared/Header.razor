@@ -25,7 +25,7 @@
                         <input type="text"
                                class="wallet-input"
                                autocomplete="off"
-                               placeholder="Enter the wallet address here" @bind="SearchWalletText"/>
+                               placeholder="Enter the wallet address here" @bind="SearchWalletText" @bind:event="oninput" @onkeydown="HandleOnKeyDownSearch" />
                         <button class="wallet-btn" @onclick="OnSearchWalletClick">
                             <span class="btn-arrow"></span>
                         </button>
