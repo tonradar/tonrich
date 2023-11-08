@@ -97,29 +97,4 @@ public partial class TonService : ITonService
 
     }
 
-    public async Task<decimal> GetNumbersPriceAsync(IEnumerable<string> numbers, CancellationToken cancellationToken = default)
-    {
-        var tasks = new List<Task<decimal>>();
-        foreach (var number in numbers)
-        {
-            tasks.Add(FragmentProvider.GetNumberPriceAsync(number, cancellationToken));
-        }
-
-        await Task.WhenAll(tasks);
-
-        return tasks.Sum(c => c.Result);
-    }
-
-    public async Task<decimal> GetUserNamesPriceAsync(IEnumerable<string> userNames, CancellationToken cancellationToken = default)
-    {
-        var tasks = new List<Task<decimal>>();
-        foreach (var userName in userNames)
-        {
-            tasks.Add(FragmentProvider.GetUserNamePriceAsync(userName, cancellationToken));
-        }
-
-        await Task.WhenAll(tasks);
-
-        return tasks.Sum(c => c.Result);
-    }
 }
