@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
+using Tonrich.Client.Shared.Components;
 
-namespace Tonrich.Client.Shared.Pages;
+namespace Tonrich.Client.Shared.Pages.Website;
 
 public partial class HomePage
 {
