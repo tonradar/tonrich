@@ -5,71 +5,71 @@
 
 @if (isPageBusy)
 {
-        <div class="tonrich-background"></div>
-            <div class="tonrich-container">
-                <div class="owner-info-wrapper">
-                    <div class="tonrich-logo"></div>
-                    <div>
-                        <div class="tonrich-title">TonRich</div>
-                    </div>
+    <div class="tonrich-background"></div>
+    <div class="@containerClass">
+        <div class="owner-info-wrapper">
+            <div class="tonrich-logo"></div>
+            <div>
+                <div class="tonrich-title">TonRich</div>
+            </div>
+        </div>
+        <div class="trx-info-wrapper">
+            <div class="trx-card-loading-mode">1</div>
+            <div class="trx-card-loading-mode">2</div>
+            <div class="trx-card-loading-mode">3</div>
+            <div class="trx-card-loading-mode">4</div>
+            <div class="trx-card-loading-mode">5</div>
+            <div class="trx-card-loading-mode">6</div>
+        </div>
+        <div class="activity-diagram-wrapper">
+            <div class="activity-diagram-part">
+                <div class="month-row-caption">
+                    @foreach (var month in Months)
+                    {
+                        <div class="caption-item">@month.Name</div>
+                    }
                 </div>
-                <div class="trx-info-wrapper">
-                    <div class="trx-card-loading-mode">1</div>
-                    <div class="trx-card-loading-mode">2</div>
-                    <div class="trx-card-loading-mode">3</div>
-                    <div class="trx-card-loading-mode">4</div>
-                    <div class="trx-card-loading-mode">5</div>
-                    <div class="trx-card-loading-mode">6</div>
-                </div>
-                <div class="activity-diagram-wrapper">
-                    <div class="activity-diagram-part">
-                        <div class="month-row-caption">
-                            @foreach (var month in Months)
+                <div class="diagram-day-result">
+                    <div class="day-column-caption">
+                        @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
+                        {
+                            if (@ShowWeekTitle(dayOfWeek))
                             {
-                                <div class="caption-item">@month.Name</div>
+                                <div class="caption-item">@dayOfWeek.ToString().Substring(0,3)</div>
                             }
-                        </div>
-                        <div class="diagram-day-result">
-                            <div class="day-column-caption">
-                                @for (var dayOfWeek = DayOfWeek.Sunday; dayOfWeek <= DayOfWeek.Saturday; dayOfWeek++)
-                                {
-                                    if (@ShowWeekTitle(dayOfWeek))
-                                    {
-                                        <div class="caption-item">@dayOfWeek.ToString().Substring(0,3)</div>
-                                    }
-                                }
-                            </div>
-                            <div class="diagram-result-box">
-                                @foreach (var row in ActivityChartDates)
-                                {
-                                    @foreach (var columnInARow in row)
-                                    {
-                                        var activity = GetActivity(columnInARow.DateTimeOffset);
-                                        <div class="diagram-unit range-zero"></div>
-    
-                                    }
-                                }
-                            </div>
-                        </div>
+                        }
                     </div>
-    
-    
-                    <div class="color-guide-table"></div>
-                </div>
-    
-                <div class="nft-info-wrapper">
-                    <div class="nft-info">
+                    <div class="diagram-result-box">
+                        @foreach (var row in ActivityChartDates)
+                        {
+                            @foreach (var columnInARow in row)
+                            {
+                                var activity = GetActivity(columnInARow.DateTimeOffset);
+                                <div class="diagram-unit range-zero"></div>
+
+                            }
+                        }
                     </div>
-                    <div class="nft-list-container-loading-mode"></div>
-                </div>
-                <div class="about-tonrich-wrapper">
-                    <div class="tonrich-site-icon"><a>Tonrich.com</a></div>
-                    <div class="tonrich-telegram-icon"><a>t.me/Tonrichbot</a></div>
                 </div>
             </div>
-}   
-else    
-{   
+
+
+            <div class="color-guide-table"></div>
+        </div>
+
+        <div class="nft-info-wrapper">
+            <div class="nft-info">
+            </div>
+            <div class="nft-list-container-loading-mode"></div>
+        </div>
+        <div class="about-tonrich-wrapper">
+            <div class="tonrich-site-icon"><a>Tonrich.com</a></div>
+            <div class="tonrich-telegram-icon"><a>t.me/Tonrichbot</a></div>
+        </div>
+    </div>
+}
+else
+{
     @if (IsWalletNotFound)
     {
         <div class="wallet-not-found">Wallet not found</div>
@@ -77,7 +77,7 @@ else
     else
     {
         <div class="tonrich-background"></div>
-        <div class="tonrich-container">
+        <div class="@containerClass">
             <div class="owner-info-wrapper">
                 <div class="tonrich-logo"></div>
                 <div>
