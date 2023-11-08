@@ -1,14 +1,13 @@
-﻿@import "../Styles/abstracts/_media-queries.scss";
-@import "../Styles/abstracts/_colors.scss";
-@import "../Styles/abstracts/_mixins.scss";
-@import "../Styles/abstracts/_functions.scss";
+﻿@import "../../Styles/abstracts/_media-queries.scss";
+@import "../../Styles/abstracts/_colors.scss";
+@import "../../Styles/abstracts/_mixins.scss";
+@import "../../Styles/abstracts/_functions.scss";
 
 .btn-arrow {
     width: 2.6rem;
     height: 2.6rem;
     background: url("images/landing-page/Both/Forward-arrow-white.png")
         center/cover no-repeat;
-    // border: 0.1rem solid blue;
     display: inline-block;
     margin-left: 1.2rem;
     position: relative;
@@ -114,7 +113,6 @@
         width: 50.5vw;
         max-width: 869px;
         height: 700px;
-        // border: 1px solid rgb(17, 0, 255);
         position: absolute;
         right: 0;
         top: 48px;
@@ -126,7 +124,6 @@
         position: relative;
         padding: 12vw 0 0 6%;
         z-index: 2;
-        // border: 1px solid red;
 
         .discover-frame {
             @include gray-frames();
@@ -156,7 +153,6 @@
 }
 
 .how-sections {
-    // border: 2px solid pink;
     @include customize() {
         color: getValue(TextColor);
     }
@@ -174,14 +170,12 @@
 .how-section {
     min-height: 595px;
     width: 92vw;
-    // border: 1px solid blue;
     margin: 40px auto;
     border-radius: 2rem;
     position: relative;
 }
 
 .splash-of-color {
-    // border: 1px solid yellow;
     width: 100%;
     height: 100%;
     border-radius: 2rem;
@@ -206,7 +200,6 @@
     }
 
     .browser-content {
-        // border: 2px solid rgb(30, 255, 0);
         position: relative;
         z-index: 2;
         width: 35vw;
@@ -217,7 +210,6 @@
         }
 
         .browser-header {
-            // border: 1px solid rgb(0, 242, 255);
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
@@ -248,7 +240,6 @@
     }
 
     .browser-img {
-        // border: 1px solid white;
         width: 510px;
         height: 550px;
 
@@ -280,14 +271,12 @@
     }
 
     .telegram-content {
-        // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
         position: relative;
         padding: 4.5vw 0 0 6%;
 
         .telegram-header {
-            // border: 1px solid rgb(0, 242, 255);
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
@@ -295,7 +284,6 @@
 
         .telegram-text {
             @include sections-text();
-            // margin-bottom: 102px;
             margin-bottom: 3.6vw;
         }
 
@@ -330,7 +318,6 @@
         right: 19.25vw;
         bottom: 0;
         z-index: 2;
-        // border: 1px solid red;
         border-radius: 20px 20px 0 0;
     }
 
@@ -347,7 +334,6 @@
         bottom: 0;
         z-index: 2;
         border-radius: 20px 20px 0 0;
-        // border: 1px solid rgb(84, 84, 84);
         box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
     }
 }
@@ -367,7 +353,6 @@
     }
 
     .check-content {
-        // border: 2px solid rgb(30, 255, 0);
         z-index: 2;
         width: 35vw;
         position: relative;
@@ -378,7 +363,6 @@
         }
 
         .check-header {
-            // border: 1px solid rgb(0, 242, 255);
             @include sections-header();
             white-space: nowrap;
             font-weight: 500;
@@ -404,11 +388,9 @@
     }
 
     .check-img {
-        // border: 1px solid white;
         width: 665px;
         height: 528px;
 
-        // problem
         @include customize() {
             background: getValue(check-image);
         }
@@ -420,11 +402,12 @@
     }
 
     .check-wallet-adrs {
-        // border: 1px solid red;
         width: 426px;
         height: 68px;
         border-radius: 40px;
         display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
         align-items: center;
         gap: 8px;
         margin-bottom: 4rem;
@@ -444,7 +427,6 @@
             border: none;
             background-color: transparent;
             color: rgb(255, 243, 237);
-            // border: 1px solid rgb(43, 0, 255);
             font-size: 18px;
             box-sizing: border-box;
 
@@ -492,7 +474,6 @@
 
 .work-seamlessly-section {
     margin: 155px auto 155px auto;
-    // border: 1px solid blue;
     width: 969px;
 
     @include customize() {
@@ -510,12 +491,13 @@
 
     .work-seamlessly-logo {
         margin-top: 67px;
-        // border: 1px solid red;
         display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
         margin: 62px 50px 0;
 
         div {
-            // border: 1px solid yellow;
             width: 100%;
             height: 60px;
         }

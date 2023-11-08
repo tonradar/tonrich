@@ -1,6 +1,6 @@
-﻿namespace Tonrich.Client.Shared.Pages;
+﻿namespace Tonrich.Client.Shared.Pages.Website;
 
-public partial class WalletPage:IDisposable
+public partial class WalletPage : IDisposable
 {
     [Parameter] public required string WalletId { get; set; }
     [Parameter] public string Theme { get; set; } = "light";
@@ -22,7 +22,7 @@ public partial class WalletPage:IDisposable
             }
         }
 
-        if (AppStateDto != null) 
+        if (AppStateDto != null)
             AppStateDto.IsInWalletPage = true;
 
         base.OnInitialized();
@@ -37,7 +37,7 @@ public partial class WalletPage:IDisposable
 
     public void Dispose()
     {
-        if (AppStateDto != null) 
+        if (AppStateDto != null)
             AppStateDto.IsInWalletPage = false;
     }
 }

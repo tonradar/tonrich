@@ -8,6 +8,7 @@ public partial class EnrichedWallet
 {
     [Parameter] public required string WalletId { get; set; }
     [Parameter] public EventCallback<bool> OnAccountLoad { get; set; }
+    [Parameter] public bool IsPlugin {  get; set; }
 
     [AutoInject] public ITonService TonService { get; set; } = default!;
 
@@ -25,10 +26,15 @@ public partial class EnrichedWallet
     private string? ToolTipCallerOrderName { get; set; }
     public string copyTooltipPosition = "";
     private bool IsWalletNotFound { get; set; } = false;
+    private string containerClass = "tonrich-container ";
 
     private List<IGrouping<DayOfWeek, (int WeekInMonth, DateTimeOffset DateTimeOffset)>> ActivityChartDates { get; set; } = default!;
     protected override void OnInitialized()
     {
+        if (!IsPlugin)
+        {
+            containerClass += "tonrich-container-website";
+        }
         FillMonths();
         ActivityChartDates = GenerateActivityChartDates();
         base.OnInitialized();

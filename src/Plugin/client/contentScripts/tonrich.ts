@@ -13,6 +13,7 @@ abstract class tonrich {
 
     newIframe.id = 'tonapi-iframe';
     newIframe.src = url;
+    newIframe.setAttribute('scrolling', 'no');
     newIframe.addEventListener('mouseleave', (e) => {
       var iframe = document.getElementById('tonapi-iframe');
       if (iframe) {

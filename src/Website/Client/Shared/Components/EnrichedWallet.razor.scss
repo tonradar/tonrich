@@ -23,14 +23,18 @@
     min-width: 426px;
     width: 100%;
     min-height: 689px;
-    border-radius: $Radius32;
     padding: 32px 32px 15px 32px;
     box-sizing: border-box;
 
     @include customize() {
         background-color: getValue(MainBackground);
     }
+   
+}
+
+.tonrich-container-website {
     margin: 47px auto 88px;
+    border-radius: $Radius32;
 }
 
 .owner-info-wrapper {

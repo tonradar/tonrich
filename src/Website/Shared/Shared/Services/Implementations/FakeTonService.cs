@@ -17,15 +17,4 @@ public class FakeTonService : ITonService
     {
         throw new NotImplementedException();
     }
-
-    public Task<decimal> GetNumbersPriceAsync(IEnumerable<string> numbers, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    public Task<decimal> GetUserNamesPriceAsync(IEnumerable<string> userNames, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
 }
