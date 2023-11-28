@@ -1,0 +1,257 @@
+﻿// Theme :
+$themes: (
+    light: (MainBackground: #F3F2F2,
+        SecondBackground: #fff,
+        ThirdBackground: #FFF3ED,
+        MainPen: #313131,
+        SecondaryPen: #8D8D8D,
+        ThirdPen: #FF5C11,
+        DiagramPen: #5A5A5A,
+        OrangePen: #FF5C11,
+        OriginalGray: #EBEBEB,
+        ScrollGray: #DBDBDB,
+        OrangeDiagram1: #FFD8C7,
+        OrangeDiagram2: #FE9A6B,
+        OrangeDiagram3: #FF783A,
+        OrangeDiagram4: #FF5C11,
+        LoadingMainColor: #313131,
+        LoadingSecondColor: #FF5C11,
+        AboutSite:#8D8D8D,
+        TooltipBackground: #EBEBEB,
+        TooltipHeaderTitle:#FC4C25,
+        CopyTooltipBackground: #373737,
+        CopyTooltipPen: #fff,
+        WalletIdBackground: #FFF3ED,
+        BetweenLine: #EBEBEB,
+
+        //landing
+        PageBackground: #F3F2F2,
+        HeroBackground: #D9D9D9,
+        FooterPen: #261005, /// check with design team
+
+        // New For Landing-Page
+        TextColor: #000000,
+        TextColorSec: #ffffff,
+        walletBackground: #f3f2f2,
+        walletBtn: #ff5c11,
+        Hero-background-img: none,
+        Hero-title-background: url("images/landing-page/Light/hero-logo.png") left no-repeat,
+        Frame-background: #ffe7da,
+        Discover-background-img: linear-gradient(rgb(255, 235, 219), rgb(255, 235, 219)),
+        Discover-image: url("images/landing-page/Light/Discover-app.png") left/cover no-repeat,
+        Browser-image: url("images/landing-page/Light/how1-image.png") center/cover no-repeat,
+        BtnWhite: #ff5c11,
+        Telegram-background-image: #000,
+        Telegram-image1: url("images/landing-page/Light/how2-image1.png") bottom/cover no-repeat,
+        Telegram-image2: url("images/landing-page/Light/how2-image2.png") bottom/cover no-repeat,
+        Check-background-image: #fff,
+        check-image: url("images/landing-page/Light/how3-image.png") center/cover no-repeat,
+        Frame-color: #ff783a,
+        Logo-image1: url("images/landing-page/Light/tonapi-logo.png") center no-repeat,
+        Logo-image2: url("images/landing-page/Light/fragment-logo.png") center no-repeat,
+        Logo-image3: url("images/landing-page/Light/tonscan-logo.png") center no-repeat,
+        Recap-background-image: #fff,
+        // Arrow-filter: none,
+        Change-color-Arrow: url("images/landing-page/Both/Forward-arrow-white.png"),
+
+        // New EnrichedWallet:
+        EnrichedWallet-background: unquote('url("./images/background-images/Main-page-background.png") top/cover no-repeat, #7f7f7f'),
+
+        // New Footer:
+        Footer-color: #a19793,
+        Footer-background: #F3F2F2,
+
+        // Footer colors for EnrichedWallet:
+        // Footer-color: #FFF,
+        // Footer-background: #7f7f7f,
+
+        // New Header:
+        Header-logo: url("images/header/tonrich-logo-light.png") no-repeat 0% / 36px,
+        Header-title-color: #FC4C25,
+        Header-btn-color: #FFF,
+        Header-btn-background: #FF5C11,
+        Header-btn-separator: #DBDBDB,
+        Header-input-background: #fff,
+        Header-input-color: #8D8D8D,
+
+        // New Search-page:
+        Search-tonrich-title: #FC4C25,
+        Search-wallet-border: #8d8d8d,
+        Search-wallet-txt-color: #000000,
+    ),
+    dark: (MainBackground: #323232,
+        SecondBackground: #5A5A5A,
+        ThirdBackground: #777777,
+        MainPen: #FFFFFF,
+        SecondaryPen: #C2C2C2,
+        ThirdPen: #FFD8C7,
+        DiagramPen: #fff,
+        OrangePen: #FF5C11,
+        OriginalGray: #8A8A8A,
+        OrangeDiagram1: #FFD8C7,
+        OrangeDiagram2: #FE9A6B,
+        OrangeDiagram3: #FF783A,
+        OrangeDiagram4: #FF5C11,
+        LoadingMainColor: #FFF,
+        LoadingSecondColor: #FFF,
+        AboutSite:#8A8A8A,
+        TooltipBackground: #C2C2C2,
+        TooltipHeaderTitle:#261005,
+        CopyTooltipBackground: #fff,
+        CopyTooltipPen: #373737,
+        WalletIdBackground: #5A5A5A,
+        BetweenLine: #5A5A5A,
+
+
+        //landing
+        PageBackground: #000,
+        HeroBackground: #1C1A1A,
+        FooterPen: #fff, /// check with design team
+
+        // New For Landing-Page
+        TextColor: #ffffff,
+        TextColorSec: #000000,
+        walletBackground: #000000a6,
+        walletBtn: #ff5c11,
+        Hero-background-img: url("images/landing-page/Dark/hero-background.png") center/cover no-repeat,
+        Hero-title-background: url("images/landing-page/Dark/hero-logo.png") left no-repeat,
+        Frame-background: rgba(255, 255, 255, 0.28),
+        Discover-background-img: unquote("linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)), url('images/landing-page/Dark/hero-background.png') center/cover no-repeat"
+        ),
+        Discover-image: url("images/landing-page/Dark/Discover-app.png") left/cover no-repeat,
+        Browser-background-image: unquote("linear-gradient(rgba(255, 0, 0, 0.07), rgba(255, 0, 0, 0.07)), url('images/landing-page/Dark/hero-background.png') center/cover no-repeat"
+        ),
+        Browser-image: url("images/landing-page/Dark/how1-image.png") center/cover no-repeat,
+        BtnWhite: #ffffff,
+        Telegram-background-image: unquote("linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('images/landing-page/Dark/hero-background.png') center/cover no-repeat"
+        ),
+        Telegram-image1: url("images/landing-page/Dark/how2-image1.png") bottom/cover no-repeat,
+        Telegram-image2: url("images/landing-page/Dark/how2-image2.png") bottom/cover no-repeat,
+        Check-background-image: unquote("linear-gradient(rgba(47, 255, 0, 0.08), rgba(47, 255, 0, 0.08)), url('images/landing-page/Dark/hero-background.png') center/cover no-repeat"
+        ),
+        check-image: url("images/landing-page/Dark/how3-image.png") center/cover no-repeat,
+        Frame-color: #ffffff,
+        Logo-image1: url("images/landing-page/Dark/tonapi-logo.png") center no-repeat,
+        Logo-image2: url("images/landing-page/Dark/fragment-logo.png") center no-repeat,
+        Logo-image3: url("images/landing-page/Dark/tonscan-logo.png") center no-repeat,
+        Recap-background-image: unquote("linear-gradient(rgba(195, 0, 255, 0.11), rgba(195, 0, 255, 0.11)), url('images/landing-page/Dark/hero-background.png') center/cover no-repeat"
+        ),
+        // Arrow-filter: invert(100%) sepia(4%) saturate(916%) hue-rotate(228deg)
+        //     brightness(112%) contrast(101%),
+        Change-color-Arrow: url("images/landing-page/Both/Forward-arrow-black.png"),
+
+        // New EnrichedWallet:
+        EnrichedWallet-background: unquote('url("./images/background-images/Main-page-background.png") top/cover no-repeat, #000'),
+
+        // New Footer:
+        Footer-color: #fff,
+        Footer-background: #000,
+
+        // New Header: 
+
+        Header-logo: url("images/header/tonrich-logo-dark.png") no-repeat 0% / 36px,
+        Header-title-color: #c0bfbf,
+        Header-btn-color: #fc4c25,
+        Header-btn-background: #ffffff,
+        Header-btn-separator: #5a5a5a,
+        Header-input-background: #5a5a5a,
+        Header-input-color: #c2c2c2,
+
+        // New Search-page:
+        Search-tonrich-title: #e0e0e0,
+        Search-wallet-border: #ffffff,
+        Search-wallet-txt-color: #ffffff,
+    )
+);
+
+// font and line-height variables
+$FontSize10: 10px;
+$FontSize12: 12px;
+$FontSize14: 14px;
+$FontSize16: 16px;
+$FontSize20: 20px;
+$FontSize24: 24px;
+$FontSize34: 34px;
+$FontSize48: 48px;
+$FontSize96: 96px;
+
+// border-radius variable
+$Radius32: 32px;
+$Radius8: 8px;
+$Radius4: 4px;
+
+// box-shadow variable
+$MainShadowBox: 0px 0px 22px 1px rgba(65, 64, 64, 0.07);
+$SecondShadowBox: 0px 20px 22px 1px rgba(65, 64, 64, 0.07);
+
+//breakpoint variable
+$Breakpoint3: 600px;
+$Breakpoint: 610px;
+$Breakpoint2: 665px;
+$Breakpoint1: 780px;
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #DBDBDB;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FF5C11;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FF5C11;
+}
+
+.tonrich-primary-btn {
+    height: 6.4rem;
+    padding: 0 3rem;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.2rem;
+    border-radius: 4rem;
+    color: #fff;
+    background: linear-gradient(142deg, #FC4C25 0%, #FEB752 100%);
+}
+
+::deep a {
+    text-decoration: none;
+}
+
+::deep a:active {
+    text-decoration: none;
+}
+
+
+///todo: old
+$PrimaryColor: #0078D4;
+$SecondaryColor: #0D2960;
+$S1Color: #183977;
+$S2Color: #204383;
+$S3Color: #7186B4;
+$S4Color: #C1CADF;
+
+$Black: #201F1E;
+$Black3: #323130;
+$White: #FFFFFF;
+$Red: #A4262C;
+
+$Gray1: #8A8886;
+$Gray2: #A19F9D;
+$Gray3: #DDDDDD;
+$Gray4: #EDEBE9;
+$Gray5: #F2F2F2;
+$Gray6: #FCFCFC;
+
+$Green1: #38ad17;
+$Green2: #76d31a;

@@ -1,0 +1,26 @@
+﻿using System.Diagnostics;
+
+namespace Tonrich.Client.Services;
+
+public partial class ExceptionHandler : IExceptionHandler
+{
+    [AutoInject] IStringLocalizer<AppStrings> localizer = default!;
+    [AutoInject] MessageBoxService messageBoxService = default!;
+
+    public void Handle(Exception exception, IDictionary<string, object?>? parameters = null)
+    {
+        string exceptionMessage = (exception as KnownException)?.Message ??
+#if DEBUG
+            exception.ToString();
+#else
+            localizer[nameof(AppStrings.UnknownException)];
+#endif
+
+#if DEBUG
+        _ = Console.Out.WriteLineAsync(exceptionMessage);
+        Debugger.Break();
+#endif
+
+        _ = messageBoxService.Show(exceptionMessage, localizer[nameof(AppStrings.Error)]);
+    }
+}
