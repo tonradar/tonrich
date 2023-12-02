@@ -24,6 +24,11 @@ public static class Services
 
         services.AddBlazor(configuration);
 
+        services.AddAntiforgery(c =>
+        {
+            c.SuppressXFrameOptionsHeader = true;
+        });
+
         services
             .AddControllers()
             .AddOData(options => options.EnableQueryFeatures())
